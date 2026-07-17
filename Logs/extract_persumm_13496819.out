@@ -1,0 +1,511 @@
+========================================
+SLURM Job Information
+========================================
+Job ID: 13496819
+Node:   udc-an25-24
+Python: /scratch/jam5cq/conda/.conda/envs/summ_eval/bin/python
+Mon May 25 16:28:49 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:23:00.0 Off |                  Off |
+| 30%   34C    P8             41W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           27708      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+
+
+========================================
+Package Versions
+========================================
+torch          2.11.0+cu130  CUDA=True
+numpy          2.4.4
+longdocfactscore OK
+========================================
+
+Extraction started at Mon May 25 16:29:16 EDT 2026
+
+========================================
+Per-summary extraction: 70B
+========================================
+2026-05-25 16:29:17 [INFO] Loading test data...
+2026-05-25 16:29:17 [INFO] Test set: 150 papers
+2026-05-25 16:29:17 [INFO] Loaded 150 test examples with all fields
+2026-05-25 16:29:17 [INFO] Loading generations from /scratch/jam5cq/Summary_Fine_Tuning/Results/Output_70b_qlora/eval_generations.json
+2026-05-25 16:29:17 [INFO] Systems to process: ['finetuned_70B', 'base_70B', 'teacher']
+2026-05-25 16:29:17 [INFO] 
+============================================================
+2026-05-25 16:29:17 [INFO] Computing per-summary extractive density and length
+2026-05-25 16:29:17 [INFO] ============================================================
+2026-05-25 16:29:17 [INFO]   finetuned_70B: 150 valid summaries
+2026-05-25 16:29:18 [INFO]   base_70B: 150 valid summaries
+2026-05-25 16:29:18 [INFO]   teacher: 150 valid summaries
+2026-05-25 16:29:18 [INFO] 
+============================================================
+2026-05-25 16:29:18 [INFO] Computing per-summary LongDocFACTScore
+2026-05-25 16:29:18 [INFO] ============================================================
+2026-05-25 16:29:18 [INFO]   Scoring system: finetuned_70B
+2026-05-25 16:29:36 [INFO] No device provided, using cuda:0
+2026-05-25 16:29:36 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:36 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:36 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:36 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:36 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 33661.34it/s]
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:37 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:37 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:37 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:29:38 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:39 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:39 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:29:39 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:29:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-25 16:29:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-25 16:29:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+2026-05-25 16:29:40 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]Loading weights: 100%|██████████| 513/513 [00:00<00:00, 30882.08it/s]
+2026-05-25 16:29:40 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:29:40 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:29:40 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:29:40 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO]   LongDocFACTScore complete in 60.6s
+2026-05-25 16:30:41 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:30:41 [INFO]   Scoring system: base_70B
+2026-05-25 16:30:41 [INFO] No device provided, using cuda:0
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 15719.65it/s]
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:30:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:30:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-25 16:30:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-25 16:30:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+2026-05-25 16:30:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]Loading weights: 100%|██████████| 513/513 [00:00<00:00, 28882.75it/s]
+2026-05-25 16:30:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:30:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:30:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:30:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:43 [INFO]   LongDocFACTScore complete in 59.1s
+2026-05-25 16:31:43 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:31:43 [INFO]   Scoring system: teacher
+2026-05-25 16:31:43 [INFO] No device provided, using cuda:0
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:43 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 14911.42it/s]
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:45 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:31:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:45 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:31:45 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-25 16:31:45 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]2026-05-25 16:31:46 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+Loading weights: 100%|██████████| 513/513 [00:00<00:00, 26203.86it/s]
+2026-05-25 16:31:46 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:46 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:31:46 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:31:46 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:31:46 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:32:47 [INFO]   LongDocFACTScore complete in 60.9s
+2026-05-25 16:32:47 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:32:47 [INFO] 
+Writing 450 rows to /scratch/jam5cq/Summary_Fine_Tuning/Data_Collection/per_summary_70B.csv
+2026-05-25 16:32:47 [INFO] 
+============================================================
+2026-05-25 16:32:47 [INFO] Per-system sanity check (means)
+2026-05-25 16:32:47 [INFO] ============================================================
+2026-05-25 16:32:47 [INFO]   base_70B: n=150, density mean=4.06, LDFS mean=-3.761 (n_valid=150)
+2026-05-25 16:32:47 [INFO]   finetuned_70B: n=150, density mean=2.46, LDFS mean=-4.391 (n_valid=150)
+2026-05-25 16:32:47 [INFO]   teacher: n=150, density mean=2.74, LDFS mean=-4.184 (n_valid=150)
+2026-05-25 16:32:47 [INFO] 
+Done. CSV: /scratch/jam5cq/Summary_Fine_Tuning/Data_Collection/per_summary_70B.csv
+70B extraction exit code: 0
+
+========================================
+Per-summary extraction: 8B (with key renames)
+========================================
+2026-05-25 16:32:52 [INFO] Loading test data...
+2026-05-25 16:32:52 [INFO] Test set: 150 papers
+2026-05-25 16:32:52 [INFO] Loaded 150 test examples with all fields
+2026-05-25 16:32:52 [INFO] Loading generations from /scratch/jam5cq/Summary_Fine_Tuning/Results/Output_8b_bf16/eval_generations.json
+2026-05-25 16:32:52 [INFO] Applying renames: {'finetuned_70B': 'finetuned_8B', 'base_70B': 'base_8B'}
+2026-05-25 16:32:52 [WARNING]   --rename finetuned_70B=finetuned_8B: key 'finetuned_70B' not found in generations. Available keys: ['finetuned_8B', 'base_8B']
+2026-05-25 16:32:52 [WARNING]   --rename base_70B=base_8B: key 'base_70B' not found in generations. Available keys: ['finetuned_8B', 'base_8B']
+2026-05-25 16:32:52 [INFO] Systems to process: ['finetuned_8B', 'base_8B', 'teacher']
+2026-05-25 16:32:52 [INFO] 
+============================================================
+2026-05-25 16:32:52 [INFO] Computing per-summary extractive density and length
+2026-05-25 16:32:52 [INFO] ============================================================
+2026-05-25 16:32:53 [INFO]   finetuned_8B: 150 valid summaries
+2026-05-25 16:32:53 [INFO]   base_8B: 150 valid summaries
+2026-05-25 16:32:54 [INFO]   teacher: 150 valid summaries
+2026-05-25 16:32:54 [INFO] 
+============================================================
+2026-05-25 16:32:54 [INFO] Computing per-summary LongDocFACTScore
+2026-05-25 16:32:54 [INFO] ============================================================
+2026-05-25 16:32:54 [INFO]   Scoring system: finetuned_8B
+2026-05-25 16:33:09 [INFO] No device provided, using cuda:0
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 33405.37it/s]
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:10 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:10 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:33:12 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-25 16:33:12 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]Loading weights: 100%|██████████| 513/513 [00:00<00:00, 27966.39it/s]
+2026-05-25 16:33:12 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+2026-05-25 16:33:12 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:12 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:33:12 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:33:13 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:33:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:13 [INFO]   LongDocFACTScore complete in 60.6s
+2026-05-25 16:34:13 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:34:13 [INFO]   Scoring system: base_8B
+2026-05-25 16:34:13 [INFO] No device provided, using cuda:0
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:13 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 16158.17it/s]
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:14 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:15 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:34:15 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-25 16:34:16 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]2026-05-25 16:34:16 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+Loading weights: 100%|██████████| 513/513 [00:00<00:00, 29807.00it/s]
+2026-05-25 16:34:16 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:16 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:34:16 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:34:16 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:34:16 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO]   LongDocFACTScore complete in 85.6s
+2026-05-25 16:35:42 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:35:42 [INFO]   Scoring system: teacher
+2026-05-25 16:35:42 [INFO] No device provided, using cuda:0
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:42 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 26609.70it/s]
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-25 16:35:44 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-25 16:35:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]2026-05-25 16:35:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+Loading weights: 100%|██████████| 513/513 [00:00<00:00, 24961.46it/s]
+2026-05-25 16:35:45 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+2026-05-25 16:35:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-25 16:35:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-25 16:35:45 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-25 16:35:45 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-25 16:36:47 [INFO]   LongDocFACTScore complete in 62.4s
+2026-05-25 16:36:47 [INFO]     Wrote 150/150 valid scores
+2026-05-25 16:36:47 [INFO] 
+Writing 450 rows to /scratch/jam5cq/Summary_Fine_Tuning/Data_Collection/per_summary_8B.csv
+2026-05-25 16:36:47 [INFO] 
+============================================================
+2026-05-25 16:36:47 [INFO] Per-system sanity check (means)
+2026-05-25 16:36:47 [INFO] ============================================================
+2026-05-25 16:36:47 [INFO]   base_8B: n=150, density mean=5.16, LDFS mean=-4.072 (n_valid=150)
+2026-05-25 16:36:47 [INFO]   finetuned_8B: n=150, density mean=2.62, LDFS mean=-4.327 (n_valid=150)
+2026-05-25 16:36:47 [INFO]   teacher: n=150, density mean=2.74, LDFS mean=-4.184 (n_valid=150)
+2026-05-25 16:36:47 [INFO] 
+Done. CSV: /scratch/jam5cq/Summary_Fine_Tuning/Data_Collection/per_summary_8B.csv
+8B extraction exit code: 0
+
+========================================
+Combining per-scale CSVs
+========================================
+Combined CSV: /scratch/jam5cq/Summary_Fine_Tuning/Data_Collection/per_summary_combined.csv (750 data rows)
+
+Per-system row counts in combined CSV:
+    150 base_70B
+    150 base_8B
+    150 finetuned_70B
+    150 finetuned_8B
+    150 teacher
+
+========================================
+Extraction completed at Mon May 25 16:36:53 EDT 2026
+========================================
+Mon May 25 16:36:53 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:23:00.0 Off |                  Off |
+| 40%   64C    P5             69W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           27708      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+

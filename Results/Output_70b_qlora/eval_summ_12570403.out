@@ -1,0 +1,1456 @@
+========================================
+SLURM Job Information
+========================================
+Job ID: 12570403
+Node:   udc-an40-29
+Python: /scratch/jam5cq/conda/.conda/envs/summ_eval/bin/python
+Wed May  6 02:36:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:01:00.0 Off |                  Off |
+| 30%   31C    P8             34W /  300W |      35MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               Off |   00000000:41:00.0 Off |                  Off |
+| 30%   30C    P8             36W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19842      G   /usr/libexec/Xorg                         9MiB |
+|    0   N/A  N/A           20259      G   /usr/bin/gnome-shell                      4MiB |
+|    1   N/A  N/A           19842      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+
+
+========================================
+Package Versions
+========================================
+torch          2.11.0+cu130  CUDA=True
+transformers   5.6.2
+peft           0.19.1
+bitsandbytes   0.49.2
+rouge-score    OK
+bert-score     OK
+BLEU           OK
+METEOR         OK
+SummaC         OK
+========================================
+
+Evaluation started at Wed May  6 02:37:01 EDT 2026
+
+========================================
+Evaluating 70B model (fine-tuned + base)
+========================================
+2026-05-06 02:37:03 [INFO] Loading test data...
+2026-05-06 02:37:03 [INFO] Test set: 150 papers
+2026-05-06 02:37:03 [INFO] Loaded 150 test examples with all fields
+2026-05-06 02:37:07 [INFO] Loading base model: meta-llama/Llama-3.3-70B-Instruct
+2026-05-06 02:37:07 [INFO]   Using QLoRA 4-bit quantization
+2026-05-06 02:37:07 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 02:37:07 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:   0%|          | 1/723 [00:00<05:50,  2.06it/s]Loading weights:   0%|          | 2/723 [00:00<05:11,  2.31it/s]Loading weights:   1%|          | 4/723 [00:01<02:26,  4.91it/s]Loading weights:   1%|          | 6/723 [00:01<01:47,  6.65it/s]Loading weights:   2%|▏         | 13/723 [00:01<00:48, 14.78it/s]Loading weights:   2%|▏         | 15/723 [00:01<00:52, 13.46it/s]Loading weights:   3%|▎         | 22/723 [00:01<00:33, 21.00it/s]Loading weights:   3%|▎         | 25/723 [00:01<00:37, 18.78it/s]Loading weights:   4%|▍         | 31/723 [00:02<00:29, 23.21it/s]Loading weights:   5%|▍         | 34/723 [00:02<00:34, 20.18it/s]Loading weights:   6%|▌         | 40/723 [00:02<00:29, 22.77it/s]Loading weights:   6%|▌         | 43/723 [00:02<00:35, 18.99it/s]Loading weights:   7%|▋         | 49/723 [00:03<00:29, 22.67it/s]Loading weights:   7%|▋         | 52/723 [00:03<00:35, 19.06it/s]Loading weights:   8%|▊         | 58/723 [00:03<00:30, 21.77it/s]Loading weights:   8%|▊         | 61/723 [00:03<00:35, 18.39it/s]Loading weights:   9%|▉         | 67/723 [00:03<00:30, 21.23it/s]Loading weights:  10%|▉         | 70/723 [00:04<00:35, 18.41it/s]Loading weights:  11%|█         | 76/723 [00:04<00:29, 21.71it/s]Loading weights:  11%|█         | 79/723 [00:04<00:34, 18.74it/s]Loading weights:  12%|█▏        | 85/723 [00:04<00:29, 21.41it/s]Loading weights:  12%|█▏        | 88/723 [00:05<00:34, 18.60it/s]Loading weights:  13%|█▎        | 94/723 [00:05<00:29, 21.40it/s]Loading weights:  13%|█▎        | 97/723 [00:05<00:33, 18.43it/s]Loading weights:  14%|█▍        | 103/723 [00:05<00:28, 21.56it/s]Loading weights:  15%|█▍        | 106/723 [00:06<00:34, 17.92it/s]Loading weights:  15%|█▌        | 112/723 [00:06<00:29, 20.47it/s]Loading weights:  16%|█▌        | 115/723 [00:06<00:33, 17.91it/s]Loading weights:  17%|█▋        | 121/723 [00:06<00:27, 21.64it/s]Loading weights:  17%|█▋        | 124/723 [00:06<00:32, 18.49it/s]Loading weights:  18%|█▊        | 130/723 [00:07<00:27, 21.36it/s]Loading weights:  18%|█▊        | 133/723 [00:07<00:31, 18.73it/s]Loading weights:  19%|█▉        | 139/723 [00:07<00:27, 20.87it/s]Loading weights:  20%|█▉        | 142/723 [00:07<00:32, 18.06it/s]Loading weights:  20%|██        | 148/723 [00:08<00:26, 21.65it/s]Loading weights:  21%|██        | 151/723 [00:08<00:31, 18.39it/s]Loading weights:  22%|██▏       | 157/723 [00:08<00:26, 21.11it/s]Loading weights:  22%|██▏       | 160/723 [00:08<00:30, 18.50it/s]Loading weights:  23%|██▎       | 166/723 [00:08<00:26, 21.22it/s]Loading weights:  23%|██▎       | 169/723 [00:09<00:30, 18.02it/s]Loading weights:  24%|██▍       | 175/723 [00:09<00:25, 21.46it/s]Loading weights:  25%|██▍       | 178/723 [00:09<00:29, 18.58it/s]Loading weights:  25%|██▌       | 184/723 [00:09<00:24, 21.64it/s]Loading weights:  26%|██▌       | 187/723 [00:10<00:28, 18.66it/s]Loading weights:  27%|██▋       | 193/723 [00:10<00:23, 22.68it/s]Loading weights:  27%|██▋       | 196/723 [00:10<00:25, 20.98it/s]Loading weights:  28%|██▊       | 202/723 [00:10<00:20, 25.59it/s]Loading weights:  28%|██▊       | 205/723 [00:10<00:22, 22.88it/s]Loading weights:  29%|██▉       | 211/723 [00:10<00:18, 27.09it/s]Loading weights:  30%|██▉       | 214/723 [00:11<00:21, 23.68it/s]Loading weights:  30%|███       | 220/723 [00:11<00:19, 25.94it/s]Loading weights:  31%|███       | 223/723 [00:11<00:23, 20.93it/s]Loading weights:  32%|███▏      | 229/723 [00:11<00:21, 23.28it/s]Loading weights:  32%|███▏      | 232/723 [00:12<00:25, 19.44it/s]Loading weights:  33%|███▎      | 238/723 [00:12<00:22, 21.82it/s]Loading weights:  33%|███▎      | 241/723 [00:12<00:26, 18.53it/s]Loading weights:  34%|███▍      | 247/723 [00:12<00:21, 21.86it/s]Loading weights:  35%|███▍      | 250/723 [00:12<00:25, 18.59it/s]Loading weights:  35%|███▌      | 256/723 [00:13<00:21, 21.71it/s]Loading weights:  36%|███▌      | 259/723 [00:13<00:25, 18.34it/s]Loading weights:  37%|███▋      | 265/723 [00:13<00:21, 21.38it/s]Loading weights:  37%|███▋      | 268/723 [00:13<00:25, 17.71it/s]Loading weights:  38%|███▊      | 274/723 [00:14<00:20, 21.57it/s]Loading weights:  38%|███▊      | 277/723 [00:14<00:23, 19.07it/s]Loading weights:  39%|███▉      | 283/723 [00:14<00:20, 21.92it/s]Loading weights:  40%|███▉      | 286/723 [00:14<00:22, 19.20it/s]Loading weights:  40%|████      | 292/723 [00:14<00:19, 22.28it/s]Loading weights:  41%|████      | 295/723 [00:15<00:22, 19.22it/s]Loading weights:  42%|████▏     | 301/723 [00:15<00:18, 22.70it/s]Loading weights:  42%|████▏     | 304/723 [00:15<00:21, 19.13it/s]Loading weights:  43%|████▎     | 310/723 [00:15<00:18, 22.23it/s]Loading weights:  43%|████▎     | 313/723 [00:16<00:21, 18.69it/s]Loading weights:  44%|████▍     | 318/723 [00:16<00:17, 23.35it/s]Loading weights:  44%|████▍     | 321/723 [00:16<00:25, 15.53it/s]Loading weights:  45%|████▌     | 328/723 [00:16<00:19, 20.63it/s]Loading weights:  46%|████▌     | 331/723 [00:17<00:22, 17.22it/s]Loading weights:  47%|████▋     | 337/723 [00:17<00:19, 20.07it/s]Loading weights:  47%|████▋     | 340/723 [00:17<00:21, 17.50it/s]Loading weights:  48%|████▊     | 346/723 [00:17<00:18, 20.34it/s]Loading weights:  48%|████▊     | 349/723 [00:17<00:20, 17.82it/s]Loading weights:  49%|████▉     | 355/723 [00:18<00:17, 20.80it/s]Loading weights:  50%|████▉     | 358/723 [00:18<00:20, 18.13it/s]Loading weights:  50%|█████     | 364/723 [00:18<00:17, 20.46it/s]Loading weights:  51%|█████     | 367/723 [00:18<00:19, 17.94it/s]Loading weights:  52%|█████▏    | 373/723 [00:19<00:16, 21.33it/s]Loading weights:  52%|█████▏    | 376/723 [00:19<00:18, 18.57it/s]Loading weights:  53%|█████▎    | 382/723 [00:19<00:15, 21.49it/s]Loading weights:  53%|█████▎    | 385/723 [00:19<00:18, 18.50it/s]Loading weights:  54%|█████▍    | 391/723 [00:20<00:16, 20.55it/s]Loading weights:  54%|█████▍    | 394/723 [00:20<00:18, 17.86it/s]Loading weights:  55%|█████▌    | 400/723 [00:20<00:15, 21.31it/s]Loading weights:  56%|█████▌    | 403/723 [00:20<00:17, 18.13it/s]Loading weights:  57%|█████▋    | 409/723 [00:20<00:14, 21.23it/s]Loading weights:  57%|█████▋    | 412/723 [00:21<00:17, 18.11it/s]Loading weights:  58%|█████▊    | 417/723 [00:21<00:13, 22.77it/s]Loading weights:  58%|█████▊    | 420/723 [00:21<00:18, 16.10it/s]Loading weights:  59%|█████▉    | 427/723 [00:21<00:13, 21.35it/s]Loading weights:  59%|█████▉    | 430/723 [00:22<00:15, 18.53it/s]Loading weights:  60%|██████    | 436/723 [00:22<00:13, 21.63it/s]Loading weights:  61%|██████    | 439/723 [00:22<00:15, 18.58it/s]Loading weights:  62%|██████▏   | 445/723 [00:22<00:13, 20.79it/s]Loading weights:  62%|██████▏   | 448/723 [00:23<00:15, 17.89it/s]Loading weights:  63%|██████▎   | 454/723 [00:23<00:12, 21.51it/s]Loading weights:  63%|██████▎   | 457/723 [00:23<00:14, 18.35it/s]Loading weights:  64%|██████▍   | 463/723 [00:23<00:12, 21.46it/s]Loading weights:  64%|██████▍   | 466/723 [00:23<00:13, 18.36it/s]Loading weights:  65%|██████▌   | 472/723 [00:24<00:11, 21.13it/s]Loading weights:  66%|██████▌   | 475/723 [00:24<00:13, 18.23it/s]Loading weights:  67%|██████▋   | 481/723 [00:24<00:11, 21.26it/s]Loading weights:  67%|██████▋   | 484/723 [00:24<00:13, 18.18it/s]Loading weights:  68%|██████▊   | 490/723 [00:25<00:11, 20.63it/s]Loading weights:  68%|██████▊   | 493/723 [00:25<00:12, 18.15it/s]Loading weights:  69%|██████▉   | 499/723 [00:25<00:10, 21.71it/s]Loading weights:  69%|██████▉   | 502/723 [00:25<00:11, 18.77it/s]Loading weights:  70%|███████   | 508/723 [00:25<00:09, 21.81it/s]Loading weights:  71%|███████   | 511/723 [00:26<00:11, 18.70it/s]Loading weights:  72%|███████▏  | 517/723 [00:26<00:09, 20.71it/s]Loading weights:  72%|███████▏  | 520/723 [00:26<00:11, 18.07it/s]Loading weights:  73%|███████▎  | 526/723 [00:26<00:09, 21.59it/s]Loading weights:  73%|███████▎  | 529/723 [00:27<00:10, 18.61it/s]Loading weights:  74%|███████▍  | 535/723 [00:27<00:08, 21.73it/s]Loading weights:  74%|███████▍  | 538/723 [00:27<00:09, 18.74it/s]Loading weights:  75%|███████▌  | 543/723 [00:27<00:07, 23.37it/s]Loading weights:  76%|███████▌  | 546/723 [00:27<00:10, 16.67it/s]Loading weights:  76%|███████▋  | 553/723 [00:28<00:07, 22.28it/s]Loading weights:  77%|███████▋  | 556/723 [00:28<00:08, 19.50it/s]Loading weights:  78%|███████▊  | 562/723 [00:28<00:07, 22.45it/s]Loading weights:  78%|███████▊  | 565/723 [00:28<00:08, 19.46it/s]Loading weights:  79%|███████▉  | 571/723 [00:29<00:07, 21.14it/s]Loading weights:  79%|███████▉  | 574/723 [00:29<00:08, 18.43it/s]Loading weights:  80%|████████  | 580/723 [00:29<00:06, 22.17it/s]Loading weights:  81%|████████  | 583/723 [00:29<00:07, 18.98it/s]Loading weights:  81%|████████▏ | 589/723 [00:29<00:06, 22.09it/s]Loading weights:  82%|████████▏ | 592/723 [00:30<00:06, 18.96it/s]Loading weights:  83%|████████▎ | 598/723 [00:30<00:05, 21.71it/s]Loading weights:  83%|████████▎ | 601/723 [00:30<00:06, 18.85it/s]Loading weights:  84%|████████▍ | 607/723 [00:30<00:05, 21.81it/s]Loading weights:  84%|████████▍ | 610/723 [00:31<00:06, 18.71it/s]Loading weights:  85%|████████▌ | 615/723 [00:31<00:04, 23.39it/s]Loading weights:  85%|████████▌ | 618/723 [00:31<00:06, 16.22it/s]Loading weights:  86%|████████▋ | 625/723 [00:31<00:04, 21.33it/s]Loading weights:  87%|████████▋ | 628/723 [00:31<00:05, 18.53it/s]Loading weights:  88%|████████▊ | 634/723 [00:32<00:04, 21.78it/s]Loading weights:  88%|████████▊ | 637/723 [00:32<00:04, 18.86it/s]Loading weights:  89%|████████▉ | 643/723 [00:32<00:03, 21.00it/s]Loading weights:  89%|████████▉ | 646/723 [00:32<00:04, 18.54it/s]Loading weights:  90%|█████████ | 652/723 [00:33<00:03, 22.61it/s]Loading weights:  91%|█████████ | 655/723 [00:33<00:03, 19.54it/s]Loading weights:  91%|█████████▏| 661/723 [00:33<00:02, 22.98it/s]Loading weights:  92%|█████████▏| 664/723 [00:33<00:03, 19.60it/s]Loading weights:  93%|█████████▎| 670/723 [00:33<00:02, 21.46it/s]Loading weights:  93%|█████████▎| 673/723 [00:34<00:02, 18.49it/s]Loading weights:  94%|█████████▍| 679/723 [00:34<00:01, 22.33it/s]Loading weights:  94%|█████████▍| 682/723 [00:34<00:02, 18.44it/s]Loading weights:  95%|█████████▌| 688/723 [00:34<00:01, 21.80it/s]Loading weights:  96%|█████████▌| 691/723 [00:35<00:01, 18.64it/s]Loading weights:  96%|█████████▋| 697/723 [00:35<00:01, 21.07it/s]Loading weights:  97%|█████████▋| 700/723 [00:35<00:01, 18.47it/s]Loading weights:  98%|█████████▊| 706/723 [00:35<00:00, 22.09it/s]Loading weights:  98%|█████████▊| 709/723 [00:35<00:00, 19.16it/s]Loading weights:  99%|█████████▉| 715/723 [00:36<00:00, 22.76it/s]Loading weights:  99%|█████████▉| 718/723 [00:36<00:00, 18.93it/s]Loading weights: 100%|██████████| 723/723 [00:36<00:00, 19.83it/s]
+2026-05-06 02:37:49 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 02:37:52 [INFO]   Loading adapter from: /scratch/jam5cq/Summary_Fine_Tuning/Output_v2/adapter
+2026-05-06 02:37:54 [INFO] Running inference (finetuned_70B) on 150 examples...
+/scratch/jam5cq/conda/.conda/envs/summ_eval/lib/python3.11/site-packages/bitsandbytes/backends/cuda/ops.py:468: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (11079 > 8192). Running this sequence through the model will result in indexing errors
+2026-05-06 02:50:47 [INFO]   [finetuned_70B] 10/150 done (0.01 ex/s)
+2026-05-06 03:04:11 [INFO]   [finetuned_70B] 20/150 done (0.01 ex/s)
+2026-05-06 03:17:01 [INFO]   [finetuned_70B] 30/150 done (0.01 ex/s)
+2026-05-06 03:30:30 [INFO]   [finetuned_70B] 40/150 done (0.01 ex/s)
+2026-05-06 03:43:30 [INFO]   [finetuned_70B] 50/150 done (0.01 ex/s)
+2026-05-06 03:56:05 [INFO]   [finetuned_70B] 60/150 done (0.01 ex/s)
+2026-05-06 04:08:59 [INFO]   [finetuned_70B] 70/150 done (0.01 ex/s)
+2026-05-06 04:21:49 [INFO]   [finetuned_70B] 80/150 done (0.01 ex/s)
+2026-05-06 04:35:22 [INFO]   [finetuned_70B] 90/150 done (0.01 ex/s)
+2026-05-06 04:48:20 [INFO]   [finetuned_70B] 100/150 done (0.01 ex/s)
+2026-05-06 05:01:17 [INFO]   [finetuned_70B] 110/150 done (0.01 ex/s)
+2026-05-06 05:14:05 [INFO]   [finetuned_70B] 120/150 done (0.01 ex/s)
+2026-05-06 05:27:08 [INFO]   [finetuned_70B] 130/150 done (0.01 ex/s)
+2026-05-06 05:40:04 [INFO]   [finetuned_70B] 140/150 done (0.01 ex/s)
+2026-05-06 05:52:59 [INFO]   [finetuned_70B] 150/150 done (0.01 ex/s)
+2026-05-06 05:52:59 [INFO] Inference (finetuned_70B) complete: 11704.6s total
+2026-05-06 05:52:59 [INFO] Loading base (non-fine-tuned) model: meta-llama/Llama-3.3-70B-Instruct
+2026-05-06 05:52:59 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 05:52:59 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/723 [00:00<?, ?it/s]Loading weights:   0%|          | 1/723 [00:00<06:22,  1.89it/s]Loading weights:   0%|          | 2/723 [00:00<05:44,  2.09it/s]Loading weights:   1%|          | 4/723 [00:01<02:31,  4.75it/s]Loading weights:   1%|          | 6/723 [00:01<01:53,  6.33it/s]Loading weights:   2%|▏         | 13/723 [00:01<00:47, 15.00it/s]Loading weights:   2%|▏         | 15/723 [00:01<00:53, 13.29it/s]Loading weights:   3%|▎         | 22/723 [00:01<00:33, 20.72it/s]Loading weights:   3%|▎         | 25/723 [00:02<00:38, 18.34it/s]Loading weights:   4%|▍         | 31/723 [00:02<00:30, 22.33it/s]Loading weights:   5%|▍         | 34/723 [00:02<00:35, 19.45it/s]Loading weights:   6%|▌         | 40/723 [00:02<00:30, 22.54it/s]Loading weights:   6%|▌         | 43/723 [00:02<00:34, 19.69it/s]Loading weights:   7%|▋         | 49/723 [00:03<00:28, 23.66it/s]Loading weights:   7%|▋         | 52/723 [00:03<00:32, 20.38it/s]Loading weights:   8%|▊         | 58/723 [00:03<00:28, 23.55it/s]Loading weights:   8%|▊         | 61/723 [00:03<00:32, 20.33it/s]Loading weights:   9%|▉         | 67/723 [00:03<00:28, 23.07it/s]Loading weights:  10%|▉         | 70/723 [00:04<00:32, 19.86it/s]Loading weights:  11%|█         | 76/723 [00:04<00:27, 23.62it/s]Loading weights:  11%|█         | 79/723 [00:04<00:31, 20.42it/s]Loading weights:  12%|█▏        | 85/723 [00:04<00:27, 23.58it/s]Loading weights:  12%|█▏        | 88/723 [00:04<00:31, 20.28it/s]Loading weights:  13%|█▎        | 94/723 [00:05<00:26, 23.39it/s]Loading weights:  13%|█▎        | 97/723 [00:05<00:31, 19.62it/s]Loading weights:  14%|█▍        | 103/723 [00:05<00:27, 22.80it/s]Loading weights:  15%|█▍        | 106/723 [00:05<00:30, 20.07it/s]Loading weights:  15%|█▌        | 112/723 [00:05<00:26, 23.00it/s]Loading weights:  16%|█▌        | 115/723 [00:06<00:30, 19.97it/s]Loading weights:  17%|█▋        | 121/723 [00:06<00:25, 23.73it/s]Loading weights:  17%|█▋        | 124/723 [00:06<00:29, 20.50it/s]Loading weights:  18%|█▊        | 130/723 [00:06<00:24, 23.83it/s]Loading weights:  18%|█▊        | 133/723 [00:07<00:28, 20.44it/s]Loading weights:  19%|█▉        | 139/723 [00:07<00:24, 23.38it/s]Loading weights:  20%|█▉        | 142/723 [00:07<00:29, 19.98it/s]Loading weights:  20%|██        | 148/723 [00:07<00:24, 23.86it/s]Loading weights:  21%|██        | 151/723 [00:07<00:27, 20.43it/s]Loading weights:  22%|██▏       | 157/723 [00:08<00:24, 23.44it/s]Loading weights:  22%|██▏       | 160/723 [00:08<00:28, 20.00it/s]Loading weights:  23%|██▎       | 166/723 [00:08<00:24, 22.85it/s]Loading weights:  23%|██▎       | 169/723 [00:08<00:28, 19.64it/s]Loading weights:  24%|██▍       | 175/723 [00:08<00:23, 23.39it/s]Loading weights:  25%|██▍       | 178/723 [00:09<00:27, 19.95it/s]Loading weights:  25%|██▌       | 184/723 [00:09<00:23, 23.33it/s]Loading weights:  26%|██▌       | 187/723 [00:09<00:27, 19.35it/s]Loading weights:  27%|██▋       | 193/723 [00:09<00:22, 23.07it/s]Loading weights:  27%|██▋       | 196/723 [00:09<00:24, 21.31it/s]Loading weights:  28%|██▊       | 202/723 [00:10<00:20, 25.99it/s]Loading weights:  28%|██▊       | 205/723 [00:10<00:22, 23.11it/s]Loading weights:  29%|██▉       | 211/723 [00:10<00:18, 27.26it/s]Loading weights:  30%|██▉       | 214/723 [00:10<00:21, 23.94it/s]Loading weights:  30%|███       | 220/723 [00:10<00:19, 26.40it/s]Loading weights:  31%|███       | 223/723 [00:10<00:22, 21.91it/s]Loading weights:  32%|███▏      | 229/723 [00:11<00:19, 25.01it/s]Loading weights:  32%|███▏      | 232/723 [00:11<00:23, 21.03it/s]Loading weights:  33%|███▎      | 238/723 [00:11<00:20, 23.88it/s]Loading weights:  33%|███▎      | 241/723 [00:11<00:23, 20.09it/s]Loading weights:  34%|███▍      | 247/723 [00:11<00:19, 23.91it/s]Loading weights:  35%|███▍      | 250/723 [00:12<00:23, 19.86it/s]Loading weights:  35%|███▌      | 256/723 [00:12<00:20, 22.97it/s]Loading weights:  36%|███▌      | 259/723 [00:12<00:23, 19.92it/s]Loading weights:  37%|███▋      | 265/723 [00:12<00:19, 23.90it/s]Loading weights:  37%|███▋      | 268/723 [00:13<00:21, 21.34it/s]Loading weights:  38%|███▊      | 274/723 [00:13<00:17, 25.76it/s]Loading weights:  38%|███▊      | 277/723 [00:13<00:20, 21.79it/s]Loading weights:  39%|███▉      | 283/723 [00:13<00:16, 26.05it/s]Loading weights:  40%|███▉      | 286/723 [00:13<00:18, 23.19it/s]Loading weights:  40%|████      | 292/723 [00:13<00:15, 27.23it/s]Loading weights:  41%|████      | 295/723 [00:14<00:17, 23.97it/s]Loading weights:  42%|████▏     | 301/723 [00:14<00:14, 28.54it/s]Loading weights:  42%|████▏     | 304/723 [00:14<00:16, 24.68it/s]Loading weights:  43%|████▎     | 310/723 [00:14<00:14, 28.58it/s]Loading weights:  43%|████▎     | 313/723 [00:14<00:16, 24.64it/s]Loading weights:  44%|████▍     | 319/723 [00:14<00:14, 28.55it/s]Loading weights:  45%|████▍     | 322/723 [00:15<00:16, 24.78it/s]Loading weights:  45%|████▌     | 328/723 [00:15<00:13, 29.21it/s]Loading weights:  46%|████▌     | 332/723 [00:15<00:14, 26.74it/s]Loading weights:  47%|████▋     | 337/723 [00:15<00:13, 28.41it/s]Loading weights:  47%|████▋     | 340/723 [00:15<00:15, 24.58it/s]Loading weights:  48%|████▊     | 346/723 [00:15<00:13, 28.90it/s]Loading weights:  48%|████▊     | 349/723 [00:16<00:15, 23.86it/s]Loading weights:  49%|████▉     | 355/723 [00:16<00:13, 27.89it/s]Loading weights:  50%|████▉     | 358/723 [00:16<00:15, 24.29it/s]Loading weights:  50%|█████     | 364/723 [00:16<00:12, 28.03it/s]Loading weights:  51%|█████     | 367/723 [00:16<00:15, 22.47it/s]Loading weights:  52%|█████▏    | 373/723 [00:16<00:13, 26.68it/s]Loading weights:  52%|█████▏    | 376/723 [00:17<00:14, 23.58it/s]Loading weights:  53%|█████▎    | 382/723 [00:17<00:12, 27.68it/s]Loading weights:  53%|█████▎    | 385/723 [00:17<00:13, 24.20it/s]Loading weights:  54%|█████▍    | 391/723 [00:17<00:12, 26.81it/s]Loading weights:  54%|█████▍    | 394/723 [00:17<00:14, 22.28it/s]Loading weights:  55%|█████▌    | 400/723 [00:18<00:12, 25.96it/s]Loading weights:  56%|█████▌    | 403/723 [00:18<00:14, 21.50it/s]Loading weights:  57%|█████▋    | 409/723 [00:18<00:13, 24.13it/s]Loading weights:  57%|█████▋    | 412/723 [00:18<00:15, 20.70it/s]Loading weights:  58%|█████▊    | 418/723 [00:18<00:12, 24.62it/s]Loading weights:  58%|█████▊    | 421/723 [00:19<00:13, 22.31it/s]Loading weights:  59%|█████▉    | 427/723 [00:19<00:11, 26.52it/s]Loading weights:  59%|█████▉    | 430/723 [00:19<00:12, 23.51it/s]Loading weights:  60%|██████    | 436/723 [00:19<00:10, 27.59it/s]Loading weights:  61%|██████    | 439/723 [00:19<00:11, 24.16it/s]Loading weights:  62%|██████▏   | 445/723 [00:19<00:09, 28.13it/s]Loading weights:  62%|██████▏   | 448/723 [00:20<00:11, 24.51it/s]Loading weights:  63%|██████▎   | 454/723 [00:20<00:09, 29.00it/s]Loading weights:  63%|██████▎   | 458/723 [00:20<00:09, 26.62it/s]Loading weights:  64%|██████▍   | 463/723 [00:20<00:09, 28.12it/s]Loading weights:  64%|██████▍   | 466/723 [00:20<00:10, 24.03it/s]Loading weights:  65%|██████▌   | 472/723 [00:21<00:10, 23.91it/s]Loading weights:  66%|██████▌   | 475/723 [00:21<00:13, 18.90it/s]Loading weights:  67%|██████▋   | 481/723 [00:21<00:11, 20.99it/s]Loading weights:  67%|██████▋   | 484/723 [00:21<00:13, 17.48it/s]Loading weights:  68%|██████▊   | 490/723 [00:22<00:11, 19.86it/s]Loading weights:  68%|██████▊   | 493/723 [00:22<00:13, 17.19it/s]Loading weights:  69%|██████▉   | 499/723 [00:22<00:10, 20.50it/s]Loading weights:  69%|██████▉   | 502/723 [00:22<00:12, 17.70it/s]Loading weights:  70%|███████   | 508/723 [00:22<00:10, 20.43it/s]Loading weights:  71%|███████   | 511/723 [00:23<00:12, 17.56it/s]Loading weights:  72%|███████▏  | 517/723 [00:23<00:10, 20.30it/s]Loading weights:  72%|███████▏  | 520/723 [00:23<00:11, 17.58it/s]Loading weights:  73%|███████▎  | 526/723 [00:23<00:09, 20.84it/s]Loading weights:  73%|███████▎  | 529/723 [00:24<00:10, 17.92it/s]Loading weights:  74%|███████▍  | 535/723 [00:24<00:09, 20.62it/s]Loading weights:  74%|███████▍  | 538/723 [00:24<00:10, 17.70it/s]Loading weights:  75%|███████▌  | 544/723 [00:24<00:08, 20.42it/s]Loading weights:  76%|███████▌  | 547/723 [00:25<00:10, 17.54it/s]Loading weights:  76%|███████▋  | 553/723 [00:25<00:08, 20.71it/s]Loading weights:  77%|███████▋  | 556/723 [00:25<00:09, 17.76it/s]Loading weights:  78%|███████▊  | 562/723 [00:25<00:07, 20.55it/s]Loading weights:  78%|███████▊  | 565/723 [00:26<00:08, 17.59it/s]Loading weights:  79%|███████▉  | 571/723 [00:26<00:07, 20.35it/s]Loading weights:  79%|███████▉  | 574/723 [00:26<00:08, 17.55it/s]Loading weights:  80%|████████  | 580/723 [00:26<00:06, 20.78it/s]Loading weights:  81%|████████  | 583/723 [00:26<00:07, 17.80it/s]Loading weights:  81%|████████▏ | 589/723 [00:27<00:06, 20.55it/s]Loading weights:  82%|████████▏ | 592/723 [00:27<00:07, 17.42it/s]Loading weights:  83%|████████▎ | 598/723 [00:27<00:06, 20.62it/s]Loading weights:  83%|████████▎ | 601/723 [00:27<00:06, 17.90it/s]Loading weights:  84%|████████▍ | 607/723 [00:28<00:05, 20.79it/s]Loading weights:  84%|████████▍ | 610/723 [00:28<00:06, 17.97it/s]Loading weights:  85%|████████▌ | 616/723 [00:28<00:05, 20.73it/s]Loading weights:  86%|████████▌ | 619/723 [00:28<00:05, 17.98it/s]Loading weights:  86%|████████▋ | 625/723 [00:29<00:04, 21.35it/s]Loading weights:  87%|████████▋ | 628/723 [00:29<00:05, 18.40it/s]Loading weights:  88%|████████▊ | 634/723 [00:29<00:04, 21.32it/s]Loading weights:  88%|████████▊ | 637/723 [00:29<00:04, 18.43it/s]Loading weights:  89%|████████▉ | 643/723 [00:29<00:03, 21.24it/s]Loading weights:  89%|████████▉ | 646/723 [00:30<00:04, 18.30it/s]Loading weights:  90%|█████████ | 652/723 [00:30<00:03, 21.62it/s]Loading weights:  91%|█████████ | 655/723 [00:30<00:03, 18.62it/s]Loading weights:  91%|█████████▏| 661/723 [00:30<00:02, 21.56it/s]Loading weights:  92%|█████████▏| 664/723 [00:31<00:03, 18.58it/s]Loading weights:  93%|█████████▎| 670/723 [00:31<00:02, 21.23it/s]Loading weights:  93%|█████████▎| 673/723 [00:31<00:02, 18.45it/s]Loading weights:  94%|█████████▍| 679/723 [00:31<00:02, 21.88it/s]Loading weights:  94%|█████████▍| 682/723 [00:31<00:02, 18.80it/s]Loading weights:  95%|█████████▌| 688/723 [00:32<00:01, 21.70it/s]Loading weights:  96%|█████████▌| 691/723 [00:32<00:01, 18.69it/s]Loading weights:  96%|█████████▋| 697/723 [00:32<00:01, 21.68it/s]Loading weights:  97%|█████████▋| 700/723 [00:32<00:01, 18.69it/s]Loading weights:  98%|█████████▊| 706/723 [00:33<00:00, 22.06it/s]Loading weights:  98%|█████████▊| 709/723 [00:33<00:00, 18.83it/s]Loading weights:  99%|█████████▉| 715/723 [00:33<00:00, 21.66it/s]Loading weights:  99%|█████████▉| 718/723 [00:33<00:00, 17.96it/s]Loading weights: 100%|██████████| 723/723 [00:33<00:00, 21.35it/s]
+2026-05-06 05:53:46 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-05-06 05:53:46 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-05-06 05:53:47 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 05:53:47 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.3-70B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 05:53:47 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.3-70B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 05:53:48 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.3-70B-Instruct "HTTP/1.1 200 OK"
+2026-05-06 05:53:48 [INFO] Running inference (base_70B) on 150 examples...
+/scratch/jam5cq/conda/.conda/envs/summ_eval/lib/python3.11/site-packages/bitsandbytes/backends/cuda/ops.py:468: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+2026-05-06 06:00:22 [INFO]   [base_70B] 10/150 done (0.03 ex/s)
+2026-05-06 06:07:01 [INFO]   [base_70B] 20/150 done (0.03 ex/s)
+2026-05-06 06:13:01 [INFO]   [base_70B] 30/150 done (0.03 ex/s)
+2026-05-06 06:19:45 [INFO]   [base_70B] 40/150 done (0.03 ex/s)
+2026-05-06 06:26:11 [INFO]   [base_70B] 50/150 done (0.03 ex/s)
+2026-05-06 06:32:28 [INFO]   [base_70B] 60/150 done (0.03 ex/s)
+2026-05-06 06:39:09 [INFO]   [base_70B] 70/150 done (0.03 ex/s)
+2026-05-06 06:45:43 [INFO]   [base_70B] 80/150 done (0.03 ex/s)
+2026-05-06 06:52:38 [INFO]   [base_70B] 90/150 done (0.03 ex/s)
+2026-05-06 06:59:29 [INFO]   [base_70B] 100/150 done (0.03 ex/s)
+2026-05-06 07:06:11 [INFO]   [base_70B] 110/150 done (0.03 ex/s)
+2026-05-06 07:12:28 [INFO]   [base_70B] 120/150 done (0.03 ex/s)
+2026-05-06 07:19:35 [INFO]   [base_70B] 130/150 done (0.03 ex/s)
+2026-05-06 07:26:06 [INFO]   [base_70B] 140/150 done (0.03 ex/s)
+2026-05-06 07:32:44 [INFO]   [base_70B] 150/150 done (0.03 ex/s)
+2026-05-06 07:32:44 [INFO] Inference (base_70B) complete: 5936.4s total
+2026-05-06 07:32:45 [INFO] Saved generations to /scratch/jam5cq/Summary_Fine_Tuning/Output_70b_qlora/eval_generations.json
+2026-05-06 07:32:45 [INFO] 
+================================================================================
+PART 1: REFERENCE-BASED METRICS
+================================================================================
+2026-05-06 07:32:45 [INFO] 
+============================================================
+Evaluating: finetuned_70B
+============================================================
+2026-05-06 07:32:45 [INFO] Evaluating [finetuned_70B]: 150 examples
+2026-05-06 07:32:45 [INFO]   [finetuned_70B] vs abstracts
+2026-05-06 07:32:45 [INFO]     ROUGE...
+2026-05-06 07:32:45 [INFO] Using default tokenizer.
+2026-05-06 07:32:47 [INFO]     BERTScore...
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:32:47 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:32:47 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:32:47 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:32:48 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:32:48 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:32:48 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:32:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:32:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:32:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:32:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29974.01it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:04 [INFO]     BLEU...
+2026-05-06 07:33:04 [INFO]     METEOR...
+2026-05-06 07:33:10 [INFO]     ROUGE...
+2026-05-06 07:33:10 [INFO] Using default tokenizer.
+2026-05-06 07:33:10 [INFO]     BERTScore...
+2026-05-06 07:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:10 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:33:12 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:33:12 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:33:13 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:33:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29999.01it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:33:18 [INFO]     BLEU...
+2026-05-06 07:33:18 [INFO]     METEOR...
+2026-05-06 07:33:19 [INFO]     ROUGE...
+2026-05-06 07:33:19 [INFO] Using default tokenizer.
+2026-05-06 07:33:20 [INFO]     BERTScore...
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:33:21 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:33:21 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:33:22 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29568.91it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:22 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:22 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:33:26 [INFO]     BLEU...
+2026-05-06 07:33:26 [INFO]     METEOR...
+2026-05-06 07:33:27 [INFO]     ROUGE...
+2026-05-06 07:33:27 [INFO] Using default tokenizer.
+2026-05-06 07:33:27 [INFO]     BERTScore...
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:28 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:28 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:28 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:33:29 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:33:29 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:33:30 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 31732.99it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:30 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:30 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:33:35 [INFO]     BLEU...
+2026-05-06 07:33:35 [INFO]     METEOR...
+2026-05-06 07:33:35 [INFO]   [finetuned_70B] vs teacher summaries
+2026-05-06 07:33:35 [INFO]     ROUGE...
+2026-05-06 07:33:35 [INFO] Using default tokenizer.
+2026-05-06 07:33:38 [INFO]     BERTScore...
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:33:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:33:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:33:40 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29801.87it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:33:53 [INFO]     BLEU...
+2026-05-06 07:33:53 [INFO]     METEOR...
+2026-05-06 07:33:55 [INFO]     ROUGE...
+2026-05-06 07:33:55 [INFO] Using default tokenizer.
+2026-05-06 07:33:55 [INFO]     BERTScore...
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:33:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:33:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:33:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:33:58 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 31367.79it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:33:58 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:33:58 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:03 [INFO]     BLEU...
+2026-05-06 07:34:03 [INFO]     METEOR...
+2026-05-06 07:34:04 [INFO]     ROUGE...
+2026-05-06 07:34:04 [INFO] Using default tokenizer.
+2026-05-06 07:34:05 [INFO]     BERTScore...
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:05 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:05 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:05 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:05 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:06 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:07 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:07 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:34:07 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30122.36it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:07 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:11 [INFO]     BLEU...
+2026-05-06 07:34:11 [INFO]     METEOR...
+2026-05-06 07:34:12 [INFO]     ROUGE...
+2026-05-06 07:34:12 [INFO] Using default tokenizer.
+2026-05-06 07:34:13 [INFO]     BERTScore...
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:13 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:13 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:13 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:13 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:14 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:15 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30320.65it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:15 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:20 [INFO]     BLEU...
+2026-05-06 07:34:20 [INFO]     METEOR...
+2026-05-06 07:34:21 [INFO] 
+============================================================
+Evaluating: base_70B
+============================================================
+2026-05-06 07:34:21 [INFO] Evaluating [base_70B]: 150 examples
+2026-05-06 07:34:21 [INFO]   [base_70B] vs abstracts
+2026-05-06 07:34:21 [INFO]     ROUGE...
+2026-05-06 07:34:21 [INFO] Using default tokenizer.
+2026-05-06 07:34:22 [INFO]     BERTScore...
+2026-05-06 07:34:22 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:22 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:22 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:22 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:22 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:22 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:23 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:24 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:24 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:25 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30572.00it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:25 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:25 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:37 [INFO]     BLEU...
+2026-05-06 07:34:37 [INFO]     METEOR...
+2026-05-06 07:34:39 [INFO]     ROUGE...
+2026-05-06 07:34:39 [INFO] Using default tokenizer.
+2026-05-06 07:34:40 [INFO]     BERTScore...
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:40 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:40 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:40 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:41 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:41 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:34:42 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 31200.34it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:42 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:47 [INFO]     BLEU...
+2026-05-06 07:34:47 [INFO]     METEOR...
+2026-05-06 07:34:48 [INFO]     ROUGE...
+2026-05-06 07:34:48 [INFO] Using default tokenizer.
+2026-05-06 07:34:49 [INFO]     BERTScore...
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:49 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:50 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:50 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:51 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:34:51 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30206.09it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:51 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:34:55 [INFO]     BLEU...
+2026-05-06 07:34:55 [INFO]     METEOR...
+2026-05-06 07:34:56 [INFO]     ROUGE...
+2026-05-06 07:34:56 [INFO] Using default tokenizer.
+2026-05-06 07:34:56 [INFO]     BERTScore...
+2026-05-06 07:34:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:56 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:56 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:34:57 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:57 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:57 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:34:57 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:34:57 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:34:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:34:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:34:58 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:34:59 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:34:59 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29817.51it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:34:59 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:35:03 [INFO]     BLEU...
+2026-05-06 07:35:03 [INFO]     METEOR...
+2026-05-06 07:35:04 [INFO]   [base_70B] vs teacher summaries
+2026-05-06 07:35:04 [INFO]     ROUGE...
+2026-05-06 07:35:04 [INFO] Using default tokenizer.
+2026-05-06 07:35:06 [INFO]     BERTScore...
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:06 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:06 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:06 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:06 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:35:07 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:35:07 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:35:08 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:35:08 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29089.17it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:35:08 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:35:21 [INFO]     BLEU...
+2026-05-06 07:35:21 [INFO]     METEOR...
+2026-05-06 07:35:22 [INFO]     ROUGE...
+2026-05-06 07:35:22 [INFO] Using default tokenizer.
+2026-05-06 07:35:23 [INFO]     BERTScore...
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:23 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:23 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:23 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:24 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:35:24 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:35:25 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:35:26 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30788.57it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:35:26 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:26 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:35:31 [INFO]     BLEU...
+2026-05-06 07:35:31 [INFO]     METEOR...
+2026-05-06 07:35:31 [INFO]     ROUGE...
+2026-05-06 07:35:31 [INFO] Using default tokenizer.
+2026-05-06 07:35:32 [INFO]     BERTScore...
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:32 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:32 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:32 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:33 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:35:33 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:35:33 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:35:34 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:35:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30415.49it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:35:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:35:40 [INFO]     BLEU...
+2026-05-06 07:35:40 [INFO]     METEOR...
+2026-05-06 07:35:40 [INFO]     ROUGE...
+2026-05-06 07:35:40 [INFO] Using default tokenizer.
+2026-05-06 07:35:41 [INFO]     BERTScore...
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:41 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:41 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:41 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:41 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:35:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:35:42 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:35:43 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30546.33it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:35:43 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:35:47 [INFO]     BLEU...
+2026-05-06 07:35:47 [INFO]     METEOR...
+2026-05-06 07:35:48 [INFO] 
+============================================================
+Evaluating: teacher
+============================================================
+2026-05-06 07:35:48 [INFO] Evaluating [teacher]: 150 examples
+2026-05-06 07:35:48 [INFO]   [teacher] vs abstracts
+2026-05-06 07:35:48 [INFO]     ROUGE...
+2026-05-06 07:35:48 [INFO] Using default tokenizer.
+2026-05-06 07:35:50 [INFO]     BERTScore...
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:50 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:50 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:35:50 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:50 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:35:51 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:35:51 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:35:52 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30746.76it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:35:52 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:35:52 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:36:06 [INFO]     BLEU...
+2026-05-06 07:36:06 [INFO]     METEOR...
+2026-05-06 07:36:07 [INFO]     ROUGE...
+2026-05-06 07:36:07 [INFO] Using default tokenizer.
+2026-05-06 07:36:08 [INFO]     BERTScore...
+2026-05-06 07:36:08 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:08 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:08 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:08 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:08 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:08 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:36:09 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:09 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:09 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:09 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:09 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:09 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:36:10 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:36:10 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:36:11 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:36:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30434.64it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:36:11 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:36:16 [INFO]     BLEU...
+2026-05-06 07:36:16 [INFO]     METEOR...
+2026-05-06 07:36:17 [INFO]     ROUGE...
+2026-05-06 07:36:17 [INFO] Using default tokenizer.
+2026-05-06 07:36:18 [INFO]     BERTScore...
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:36:19 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:36:19 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:36:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:36:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30954.57it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:36:20 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:36:24 [INFO]     BLEU...
+2026-05-06 07:36:24 [INFO]     METEOR...
+2026-05-06 07:36:25 [INFO]     ROUGE...
+2026-05-06 07:36:25 [INFO] Using default tokenizer.
+2026-05-06 07:36:25 [INFO]     BERTScore...
+2026-05-06 07:36:25 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:25 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:25 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:25 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:26 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:26 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:36:26 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:26 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:26 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:26 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:26 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:26 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:36:27 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:36:27 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:36:28 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:36:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30707.69it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:36:28 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:36:33 [INFO]     BLEU...
+2026-05-06 07:36:33 [INFO]     METEOR...
+2026-05-06 07:36:33 [INFO]   [teacher] vs teacher summaries — SKIPPED (self-reference)
+
+========================================================================================================================
+  REFERENCE: vs. Abstracts (human reference)
+========================================================================================================================
+
+  OVERALL
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.4692               0.4594               0.4887
+  rouge2                                  0.1671               0.1712               0.1861
+  rougeL                                  0.2400               0.2356               0.2582
+  bertscore_precision                     0.6291               0.6102               0.6358
+  bertscore_recall                        0.6649               0.6378               0.6744
+  bertscore_f1                            0.6455               0.6228               0.6536
+  bleu_corpus                             0.0687               0.0805               0.0794
+  bleu_sentence_avg                       0.0612               0.0699               0.0725
+  meteor                                  0.3417               0.3195               0.3572
+  n                                          150                  150                  150
+
+  CS
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.4975               0.4784               0.5145
+  rouge2                                  0.1753               0.1759               0.1946
+  rougeL                                  0.2540               0.2414               0.2685
+  bertscore_precision                     0.6488               0.6253               0.6529
+  bertscore_recall                        0.6712               0.6381               0.6781
+  bertscore_f1                            0.6593               0.6311               0.6646
+  bleu_corpus                             0.0738               0.0859               0.0876
+  bleu_sentence_avg                       0.0665               0.0743               0.0798
+  meteor                                  0.3503               0.3200               0.3655
+  n                                           55                   55                   55
+
+  PHYSICS
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.4701               0.4728               0.4901
+  rouge2                                  0.1584               0.1715               0.1749
+  rougeL                                  0.2314               0.2367               0.2449
+  bertscore_precision                     0.6336               0.6176               0.6407
+  bertscore_recall                        0.6648               0.6429               0.6729
+  bertscore_f1                            0.6482               0.6295               0.6559
+  bleu_corpus                             0.0659               0.0754               0.0736
+  bleu_sentence_avg                       0.0582               0.0646               0.0673
+  meteor                                  0.3381               0.3244               0.3518
+  n                                           48                   48                   48
+
+  MATH
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.4350               0.4234               0.4570
+  rouge2                                  0.1662               0.1652               0.1875
+  rougeL                                  0.2323               0.2278               0.2598
+  bertscore_precision                     0.6013               0.5850               0.6107
+  bertscore_recall                        0.6577               0.6322               0.6717
+  bertscore_f1                            0.6268               0.6063               0.6383
+  bleu_corpus                             0.0656               0.0791               0.0756
+  bleu_sentence_avg                       0.0580               0.0702               0.0692
+  meteor                                  0.3354               0.3139               0.3530
+  n                                           47                   47                   47
+
+========================================================================================================================
+  REFERENCE: vs. Teacher Summaries (Claude Opus)
+========================================================================================================================
+
+  OVERALL
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.6630               0.5587                    —
+  rouge2                                  0.3465               0.2410                    —
+  rougeL                                  0.4315               0.3106                    —
+  bertscore_precision                     0.7611               0.6934                    —
+  bertscore_recall                        0.7588               0.6723                    —
+  bertscore_f1                            0.7599               0.6826                    —
+  bleu_corpus                             0.2138               0.1235                    —
+  bleu_sentence_avg                       0.2067               0.1168                    —
+  meteor                                  0.5003               0.3637                    —
+  n                                          150                  150                    —
+
+  CS
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.6699               0.5543                    —
+  rouge2                                  0.3601               0.2433                    —
+  rougeL                                  0.4593               0.3207                    —
+  bertscore_precision                     0.7722               0.6984                    —
+  bertscore_recall                        0.7696               0.6760                    —
+  bertscore_f1                            0.7708               0.6869                    —
+  bleu_corpus                             0.2238               0.1206                    —
+  bleu_sentence_avg                       0.2176               0.1147                    —
+  meteor                                  0.5227               0.3675                    —
+  n                                           55                   55                    —
+
+  PHYSICS
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.6515               0.5556                    —
+  rouge2                                  0.3288               0.2361                    —
+  rougeL                                  0.4124               0.3057                    —
+  bertscore_precision                     0.7597               0.6982                    —
+  bertscore_recall                        0.7583               0.6788                    —
+  bertscore_f1                            0.7590               0.6883                    —
+  bleu_corpus                             0.1995               0.1199                    —
+  bleu_sentence_avg                       0.1935               0.1119                    —
+  meteor                                  0.4904               0.3674                    —
+  n                                           48                   48                    —
+
+  MATH
+  ------------------------------------------------------------------------------------------------------------------------
+  Metric                           finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  rouge1                                  0.6665               0.5670                    —
+  rouge2                                  0.3486               0.2434                    —
+  rougeL                                  0.4185               0.3037                    —
+  bertscore_precision                     0.7495               0.6826                    —
+  bertscore_recall                        0.7467               0.6614                    —
+  bertscore_f1                            0.7480               0.6717                    —
+  bleu_corpus                             0.2166               0.1299                    —
+  bleu_sentence_avg                       0.2074               0.1243                    —
+  meteor                                  0.4843               0.3556                    —
+  n                                           47                   47                    —
+
+========================================================================================================================
+  SUMMARY STATISTICS (word counts)
+========================================================================================================================
+  Stat                             finetuned_70B             base_70B              teacher
+  ------------------------------------------------------------------------------------------------------------------------
+  avg_word_count                           217.4                198.4                221.9
+  median_word_count                        217.0                195.5                221.0
+  min_word_count                             179                  151                  190
+  max_word_count                             266                  353                  254
+  total_examples                             150                  150                  1502026-05-06 07:36:33 [INFO] 
+================================================================================
+PART 2: STATISTICAL SIGNIFICANCE TESTING
+================================================================================
+2026-05-06 07:36:33 [INFO] Common non-empty papers: 150
+2026-05-06 07:36:33 [INFO]   Significance: vs_abstracts
+2026-05-06 07:36:33 [INFO]     Computing per-example metrics...
+2026-05-06 07:36:33 [INFO] Using default tokenizer.
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:35 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:35 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:35 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:36 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:36:36 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:36:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:36:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+
+
+================================================================================
+  KEY COMPARISONS (ROUGE-L, vs. abstracts)
+================================================================================
+  Fine-tuned vs Teacher: 0.2400 vs 0.2582 (D = -0.0182)
+  Fine-tuned vs Base: 0.2400 vs 0.2356 (D = +0.0044)
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]2026-05-06 07:36:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 772/772 [00:00<00:00, 29913.92it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:36:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:36:53 [INFO] Using default tokenizer.
+2026-05-06 07:36:54 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:54 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:54 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:55 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:55 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:36:55 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:55 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:36:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:36:56 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:36:57 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30929.73it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:36:57 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:36:57 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:37:15 [INFO]   Significance: vs_teacher
+2026-05-06 07:37:15 [INFO]     Computing per-example metrics...
+2026-05-06 07:37:15 [INFO] Using default tokenizer.
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:37:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:18 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:37:18 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:37:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:37:20 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:37:21 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:37:21 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 30256.90it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:37:21 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:37:36 [INFO] Using default tokenizer.
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:37:38 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/microsoft/deberta-xlarge-mnli/5b07a9086c1dbb79981ff7b05b4d1ad83b3af51c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:38 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:37:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli "HTTP/1.1 200 OK"
+2026-05-06 07:37:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:37:39 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:37:40 [INFO] HTTP Request: GET https://huggingface.co/api/models/microsoft/deberta-xlarge-mnli/commits/refs%2Fpr%2F10 "HTTP/1.1 200 OK"
+2026-05-06 07:37:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/772 [00:00<?, ?it/s]Loading weights: 100%|██████████| 772/772 [00:00<00:00, 31315.91it/s]
+[transformers] [1mDebertaModel LOAD REPORT[0m from: microsoft/deberta-xlarge-mnli
+Key                 | Status     |  | 
+--------------------+------------+--+-
+pooler.dense.weight | UNEXPECTED |  | 
+classifier.weight   | UNEXPECTED |  | 
+pooler.dense.bias   | UNEXPECTED |  | 
+classifier.bias     | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+2026-05-06 07:37:40 [INFO] HTTP Request: HEAD https://huggingface.co/microsoft/deberta-xlarge-mnli/resolve/refs%2Fpr%2F10/model.safetensors "HTTP/1.1 302 Found"
+
+================================================================================
+  REFERENCE: vs_abstracts
+================================================================================
+
+  ──────────────────────────────────────────────────────────────────────────────
+  OVERALL (n=150)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.4692     0.4594  +0.0098    0.0297     0.0325     0.183      *
+  rouge2                    0.1671     0.1712  -0.0041    0.3012     0.2639    -0.085       
+  rougeL                    0.2400     0.2356  +0.0044    0.2494     0.4501     0.094       
+  bertscore_f1              0.6455     0.6228  +0.0228    0.0001     0.0000     0.846    ***
+  bleu_sentence             0.0612     0.0699  -0.0087    0.0025     0.0013    -0.255     **
+  meteor                    0.3417     0.3195  +0.0222    0.0001     0.0000     0.399    ***
+
+  ──────────────────────────────────────────────────────────────────────────────
+  CS (n=55)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.4975     0.4784  +0.0191    0.0049     0.0070     0.388     **
+  rouge2                    0.1753     0.1759  -0.0006    0.9252     0.9266    -0.013       
+  rougeL                    0.2540     0.2414  +0.0126    0.0291     0.0409     0.296      *
+  bertscore_f1              0.6593     0.6311  +0.0282    0.0001     0.0000     0.964    ***
+  bleu_sentence             0.0665     0.0743  -0.0078    0.1133     0.0572    -0.216       
+  meteor                    0.3503     0.3200  +0.0303    0.0003     0.0002     0.525    ***
+
+  ──────────────────────────────────────────────────────────────────────────────
+  PHYSICS (n=48)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.4701     0.4728  -0.0028    0.7435     0.8112    -0.047       
+  rouge2                    0.1584     0.1715  -0.0131    0.0505     0.0284    -0.285       
+  rougeL                    0.2314     0.2367  -0.0052    0.4151     0.2729    -0.119       
+  bertscore_f1              0.6482     0.6295  +0.0187    0.0001     0.0000     0.814    ***
+  bleu_sentence             0.0582     0.0646  -0.0064    0.1589     0.1508    -0.206       
+  meteor                    0.3381     0.3244  +0.0137    0.0962     0.1113     0.242       
+
+  ──────────────────────────────────────────────────────────────────────────────
+  MATH (n=47)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.4350     0.4234  +0.0116    0.1177     0.2715     0.235       
+  rouge2                    0.1662     0.1652  +0.0010    0.8949     0.9540     0.019       
+  rougeL                    0.2323     0.2278  +0.0045    0.5564     0.7651     0.088       
+  bertscore_f1              0.6268     0.6063  +0.0205    0.0001     0.0000     0.753    ***
+  bleu_sentence             0.0580     0.0702  -0.0122    0.0191     0.0264    -0.343      *
+  meteor                    0.3354     0.3139  +0.0215    0.0069     0.0085     0.411     **
+
+================================================================================
+  REFERENCE: vs_teacher
+================================================================================
+
+  ──────────────────────────────────────────────────────────────────────────────
+  OVERALL (n=150)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.6630     0.5587  +0.1043    0.0001     0.0000     1.953    ***
+  rouge2                    0.3465     0.2410  +0.1055    0.0001     0.0000     1.685    ***
+  rougeL                    0.4315     0.3106  +0.1209    0.0001     0.0000     1.847    ***
+  bertscore_f1              0.7599     0.6826  +0.0773    0.0001     0.0000     2.550    ***
+  bleu_sentence             0.2067     0.1168  +0.0899    0.0001     0.0000     1.451    ***
+  meteor                    0.5003     0.3637  +0.1366    0.0001     0.0000     2.021    ***
+
+  ──────────────────────────────────────────────────────────────────────────────
+  CS (n=55)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.6699     0.5543  +0.1156    0.0001     0.0000     2.131    ***
+  rouge2                    0.3601     0.2433  +0.1168    0.0001     0.0000     1.737    ***
+  rougeL                    0.4593     0.3207  +0.1386    0.0001     0.0000     2.065    ***
+  bertscore_f1              0.7708     0.6869  +0.0839    0.0001     0.0000     2.640    ***
+  bleu_sentence             0.2176     0.1147  +0.1030    0.0001     0.0000     1.510    ***
+  meteor                    0.5227     0.3675  +0.1553    0.0001     0.0000     1.999    ***
+
+  ──────────────────────────────────────────────────────────────────────────────
+  PHYSICS (n=48)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.6515     0.5556  +0.0959    0.0001     0.0000     1.998    ***
+  rouge2                    0.3288     0.2361  +0.0927    0.0001     0.0000     1.811    ***
+  rougeL                    0.4124     0.3057  +0.1067    0.0001     0.0000     2.075    ***
+  bertscore_f1              0.7590     0.6883  +0.0707    0.0001     0.0000     2.873    ***
+  bleu_sentence             0.1935     0.1119  +0.0815    0.0001     0.0000     1.699    ***
+  meteor                    0.4904     0.3674  +0.1230    0.0001     0.0000     2.192    ***
+
+  ──────────────────────────────────────────────────────────────────────────────
+  MATH (n=47)
+  ──────────────────────────────────────────────────────────────────────────────
+  Metric                   FT Mean  Base Mean     Diff   p(boot)  p(wilcox)   Cohen d   Sig?
+  ──────────────────────────────────────────────────────────────────────────────
+  rouge1                    0.6665     0.5670  +0.0995    0.0001     0.0000     1.768    ***
+  rouge2                    0.3486     0.2434  +0.1052    0.0001     0.0000     1.590    ***
+  rougeL                    0.4185     0.3037  +0.1147    0.0001     0.0000     1.582    ***
+  bertscore_f1              0.7480     0.6717  +0.0763    0.0001     0.0000     2.330    ***
+  bleu_sentence             0.2074     0.1243  +0.0831    0.0001     0.0000     1.268    ***
+  meteor                    0.4843     0.3556  +0.1287    0.0001     0.0000     2.081    ***
+
+================================================================================
+  SUMMARY LENGTH ANALYSIS
+================================================================================
+  Fine-tuned avg: 217.4 words (std: 15.7)
+  Base avg:       198.4 words (std: 24.7)
+  FT in 150-250: 146/150
+  Base in 150-250: 147/150
+  Wilcoxon p: 0.000000
+2026-05-06 07:37:59 [INFO] Significance results saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_70b_qlora/significance_results.txt
+2026-05-06 07:37:59 [INFO] 
+================================================================================
+PART 3: LONGDOCFACTSCORE
+================================================================================
+2026-05-06 07:37:59 [INFO]   LongDocFACTScore: finetuned_70B
+2026-05-06 07:37:59 [INFO] No device provided, using cuda:0
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:59 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:37:59 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2570.99it/s]
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:00 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:00 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:00 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:01 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-06 07:38:01 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:01 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:38:01 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:38:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+2026-05-06 07:38:02 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]Loading weights: 100%|██████████| 513/513 [00:00<00:00, 32303.11it/s]
+2026-05-06 07:38:02 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:38:02 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:38:02 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:38:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO]   Done in 58.6s
+2026-05-06 07:39:01 [INFO]     Overall: -4.3914 (+-0.4322)
+2026-05-06 07:39:01 [INFO]   LongDocFACTScore: base_70B
+2026-05-06 07:39:01 [INFO] No device provided, using cuda:0
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:01 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 16416.22it/s]
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:02 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-06 07:39:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-06 07:39:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:39:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:39:04 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]Loading weights: 100%|██████████| 513/513 [00:00<00:00, 30669.03it/s]
+2026-05-06 07:39:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:39:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:39:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:39:04 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO]   Done in 57.4s
+2026-05-06 07:40:02 [INFO]     Overall: -3.7613 (+-0.4494)
+2026-05-06 07:40:02 [INFO]   LongDocFACTScore: teacher
+2026-05-06 07:40:02 [INFO] No device provided, using cuda:0
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] Loading SentenceTransformer model from sentence-transformers/bert-base-nli-mean-tokens.
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config_sentence_transformers.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config_sentence_transformers.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/README.md "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/README.md "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/modules.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/modules.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/sentence_bert_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/sentence_bert_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/adapter_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 16038.94it/s]
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:02 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/sentence-transformers/bert-base-nli-mean-tokens/resolve/main/1_Pooling/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/sentence-transformers/bert-base-nli-mean-tokens/160a52b38a51ae87295ec3eabcf11755e5d27a8d/1_Pooling%2Fconfig.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/sentence-transformers/bert-base-nli-mean-tokens "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/pytorch_model.bin "HTTP/1.1 302 Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:03 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large "HTTP/1.1 200 OK"
+2026-05-06 07:40:04 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/main "HTTP/1.1 200 OK"
+2026-05-06 07:40:04 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/discussions?p=0 "HTTP/1.1 200 OK"
+2026-05-06 07:40:04 [INFO] HTTP Request: GET https://huggingface.co/api/models/facebook/bart-large/commits/refs%2Fpr%2F4 "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/513 [00:00<?, ?it/s]2026-05-06 07:40:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors.index.json "HTTP/1.1 404 Not Found"
+Loading weights: 100%|██████████| 513/513 [00:00<00:00, 29190.73it/s]
+2026-05-06 07:40:04 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/refs%2Fpr%2F4/model.safetensors "HTTP/1.1 302 Found"
+2026-05-06 07:40:05 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/generation_config.json "HTTP/1.1 404 Not Found"
+2026-05-06 07:40:05 [INFO] HTTP Request: HEAD https://huggingface.co/facebook/bart-large/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-05-06 07:40:05 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/facebook/bart-large/cb48c1365bd826bd521f650dc2e0940aee54720c/config.json "HTTP/1.1 200 OK"
+2026-05-06 07:41:04 [INFO]   Done in 59.3s
+2026-05-06 07:41:04 [INFO]     Overall: -4.1837 (+-0.4799)
+2026-05-06 07:41:04 [INFO] LongDocFACTScore saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_70b_qlora/ldfact_results.json
+2026-05-06 07:41:04 [INFO] 
+================================================================================
+PART 4: ABSTRACTIVENESS ANALYSIS
+================================================================================
+2026-05-06 07:41:04 [INFO]   Analyzing: finetuned_70B
+2026-05-06 07:41:05 [INFO]   Analyzing: base_70B
+2026-05-06 07:41:06 [INFO]   Analyzing: teacher
+2026-05-06 07:41:07 [INFO] Abstractiveness results saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_70b_qlora/abstractiveness_results.json
+2026-05-06 07:41:07 [INFO] 
+================================================================================
+ALL RESULTS SAVED TO: /scratch/jam5cq/Summary_Fine_Tuning/Output_70b_qlora
+================================================================================
+
+
+================================================================================
+  LONGDOCFACTSCORE (higher = more factually consistent)
+================================================================================
+  Scope             finetuned_70B           base_70B            teacher
+  ────────────────────────────────────────────────────────────────────────────
+  overall                 -4.3914            -3.7613            -4.1837
+  cs                      -4.4136            -3.7595            -4.2054
+  physics                 -4.3032            -3.6638            -4.1279
+  math                    -4.4555            -3.8630            -4.2151
+
+========================================================================================
+  EXTRACTIVENESS vs. ABSTRACTIVENESS
+========================================================================================
+  Metric                      finetuned_70B         base_70B          teacher
+  ────────────────────────────────────────────────────────────────────────────────────
+  Novel unigrams %                   19.6%           15.3%           12.8%
+  Novel bigrams %                    57.8%           47.4%           53.0%
+  Novel trigrams %                   78.2%           66.3%           75.6%
+  Novel 4-grams %                    88.0%           76.6%           86.1%
+  Extractive coverage                80.4%           84.7%           87.2%
+  Extractive density                   2.46             4.06             2.74
+  Vocab diversity                      0.68             0.60             0.66
+  Summary length                     232.35           208.21           235.90
+
+  ────────────────────────────────────────────────────────────────────────────────────
+  SIGNIFICANCE (finetuned_70B vs base_70B, n=150)
+  ────────────────────────────────────────────────────────────────────────────────────
+  Metric                     FT Mean  Base Mean     Diff    p-value    Sig
+  ────────────────────────────────────────────────────────────────────────────────────
+  Novel unigrams %            0.1963     0.1534  +0.0429   0.000000    ***
+  Novel bigrams %             0.5779     0.4743  +0.1037   0.000000    ***
+  Novel trigrams %            0.7823     0.6634  +0.1189   0.000000    ***
+  Novel 4-grams %             0.8798     0.7661  +0.1137   0.000000    ***
+  Extractive coverage         0.8037     0.8466  -0.0429   0.000000    ***
+  Extractive density          2.4570     4.0626  -1.6057   0.000000    ***
+  Vocab diversity             0.6843     0.6024  +0.0819   0.000000    ***
+  Summary length            232.3467   208.2133 +24.1333   0.000000    ***
+
+70B evaluation exit code: 0
+
+========================================
+Evaluation completed at Wed May  6 07:41:12 EDT 2026
+========================================
+Wed May  6 07:41:12 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:01:00.0 Off |                  Off |
+| 38%   63C    P0            153W /  300W |      35MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA RTX A6000               Off |   00000000:41:00.0 Off |                  Off |
+| 30%   33C    P0            135W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19842      G   /usr/libexec/Xorg                         9MiB |
+|    0   N/A  N/A           20259      G   /usr/bin/gnome-shell                      4MiB |
+|    1   N/A  N/A           19842      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+

@@ -1,0 +1,383 @@
+Retrieving notices: ...working... done
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 23.7.4
+  latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=26.3.2
+
+
+
+## Package Plan ##
+
+  environment location: /scratch/jam5cq/conda/.conda/envs/summac_eval
+
+  added / updated specs:
+    - python=3.11
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ncurses-6.6                |       hdb14827_0         897 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:         897 KB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_9 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.4.22-hbd8a1cb_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.45.1-default_hbd61a6d_102 
+  libexpat           conda-forge/linux-64::libexpat-2.7.5-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.5.2-h3435931_0 
+  libgcc             conda-forge/linux-64::libgcc-15.2.0-he0feb66_18 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.2.0-h69a702a_18 
+  libgomp            conda-forge/linux-64::libgomp-15.2.0-he0feb66_18 
+  liblzma            conda-forge/linux-64::liblzma-5.8.3-hb03c661_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libsqlite          conda-forge/linux-64::libsqlite-3.53.0-h0c1763c_0 
+  libuuid            conda-forge/linux-64::libuuid-2.42-h5347b49_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libzlib            conda-forge/linux-64::libzlib-1.3.2-h25fd6f3_2 
+  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_0 
+  openssl            conda-forge/linux-64::openssl-3.6.2-h35e630c_0 
+  packaging          conda-forge/noarch::packaging-26.2-pyhc364b38_0 
+  pip                conda-forge/noarch::pip-26.0.1-pyh8b19718_0 
+  python             conda-forge/linux-64::python-3.11.15-hd63d673_0_cpython 
+  readline           conda-forge/linux-64::readline-8.3-h853b02a_0 
+  setuptools         conda-forge/noarch::setuptools-82.0.1-pyh332efcf_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h366c992_103 
+  tzdata             conda-forge/noarch::tzdata-2025c-hc9c84f9_1 
+  wheel              conda-forge/noarch::wheel-0.47.0-pyhd8ed1ab_0 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6 
+
+
+
+Downloading and Extracting Packages
+ncurses-6.6          | 897 KB    |            |   0% ncurses-6.6          | 897 KB    | 1          |   2% ncurses-6.6          | 897 KB    | ########## | 100% ncurses-6.6          | 897 KB    | ########## | 100%                                                      
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate summac_eval
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+========================================
+Python: /scratch/jam5cq/conda/.conda/envs/summac_eval/bin/python
+pip:    /scratch/jam5cq/conda/.conda/envs/summac_eval/bin/pip
+========================================
+Looking in indexes: https://download.pytorch.org/whl/cu130
+Collecting torch
+  Using cached https://download-r2.pytorch.org/whl/cu130/torch-2.11.0%2Bcu130-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (29 kB)
+Collecting filelock (from torch)
+  Using cached filelock-3.25.2-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch)
+  Using cached https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting setuptools<82 (from torch)
+  Using cached https://download.pytorch.org/whl/setuptools-70.2.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting sympy>=1.13.3 (from torch)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch)
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch)
+  Using cached https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch)
+  Using cached fsspec-2026.2.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==13.0.2 (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/cuda-toolkit/cuda_toolkit-13.0.2-py2.py3-none-any.whl (2.4 kB)
+Collecting cuda-bindings<14,>=13.0.3 (from torch)
+  Using cached https://download.pytorch.org/whl/cuda_bindings-13.0.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Collecting nvidia-cudnn-cu13==9.19.0.56 (from torch)
+  Downloading https://pypi.nvidia.com/nvidia-cudnn-cu13/nvidia_cudnn_cu13-9.19.0.56-py3-none-manylinux_2_27_x86_64.whl (366.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 366.1/366.1 MB 203.3 MB/s  0:00:01
+Collecting nvidia-cusparselt-cu13==0.8.0 (from torch)
+  Downloading https://pypi.nvidia.com/nvidia-cusparselt-cu13/nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_x86_64.whl (169.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.9/169.9 MB 182.4 MB/s  0:00:00
+Collecting nvidia-nccl-cu13==2.28.9 (from torch)
+  Downloading https://pypi.nvidia.com/nvidia-nccl-cu13/nvidia_nccl_cu13-2.28.9-py3-none-manylinux_2_18_x86_64.whl (196.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.5/196.5 MB 164.8 MB/s  0:00:01
+Collecting nvidia-nvshmem-cu13==3.4.5 (from torch)
+  Downloading https://pypi.nvidia.com/nvidia-nvshmem-cu13/nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.4/60.4 MB 177.5 MB/s  0:00:00
+Collecting triton==3.6.0 (from torch)
+  Using cached https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cublas==13.1.0.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cublas/nvidia_cublas-13.1.0.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 423.1/423.1 MB 205.6 MB/s  0:00:01
+Collecting nvidia-cuda-runtime==13.0.96.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-runtime/nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 410.8 MB/s  0:00:00
+Collecting nvidia-cufft==12.0.0.61.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cufft/nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (214.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 215.8 MB/s  0:00:00
+Collecting nvidia-cufile==1.15.1.6.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cufile/nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 399.3 MB/s  0:00:00
+Collecting nvidia-cuda-cupti==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-cupti/nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl (10.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 218.0 MB/s  0:00:00
+Collecting nvidia-curand==10.4.0.35.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-curand/nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl (59.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 59.5/59.5 MB 94.7 MB/s  0:00:00
+Collecting nvidia-cusolver==12.0.4.66.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cusolver/nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl (200.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 228.1 MB/s  0:00:00
+Collecting nvidia-cusparse==12.6.3.3.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cusparse/nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (145.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.9/145.9 MB 265.2 MB/s  0:00:00
+Collecting nvidia-nvjitlink==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-nvjitlink/nvidia_nvjitlink-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (40.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.7/40.7 MB 273.4 MB/s  0:00:00
+Collecting nvidia-cuda-nvrtc==13.0.88.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-nvrtc/nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (90.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 90.2/90.2 MB 192.7 MB/s  0:00:00
+Collecting nvidia-nvtx==13.0.85.* (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch)
+  Downloading https://pypi.nvidia.com/nvidia-nvtx/nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (148 kB)
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings<14,>=13.0.3->torch)
+  Using cached https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch)
+  Using cached https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+Using cached https://download-r2.pytorch.org/whl/cu130/torch-2.11.0%2Bcu130-cp311-cp311-manylinux_2_28_x86_64.whl (531.0 MB)
+Using cached https://download-r2.pytorch.org/whl/triton-3.6.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (188.2 MB)
+Using cached https://download.pytorch.org/whl/cuda_bindings-13.0.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (12.2 MB)
+Using cached https://download.pytorch.org/whl/cuda_pathfinder-1.2.2-py3-none-any.whl (23 kB)
+Using cached https://download.pytorch.org/whl/setuptools-70.2.0-py3-none-any.whl (930 kB)
+Using cached fsspec-2026.2.0-py3-none-any.whl (202 kB)
+Using cached networkx-3.6.1-py3-none-any.whl (2.1 MB)
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Using cached filelock-3.25.2-py3-none-any.whl (26 kB)
+Using cached https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached https://download.pytorch.org/whl/markupsafe-3.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, typing-extensions, triton, sympy, setuptools, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cublas, networkx, MarkupSafe, fsspec, filelock, cuda-pathfinder, nvidia-cusparse, nvidia-cufft, nvidia-cudnn-cu13, jinja2, cuda-bindings, nvidia-cusolver, torch
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 82.0.1
+    Uninstalling setuptools-82.0.1:
+      Successfully uninstalled setuptools-82.0.1
+
+Successfully installed MarkupSafe-3.0.3 cuda-bindings-13.0.3 cuda-pathfinder-1.2.2 cuda-toolkit-13.0.2 filelock-3.25.2 fsspec-2026.2.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.19.0.56 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 setuptools-70.2.0 sympy-1.14.0 torch-2.11.0+cu130 triton-3.6.0 typing-extensions-4.15.0
+Collecting summac
+  Using cached summac-0.0.4-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: torch in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from summac) (2.11.0+cu130)
+Collecting transformers>=4.24.0 (from summac)
+  Downloading transformers-5.7.0-py3-none-any.whl.metadata (33 kB)
+Collecting nltk>=3.6.6 (from summac)
+  Using cached nltk-3.9.4-py3-none-any.whl.metadata (3.2 kB)
+Collecting huggingface-hub<=0.17.0 (from summac)
+  Using cached huggingface_hub-0.17.0-py3-none-any.whl.metadata (13 kB)
+Collecting sentencepiece (from summac)
+  Using cached sentencepiece-0.2.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (10 kB)
+Collecting protobuf (from summac)
+  Using cached protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+Requirement already satisfied: filelock in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from huggingface-hub<=0.17.0->summac) (3.25.2)
+Requirement already satisfied: fsspec in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from huggingface-hub<=0.17.0->summac) (2026.2.0)
+Collecting requests (from huggingface-hub<=0.17.0->summac)
+  Using cached requests-2.33.1-py3-none-any.whl.metadata (4.8 kB)
+Collecting tqdm>=4.42.1 (from huggingface-hub<=0.17.0->summac)
+  Using cached tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+Collecting pyyaml>=5.1 (from huggingface-hub<=0.17.0->summac)
+  Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from huggingface-hub<=0.17.0->summac) (4.15.0)
+Requirement already satisfied: packaging>=20.9 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from huggingface-hub<=0.17.0->summac) (26.2)
+Collecting click (from nltk>=3.6.6->summac)
+  Using cached click-8.3.3-py3-none-any.whl.metadata (2.6 kB)
+Collecting joblib (from nltk>=3.6.6->summac)
+  Using cached joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting regex>=2021.8.3 (from nltk>=3.6.6->summac)
+  Using cached regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+INFO: pip is looking at multiple versions of transformers to determine which version is compatible with other requirements. This could take a while.
+Collecting transformers>=4.24.0 (from summac)
+  Using cached transformers-5.6.2-py3-none-any.whl.metadata (33 kB)
+  Using cached transformers-5.6.1-py3-none-any.whl.metadata (33 kB)
+  Using cached transformers-5.6.0-py3-none-any.whl.metadata (33 kB)
+  Using cached transformers-5.5.4-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.5.3-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.5.2-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.5.1-py3-none-any.whl.metadata (32 kB)
+INFO: pip is still looking at multiple versions of transformers to determine which version is compatible with other requirements. This could take a while.
+  Using cached transformers-5.5.0-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.4.0-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.3.0-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.2.0-py3-none-any.whl.metadata (32 kB)
+  Using cached transformers-5.1.0-py3-none-any.whl.metadata (31 kB)
+INFO: This is taking longer than usual. You might need to provide the dependency resolver with stricter constraints to reduce runtime. See https://pip.pypa.io/warnings/backtracking for guidance. If you want to abort this run, press Ctrl + C.
+  Using cached transformers-5.0.0-py3-none-any.whl.metadata (37 kB)
+  Using cached transformers-4.57.6-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.57.5-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.57.4-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.57.3-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.57.2-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.57.1-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.56.2-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.56.1-py3-none-any.whl.metadata (42 kB)
+  Using cached transformers-4.56.0-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.55.4-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.55.3-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.55.2-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.55.1-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.55.0-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.54.1-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.54.0-py3-none-any.whl.metadata (41 kB)
+  Using cached transformers-4.53.3-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.53.2-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.53.1-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.53.0-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.52.4-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.52.3-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.52.2-py3-none-any.whl.metadata (40 kB)
+  Using cached transformers-4.52.1-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.51.3-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.51.2-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.51.1-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.51.0-py3-none-any.whl.metadata (38 kB)
+  Using cached transformers-4.50.3-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.50.2-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.50.1-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.50.0-py3-none-any.whl.metadata (39 kB)
+  Using cached transformers-4.49.0-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.48.3-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.48.2-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.48.1-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.48.0-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.47.1-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.47.0-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.46.3-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.46.2-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.46.1-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.45.2-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.45.1-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.45.0-py3-none-any.whl.metadata (44 kB)
+  Using cached transformers-4.44.2-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.44.1-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.44.0-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.43.4-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.43.3-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.43.2-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.43.1-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.43.0-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.42.4-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.42.3-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.42.2-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.42.1-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.42.0-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.41.2-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.41.1-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.41.0-py3-none-any.whl.metadata (43 kB)
+  Using cached transformers-4.40.2-py3-none-any.whl.metadata (137 kB)
+  Using cached transformers-4.40.1-py3-none-any.whl.metadata (137 kB)
+  Using cached transformers-4.40.0-py3-none-any.whl.metadata (137 kB)
+  Using cached transformers-4.39.3-py3-none-any.whl.metadata (134 kB)
+  Using cached transformers-4.39.2-py3-none-any.whl.metadata (134 kB)
+  Using cached transformers-4.39.1-py3-none-any.whl.metadata (134 kB)
+  Using cached transformers-4.39.0-py3-none-any.whl.metadata (134 kB)
+  Using cached transformers-4.38.2-py3-none-any.whl.metadata (130 kB)
+  Using cached transformers-4.38.1-py3-none-any.whl.metadata (131 kB)
+  Using cached transformers-4.38.0-py3-none-any.whl.metadata (131 kB)
+  Using cached transformers-4.37.2-py3-none-any.whl.metadata (129 kB)
+  Using cached transformers-4.37.1-py3-none-any.whl.metadata (129 kB)
+  Using cached transformers-4.37.0-py3-none-any.whl.metadata (129 kB)
+  Using cached transformers-4.36.2-py3-none-any.whl.metadata (126 kB)
+  Using cached transformers-4.36.1-py3-none-any.whl.metadata (126 kB)
+  Using cached transformers-4.36.0-py3-none-any.whl.metadata (126 kB)
+  Using cached transformers-4.35.2-py3-none-any.whl.metadata (123 kB)
+Collecting numpy>=1.17 (from transformers>=4.24.0->summac)
+  Using cached numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting tokenizers<0.19,>=0.14 (from transformers>=4.24.0->summac)
+  Using cached tokenizers-0.15.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+Collecting safetensors>=0.3.1 (from transformers>=4.24.0->summac)
+  Using cached safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting charset_normalizer<4,>=2 (from requests->huggingface-hub<=0.17.0->summac)
+  Using cached charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+Collecting idna<4,>=2.5 (from requests->huggingface-hub<=0.17.0->summac)
+  Using cached idna-3.13-py3-none-any.whl.metadata (8.0 kB)
+Collecting urllib3<3,>=1.26 (from requests->huggingface-hub<=0.17.0->summac)
+  Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2023.5.7 (from requests->huggingface-hub<=0.17.0->summac)
+  Using cached certifi-2026.4.22-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: setuptools<82 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (70.2.0)
+Requirement already satisfied: sympy>=1.13.3 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (3.6.1)
+Requirement already satisfied: jinja2 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (3.1.6)
+Requirement already satisfied: cuda-toolkit==13.0.2 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.2)
+Requirement already satisfied: cuda-bindings<14,>=13.0.3 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (13.0.3)
+Requirement already satisfied: nvidia-cudnn-cu13==9.19.0.56 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (9.19.0.56)
+Requirement already satisfied: nvidia-cusparselt-cu13==0.8.0 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (0.8.0)
+Requirement already satisfied: nvidia-nccl-cu13==2.28.9 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (2.28.9)
+Requirement already satisfied: nvidia-nvshmem-cu13==3.4.5 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (3.4.5)
+Requirement already satisfied: triton==3.6.0 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from torch->summac) (3.6.0)
+Requirement already satisfied: nvidia-cublas==13.1.0.3.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.1.0.3)
+Requirement already satisfied: nvidia-cuda-runtime==13.0.96.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.96)
+Requirement already satisfied: nvidia-cufft==12.0.0.61.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (12.0.0.61)
+Requirement already satisfied: nvidia-cufile==1.15.1.6.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (1.15.1.6)
+Requirement already satisfied: nvidia-cuda-cupti==13.0.85.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.85)
+Requirement already satisfied: nvidia-curand==10.4.0.35.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (10.4.0.35)
+Requirement already satisfied: nvidia-cusolver==12.0.4.66.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (12.0.4.66)
+Requirement already satisfied: nvidia-cusparse==12.6.3.3.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (12.6.3.3)
+Requirement already satisfied: nvidia-nvjitlink==13.0.88.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.88)
+Requirement already satisfied: nvidia-cuda-nvrtc==13.0.88.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.88)
+Requirement already satisfied: nvidia-nvtx==13.0.85.* in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-toolkit[cublas,cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == "Linux"->torch->summac) (13.0.85)
+Requirement already satisfied: cuda-pathfinder~=1.1 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from cuda-bindings<14,>=13.0.3->torch->summac) (1.2.2)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from sympy>=1.13.3->torch->summac) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (from jinja2->torch->summac) (3.0.3)
+Using cached summac-0.0.4-py3-none-any.whl (30 kB)
+Using cached huggingface_hub-0.17.0-py3-none-any.whl (294 kB)
+Using cached nltk-3.9.4-py3-none-any.whl (1.6 MB)
+Using cached pyyaml-6.0.3-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (806 kB)
+Using cached regex-2026.4.4-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (799 kB)
+Using cached tqdm-4.67.3-py3-none-any.whl (78 kB)
+Using cached transformers-4.35.2-py3-none-any.whl (7.9 MB)
+Using cached tokenizers-0.15.2-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.6 MB)
+Using cached numpy-2.4.4-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.9 MB)
+Using cached safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (507 kB)
+Using cached click-8.3.3-py3-none-any.whl (110 kB)
+Using cached joblib-1.5.3-py3-none-any.whl (309 kB)
+Using cached protobuf-7.34.1-cp310-abi3-manylinux2014_x86_64.whl (324 kB)
+Using cached requests-2.33.1-py3-none-any.whl (64 kB)
+Using cached charset_normalizer-3.4.7-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (214 kB)
+Using cached idna-3.13-py3-none-any.whl (68 kB)
+Using cached urllib3-2.6.3-py3-none-any.whl (131 kB)
+Using cached certifi-2026.4.22-py3-none-any.whl (135 kB)
+Using cached sentencepiece-0.2.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+Installing collected packages: urllib3, tqdm, sentencepiece, safetensors, regex, pyyaml, protobuf, numpy, joblib, idna, click, charset_normalizer, certifi, requests, nltk, huggingface-hub, tokenizers, transformers, summac
+
+Successfully installed certifi-2026.4.22 charset_normalizer-3.4.7 click-8.3.3 huggingface-hub-0.17.0 idna-3.13 joblib-1.5.3 nltk-3.9.4 numpy-2.4.4 protobuf-7.34.1 pyyaml-6.0.3 regex-2026.4.4 requests-2.33.1 safetensors-0.7.0 sentencepiece-0.2.1 summac-0.0.4 tokenizers-0.15.2 tqdm-4.67.3 transformers-4.35.2 urllib3-2.6.3
+Collecting scipy
+  Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Requirement already satisfied: numpy in /scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages (2.4.4)
+Using cached scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+Installing collected packages: scipy
+Successfully installed scipy-1.17.1
+
+========================================
+Verification
+========================================
+/scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+torch          2.11.0+cu130  CUDA=True
+transformers   4.35.2
+SummaC ......... OK
+========================================
+SummaC environment ready.
+
+To use:
+  export PYTHONNOUSERSITE=1
+  conda activate summac_eval

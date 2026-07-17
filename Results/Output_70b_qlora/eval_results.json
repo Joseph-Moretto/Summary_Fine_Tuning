@@ -1,0 +1,279 @@
+{
+  "finetuned_70B": {
+    "summary_stats": {
+      "avg_word_count": 217.42,
+      "median_word_count": 217.0,
+      "min_word_count": 179,
+      "max_word_count": 266,
+      "total_examples": 150
+    },
+    "vs_abstract": {
+      "overall": {
+        "rouge1": 0.4691582878512723,
+        "rouge2": 0.16707901971947925,
+        "rougeL": 0.23999506446585717,
+        "bertscore_precision": 0.6290600299835205,
+        "bertscore_recall": 0.6648954749107361,
+        "bertscore_f1": 0.6455397605895996,
+        "bleu_corpus": 0.06869301666505502,
+        "bleu_sentence_avg": 0.06119525678911257,
+        "meteor": 0.3417328423501176,
+        "n": 150
+      },
+      "cs": {
+        "rouge1": 0.4975301169642657,
+        "rouge2": 0.17533186239411558,
+        "rougeL": 0.25403202664655106,
+        "bertscore_precision": 0.6488356590270996,
+        "bertscore_recall": 0.6711656451225281,
+        "bertscore_f1": 0.6592603325843811,
+        "bleu_corpus": 0.07378579021068542,
+        "bleu_sentence_avg": 0.06654011062783347,
+        "meteor": 0.35029297067002213,
+        "n": 55
+      },
+      "physics": {
+        "rouge1": 0.47005078611261775,
+        "rouge2": 0.15844350140261926,
+        "rougeL": 0.23143492361106932,
+        "bertscore_precision": 0.6335678696632385,
+        "bertscore_recall": 0.6647533774375916,
+        "bertscore_f1": 0.6482006907463074,
+        "bleu_corpus": 0.0658818862489331,
+        "bleu_sentence_avg": 0.05821241389259659,
+        "meteor": 0.3381013343406208,
+        "n": 48
+      },
+      "math": {
+        "rouge1": 0.4350457236436293,
+        "rouge2": 0.16624069061531507,
+        "rougeL": 0.2323111036380201,
+        "bertscore_precision": 0.6013144254684448,
+        "bertscore_recall": 0.6577029824256897,
+        "bertscore_f1": 0.6267661452293396,
+        "bleu_corpus": 0.06559160351923957,
+        "bleu_sentence_avg": 0.05798694823385973,
+        "meteor": 0.33542444504928987,
+        "n": 47
+      }
+    },
+    "vs_teacher": {
+      "overall": {
+        "rouge1": 0.6629554596746163,
+        "rouge2": 0.3464749324756274,
+        "rougeL": 0.43149040965093566,
+        "bertscore_precision": 0.7610751986503601,
+        "bertscore_recall": 0.7587926387786865,
+        "bertscore_f1": 0.7598722577095032,
+        "bleu_corpus": 0.21383710321076366,
+        "bleu_sentence_avg": 0.20669788894866623,
+        "meteor": 0.5003290980952387,
+        "n": 150
+      },
+      "cs": {
+        "rouge1": 0.6699236637930274,
+        "rouge2": 0.3601123932839444,
+        "rougeL": 0.45930672966247316,
+        "bertscore_precision": 0.7721737027168274,
+        "bertscore_recall": 0.7695605754852295,
+        "bertscore_f1": 0.7707929015159607,
+        "bleu_corpus": 0.22378216110706978,
+        "bleu_sentence_avg": 0.2176424270090522,
+        "meteor": 0.5227396757978834,
+        "n": 55
+      },
+      "physics": {
+        "rouge1": 0.6514692615073302,
+        "rouge2": 0.32878607163158086,
+        "rougeL": 0.41235723599195956,
+        "bertscore_precision": 0.7596772313117981,
+        "bertscore_recall": 0.758328914642334,
+        "bertscore_f1": 0.7589569091796875,
+        "bleu_corpus": 0.19946156846160223,
+        "bleu_sentence_avg": 0.19345393074860698,
+        "meteor": 0.4903768862394897,
+        "n": 48
+      },
+      "math": {
+        "rouge1": 0.6665317636217892,
+        "rouge2": 0.34858142132789977,
+        "rougeL": 0.4184796593317076,
+        "bertscore_precision": 0.7495152354240417,
+        "bertscore_recall": 0.7466654777526855,
+        "bertscore_f1": 0.7480275630950928,
+        "bleu_corpus": 0.216559266172888,
+        "bleu_sentence_avg": 0.20741619533763683,
+        "meteor": 0.484267915019292,
+        "n": 47
+      }
+    }
+  },
+  "base_70B": {
+    "summary_stats": {
+      "avg_word_count": 198.35333333333332,
+      "median_word_count": 195.5,
+      "min_word_count": 151,
+      "max_word_count": 353,
+      "total_examples": 150
+    },
+    "vs_abstract": {
+      "overall": {
+        "rouge1": 0.4594054232830407,
+        "rouge2": 0.17117292002901474,
+        "rougeL": 0.23563731568479354,
+        "bertscore_precision": 0.6102059483528137,
+        "bertscore_recall": 0.637785017490387,
+        "bertscore_f1": 0.6227890849113464,
+        "bleu_corpus": 0.08053539542864015,
+        "bleu_sentence_avg": 0.06993518438756659,
+        "meteor": 0.31949598852941846,
+        "n": 150
+      },
+      "cs": {
+        "rouge1": 0.4784213910344574,
+        "rouge2": 0.17594681954078872,
+        "rougeL": 0.24139638551744688,
+        "bertscore_precision": 0.6252685785293579,
+        "bertscore_recall": 0.6380904912948608,
+        "bertscore_f1": 0.6310874223709106,
+        "bleu_corpus": 0.08586837365084514,
+        "bleu_sentence_avg": 0.07433826922164807,
+        "meteor": 0.32001840498103845,
+        "n": 55
+      },
+      "physics": {
+        "rouge1": 0.47284451910519526,
+        "rouge2": 0.1715023733039804,
+        "rougeL": 0.2366791186174563,
+        "bertscore_precision": 0.6175934672355652,
+        "bertscore_recall": 0.6429159641265869,
+        "bertscore_f1": 0.6294569969177246,
+        "bleu_corpus": 0.07541002454824905,
+        "bleu_sentence_avg": 0.06462995922565236,
+        "meteor": 0.32439820709297856,
+        "n": 48
+      },
+      "math": {
+        "rouge1": 0.42342766103216095,
+        "rouge2": 0.16524997895782498,
+        "rougeL": 0.22783400969407558,
+        "bertscore_precision": 0.5850349068641663,
+        "bertscore_recall": 0.6321873664855957,
+        "bertscore_f1": 0.606268584728241,
+        "bleu_corpus": 0.07905384702849204,
+        "bleu_sentence_avg": 0.0702007405981496,
+        "meteor": 0.31387812904239765,
+        "n": 47
+      }
+    },
+    "vs_teacher": {
+      "overall": {
+        "rouge1": 0.5586897415372647,
+        "rouge2": 0.24099949225567807,
+        "rougeL": 0.3105710930506598,
+        "bertscore_precision": 0.6933727264404297,
+        "bertscore_recall": 0.6723100543022156,
+        "bertscore_f1": 0.6825802326202393,
+        "bleu_corpus": 0.12345646305101694,
+        "bleu_sentence_avg": 0.1168217079047973,
+        "meteor": 0.3637195191730665,
+        "n": 150
+      },
+      "cs": {
+        "rouge1": 0.5542881120223593,
+        "rouge2": 0.2432644322360389,
+        "rougeL": 0.3206817107005216,
+        "bertscore_precision": 0.6983755826950073,
+        "bertscore_recall": 0.6760083436965942,
+        "bertscore_f1": 0.6869075298309326,
+        "bleu_corpus": 0.12062779109433205,
+        "bleu_sentence_avg": 0.11466642977897905,
+        "meteor": 0.36747134498716866,
+        "n": 55
+      },
+      "physics": {
+        "rouge1": 0.5556000857606984,
+        "rouge2": 0.23607509357243436,
+        "rougeL": 0.30567178441311604,
+        "bertscore_precision": 0.6982095837593079,
+        "bertscore_recall": 0.6787896156311035,
+        "bertscore_f1": 0.6882507801055908,
+        "bleu_corpus": 0.11990036256268029,
+        "bleu_sentence_avg": 0.11194889613446597,
+        "meteor": 0.36737499104558563,
+        "n": 48
+      },
+      "math": {
+        "rouge1": 0.566995977720137,
+        "rouge2": 0.24337820369984528,
+        "rougeL": 0.3037430684519303,
+        "bertscore_precision": 0.6825786232948303,
+        "bertscore_recall": 0.6613650918006897,
+        "bertscore_f1": 0.6717251539230347,
+        "bleu_corpus": 0.1298539929254242,
+        "bleu_sentence_avg": 0.12432033049832737,
+        "meteor": 0.3555958368399489,
+        "n": 47
+      }
+    }
+  },
+  "teacher": {
+    "summary_stats": {
+      "avg_word_count": 221.89333333333335,
+      "median_word_count": 221.0,
+      "min_word_count": 190,
+      "max_word_count": 254,
+      "total_examples": 150
+    },
+    "vs_abstract": {
+      "overall": {
+        "rouge1": 0.48869611355277187,
+        "rouge2": 0.18606341921639796,
+        "rougeL": 0.25823314887924737,
+        "bertscore_precision": 0.635779619216919,
+        "bertscore_recall": 0.6744406223297119,
+        "bertscore_f1": 0.6536042094230652,
+        "bleu_corpus": 0.07939941566222926,
+        "bleu_sentence_avg": 0.07247078733817124,
+        "meteor": 0.35718991806525224,
+        "n": 150
+      },
+      "cs": {
+        "rouge1": 0.5145258366240287,
+        "rouge2": 0.1945653622377399,
+        "rougeL": 0.2685005647325546,
+        "bertscore_precision": 0.652921736240387,
+        "bertscore_recall": 0.6780744791030884,
+        "bertscore_f1": 0.6646456718444824,
+        "bleu_corpus": 0.08755251745846734,
+        "bleu_sentence_avg": 0.07979809304827647,
+        "meteor": 0.36549368472272853,
+        "n": 55
+      },
+      "physics": {
+        "rouge1": 0.4901013322706589,
+        "rouge2": 0.17492541116301907,
+        "rougeL": 0.24492113303610577,
+        "bertscore_precision": 0.6406819820404053,
+        "bertscore_recall": 0.6729349493980408,
+        "bertscore_f1": 0.6559244990348816,
+        "bleu_corpus": 0.07359860975856326,
+        "bleu_sentence_avg": 0.06731765906453718,
+        "meteor": 0.35181772524199834,
+        "n": 48
+      },
+      "math": {
+        "rouge1": 0.4570347248851607,
+        "rouge2": 0.18748932390551246,
+        "rougeL": 0.2598133379970964,
+        "bertscore_precision": 0.610713005065918,
+        "bertscore_recall": 0.6717259287834167,
+        "bertscore_f1": 0.6383136510848999,
+        "bleu_corpus": 0.07559050873732334,
+        "bleu_sentence_avg": 0.06915904995686585,
+        "meteor": 0.35295923911535837,
+        "n": 47
+      }
+    }
+  }
+}

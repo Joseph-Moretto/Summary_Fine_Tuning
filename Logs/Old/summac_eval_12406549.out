@@ -1,0 +1,59 @@
+========================================
+SLURM Job Information
+========================================
+Job ID: 12406549
+Node:   udc-an38-5
+Python: /scratch/jam5cq/conda/.conda/envs/summac_eval/bin/python
+Fri May  1 02:24:28 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:81:00.0 Off |                  Off |
+| 30%   30C    P8             31W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19959      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+
+
+/scratch/jam5cq/conda/.conda/envs/summac_eval/lib/python3.11/site-packages/transformers/utils/generic.py:441: FutureWarning: `torch.utils._pytree._register_pytree_node` is deprecated. Please use `torch.utils._pytree.register_pytree_node` instead.
+  _torch_pytree._register_pytree_node(
+torch          2.11.0+cu130  CUDA=True
+transformers   4.35.2
+SummaC         OK
+========================================
+
+SummaC evaluation started at Fri May  1 02:24:33 EDT 2026
+python: can't open file '/scratch/jam5cq/Summary_Fine_Tuning/summac_eval.py': [Errno 2] No such file or directory
+Exit code: 2
+
+SummaC evaluation completed at Fri May  1 02:24:33 EDT 2026
+Fri May  1 02:24:33 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:81:00.0 Off |                  Off |
+| 30%   29C    P8             31W /  300W |      20MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19959      G   /usr/libexec/Xorg                         8MiB |
++-----------------------------------------------------------------------------------------+

@@ -1,0 +1,26 @@
+{
+  "train": {
+    "total": 1200,
+    "by_domain": {
+      "math": 380,
+      "cs": 440,
+      "physics": 380
+    }
+  },
+  "validation": {
+    "total": 150,
+    "by_domain": {
+      "math": 47,
+      "physics": 48,
+      "cs": 55
+    }
+  },
+  "test": {
+    "total": 150,
+    "by_domain": {
+      "cs": 55,
+      "physics": 48,
+      "math": 47
+    }
+  }
+}

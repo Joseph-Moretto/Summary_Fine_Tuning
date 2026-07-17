@@ -1,0 +1,301 @@
+========================================
+SLURM Job Information
+========================================
+Job ID: 12228610
+Node: udc-an38-13
+Number of GPUs: 1
+
+Name: trl
+Version: 1.1.0
+Summary: Train transformer language models with reinforcement learning.
+Home-page: https://github.com/huggingface/trl
+Author: 
+Author-email: Leandro von Werra <leandro.vonwerra@gmail.com>
+License-Expression: Apache-2.0
+Location: /scratch/jam5cq/conda/.conda/envs/qlora_summ_ft3/lib/python3.11/site-packages
+Requires: accelerate, datasets, jinja2, packaging, transformers
+Required-by: 
+Sun Apr 26 03:43:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:01:00.0 Off |                  Off |
+| 30%   39C    P8             28W /  300W |      35MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19862      G   /usr/libexec/Xorg                         9MiB |
+|    0   N/A  N/A           20063      G   /usr/bin/gnome-shell                      4MiB |
++-----------------------------------------------------------------------------------------+
+HF_HOME: /scratch/jam5cq/HF_cache
+========================================
+Environment Configuration
+========================================
+Python: /scratch/jam5cq/conda/.conda/envs/qlora_summ_ft3/bin/python
+PyTorch version: 2.11.0+cu130
+CUDA available: True
+GPU memory: 
+Transformers version: 5.5.4
+PEFT version: 0.19.0
+bitsandbytes version: 0.49.2
+========================================
+
+Training started at Sun Apr 26 03:44:01 EDT 2026
+2026-04-26 03:44:22,092 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-26 03:44:22,136 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-26 03:44:22,178 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-26 03:44:22,218 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-26 03:44:23,277 [INFO] HTTP Request: GET https://huggingface.co/api/models/meta-llama/Llama-3.1-8B-Instruct "HTTP/1.1 200 OK"
+2026-04-26 03:44:23,296 [INFO] Loading model: meta-llama/Llama-3.1-8B-Instruct (bf16, no quantization)
+2026-04-26 03:44:23,306 [WARNING] flash-attn not installed; falling back to sdpa attention. Install with: pip install flash-attn --no-build-isolation
+2026-04-26 03:44:23,333 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+`torch_dtype` is deprecated! Use `dtype` instead!
+2026-04-26 03:44:23,388 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+Loading weights:   0%|          | 0/291 [00:00<?, ?it/s]Loading weights:   0%|          | 1/291 [00:00<01:44,  2.78it/s]Loading weights:   1%|          | 2/291 [00:00<01:40,  2.88it/s]Loading weights:   3%|▎         | 10/291 [00:00<00:18, 15.47it/s]Loading weights:   5%|▍         | 14/291 [00:00<00:13, 19.93it/s]Loading weights:   8%|▊         | 23/291 [00:01<00:07, 33.99it/s]Loading weights:  10%|▉         | 28/291 [00:01<00:07, 35.53it/s]Loading weights:  12%|█▏        | 36/291 [00:01<00:06, 40.58it/s]Loading weights:  16%|█▌        | 46/291 [00:01<00:04, 50.89it/s]Loading weights:  19%|█▊        | 54/291 [00:01<00:04, 52.29it/s]Loading weights:  22%|██▏       | 64/291 [00:01<00:04, 55.20it/s]Loading weights:  25%|██▌       | 73/291 [00:01<00:04, 53.84it/s]Loading weights:  28%|██▊       | 82/291 [00:02<00:03, 58.04it/s]Loading weights:  31%|███▏      | 91/291 [00:02<00:03, 62.46it/s]Loading weights:  35%|███▍      | 101/291 [00:02<00:02, 64.95it/s]Loading weights:  38%|███▊      | 110/291 [00:02<00:02, 69.29it/s]Loading weights:  41%|████      | 118/291 [00:02<00:02, 70.13it/s]Loading weights:  43%|████▎     | 126/291 [00:02<00:02, 71.59it/s]Loading weights:  46%|████▌     | 134/291 [00:02<00:02, 67.40it/s]Loading weights:  48%|████▊     | 141/291 [00:02<00:02, 60.94it/s]Loading weights:  51%|█████     | 149/291 [00:03<00:02, 63.49it/s]Loading weights:  54%|█████▍    | 158/291 [00:03<00:02, 62.35it/s]Loading weights:  57%|█████▋    | 167/291 [00:03<00:01, 66.72it/s]Loading weights:  60%|██████    | 176/291 [00:03<00:01, 67.01it/s]Loading weights:  64%|██████▎   | 185/291 [00:03<00:01, 70.69it/s]Loading weights:  66%|██████▋   | 193/291 [00:03<00:01, 68.71it/s]Loading weights:  69%|██████▊   | 200/291 [00:03<00:01, 65.70it/s]Loading weights:  71%|███████   | 207/291 [00:03<00:01, 64.88it/s]Loading weights:  74%|███████▎  | 214/291 [00:04<00:01, 61.39it/s]Loading weights:  76%|███████▋  | 222/291 [00:04<00:01, 62.26it/s]Loading weights:  79%|███████▉  | 230/291 [00:04<00:01, 59.97it/s]Loading weights:  82%|████████▏ | 239/291 [00:04<00:00, 66.92it/s]Loading weights:  85%|████████▍ | 246/291 [00:04<00:00, 65.71it/s]Loading weights:  87%|████████▋ | 253/291 [00:04<00:00, 66.08it/s]Loading weights:  90%|█████████ | 262/291 [00:04<00:00, 72.04it/s]Loading weights:  93%|█████████▎| 270/291 [00:04<00:00, 69.60it/s]Loading weights:  96%|█████████▌| 278/291 [00:05<00:00, 67.58it/s]Loading weights:  98%|█████████▊| 285/291 [00:05<00:00, 67.75it/s]Loading weights: 100%|██████████| 291/291 [00:05<00:00, 56.33it/s]
+2026-04-26 03:44:30,129 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/generation_config.json "HTTP/1.1 200 OK"
+2026-04-26 03:44:30,177 [INFO] Loaded 1500 successful teacher summaries
+2026-04-26 03:44:30,319 [INFO] Created 1500 training examples (0 skipped)
+2026-04-26 03:44:30,319 [INFO] Domain distribution: {'cs': 550, 'math': 474, 'physics': 476}
+2026-04-26 03:44:30,319 [INFO] === First merged example ===
+2026-04-26 03:44:30,319 [INFO]   paper_id: 2604.21931v1
+2026-04-26 03:44:30,319 [INFO]   title: Seeing Fast and Slow: Learning the Flow of Time in Videos
+2026-04-26 03:44:30,319 [INFO]   domain: cs
+2026-04-26 03:44:30,320 [INFO]   categories: ['cs.CV', 'cs.AI', 'cs.GR']
+2026-04-26 03:44:30,320 [INFO]   input_text: Introduction:
+Humans exhibit a strong intuition for the flow of time. Even without explicit cues, we often sense when a video is sped up or slowed down: surface ripples propagating too quickly, objects falling at unnatural rates, or human motion that feels sluggish. This intuition reflects an implic...
+2026-04-26 03:44:30,320 [INFO]   output: This paper addresses the fundamental limitation of current video models in reasoning about temporal speed by developing methods to perceive and manipulate the flow of time in videos. The authors introduce two key self-supervised training signals for learning playback speed without explicit labels: c...
+2026-04-26 03:44:30,410 [INFO] === First formatted example (chat template applied) ===
+2026-04-26 03:44:30,410 [INFO]   paper_id: 2604.21931v1
+2026-04-26 03:44:30,410 [INFO]   domain: cs
+2026-04-26 03:44:30,410 [INFO]   text (first 800 chars):
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+Cutting Knowledge Date: December 2023
+Today Date: 26 Jul 2024
+
+You are an expert scientific paper summarizer. Generate concise, accurate summaries of scientific papers. Write in third person, present tense, using flowing prose without bullet points.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Summarize the following scientific paper in 150-250 words, covering the main contribution, methodology, key results, and significance.
+
+Title: Seeing Fast and Slow: Learning the Flow of Time in Videos
+
+Paper Content:
+Introduction:
+Humans exhibit a strong intuition for the flow of time. Even without explicit cues, we often sense when a video is sped up or slowed down: surface ripples propagating too quickly, objects falling at unnatura
+2026-04-26 03:44:30,410 [INFO]   text (last 400 chars):
+... estimator approaches human-level performance. For temporal super-resolution, the model achieves an 80.3% human-preference win rate over the base model, rising to over 90% on real-world inputs. This work establishes temporal speed as a controllable dimension in video learning, with implications for video forensics, generation, and building world models with richer temporal understanding.<|eot_id|>
+2026-04-26 03:44:30,410 [INFO] Performing stratified split by domain...
+2026-04-26 03:44:30,411 [INFO]   train: 1200 total — {'math': 380, 'cs': 440, 'physics': 380}
+2026-04-26 03:44:30,411 [INFO]   val: 150 total — {'math': 47, 'physics': 48, 'cs': 55}
+2026-04-26 03:44:30,411 [INFO]   test: 150 total — {'cs': 55, 'physics': 48, 'math': 47}
+2026-04-26 03:44:30,508 [INFO] Splits — train: 1200, val: 150, test: 150
+2026-04-26 03:44:30,514 [INFO] Test set metadata saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_8b_bf16/test_paper_ids.json
+2026-04-26 03:44:30,529 [INFO] Split summary saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_8b_bf16/split_summary.json
+warmup_ratio is deprecated and will be removed in v5.2. Use `warmup_steps` instead.
+Adding EOS to train dataset:   0%|          | 0/1200 [00:00<?, ? examples/s]Adding EOS to train dataset: 100%|██████████| 1200/1200 [00:00<00:00, 14531.56 examples/s]
+Tokenizing train dataset:   0%|          | 0/1200 [00:00<?, ? examples/s]Tokenizing train dataset:   1%|▏         | 17/1200 [00:00<00:07, 153.47 examples/s]Tokenizing train dataset:   3%|▎         | 35/1200 [00:00<00:07, 160.82 examples/s]Tokenizing train dataset:   4%|▍         | 52/1200 [00:00<00:07, 160.47 examples/s]Tokenizing train dataset:   6%|▌         | 69/1200 [00:00<00:07, 160.93 examples/s]Tokenizing train dataset:   8%|▊         | 93/1200 [00:00<00:06, 158.93 examples/s]Tokenizing train dataset:   9%|▉         | 110/1200 [00:00<00:06, 159.86 examples/s]Tokenizing train dataset:  11%|█         | 127/1200 [00:00<00:06, 158.93 examples/s]Tokenizing train dataset:  12%|█▏        | 146/1200 [00:00<00:06, 164.67 examples/s]Tokenizing train dataset:  14%|█▎        | 164/1200 [00:01<00:06, 167.16 examples/s]Tokenizing train dataset:  15%|█▌        | 182/1200 [00:01<00:06, 168.97 examples/s]Tokenizing train dataset:  17%|█▋        | 201/1200 [00:01<00:05, 171.12 examples/s]Tokenizing train dataset:  18%|█▊        | 220/1200 [00:01<00:05, 173.33 examples/s]Tokenizing train dataset:  20%|██        | 246/1200 [00:01<00:05, 170.08 examples/s]Tokenizing train dataset:  22%|██▏       | 264/1200 [00:01<00:05, 171.19 examples/s]Tokenizing train dataset:  24%|██▎       | 283/1200 [00:01<00:05, 174.08 examples/s]Tokenizing train dataset:  25%|██▌       | 301/1200 [00:01<00:05, 171.68 examples/s]Tokenizing train dataset:  27%|██▋       | 327/1200 [00:01<00:05, 169.28 examples/s]Tokenizing train dataset:  29%|██▉       | 345/1200 [00:02<00:05, 168.44 examples/s]Tokenizing train dataset:  30%|███       | 363/1200 [00:02<00:04, 169.79 examples/s]Tokenizing train dataset:  32%|███▏      | 388/1200 [00:02<00:04, 166.14 examples/s]Tokenizing train dataset:  34%|███▍      | 407/1200 [00:02<00:04, 168.84 examples/s]Tokenizing train dataset:  35%|███▌      | 424/1200 [00:02<00:04, 166.92 examples/s]Tokenizing train dataset:  37%|███▋      | 443/1200 [00:02<00:04, 169.72 examples/s]Tokenizing train dataset:  38%|███▊      | 461/1200 [00:02<00:04, 168.47 examples/s]Tokenizing train dataset:  40%|███▉      | 479/1200 [00:02<00:04, 167.06 examples/s]Tokenizing train dataset:  41%|████▏     | 497/1200 [00:02<00:04, 168.24 examples/s]Tokenizing train dataset:  43%|████▎     | 515/1200 [00:03<00:04, 168.55 examples/s]Tokenizing train dataset:  44%|████▍     | 533/1200 [00:03<00:03, 167.26 examples/s]Tokenizing train dataset:  46%|████▌     | 551/1200 [00:03<00:03, 168.50 examples/s]Tokenizing train dataset:  48%|████▊     | 570/1200 [00:03<00:03, 170.50 examples/s]Tokenizing train dataset:  50%|████▉     | 597/1200 [00:03<00:03, 170.47 examples/s]Tokenizing train dataset:  51%|█████▏    | 615/1200 [00:03<00:03, 168.91 examples/s]Tokenizing train dataset:  53%|█████▎    | 632/1200 [00:03<00:03, 166.90 examples/s]Tokenizing train dataset:  54%|█████▍    | 649/1200 [00:03<00:03, 165.58 examples/s]Tokenizing train dataset:  56%|█████▌    | 668/1200 [00:03<00:03, 168.74 examples/s]Tokenizing train dataset:  57%|█████▋    | 686/1200 [00:04<00:03, 169.59 examples/s]Tokenizing train dataset:  59%|█████▊    | 704/1200 [00:04<00:02, 171.19 examples/s]Tokenizing train dataset:  60%|██████    | 723/1200 [00:04<00:02, 173.54 examples/s]Tokenizing train dataset:  62%|██████▏   | 743/1200 [00:04<00:02, 177.74 examples/s]Tokenizing train dataset:  64%|██████▎   | 762/1200 [00:04<00:02, 179.08 examples/s]Tokenizing train dataset:  65%|██████▌   | 782/1200 [00:04<00:02, 180.20 examples/s]Tokenizing train dataset:  67%|██████▋   | 808/1200 [00:04<00:02, 174.63 examples/s]Tokenizing train dataset:  69%|██████▉   | 826/1200 [00:04<00:02, 173.87 examples/s]Tokenizing train dataset:  70%|███████   | 844/1200 [00:04<00:02, 171.99 examples/s]Tokenizing train dataset:  72%|███████▏  | 863/1200 [00:05<00:01, 175.53 examples/s]Tokenizing train dataset:  73%|███████▎  | 881/1200 [00:05<00:01, 176.23 examples/s]Tokenizing train dataset:  75%|███████▌  | 900/1200 [00:05<00:01, 175.57 examples/s]Tokenizing train dataset:  77%|███████▋  | 919/1200 [00:05<00:01, 176.84 examples/s]Tokenizing train dataset:  78%|███████▊  | 938/1200 [00:05<00:01, 175.45 examples/s]Tokenizing train dataset:  80%|███████▉  | 957/1200 [00:05<00:01, 176.80 examples/s]Tokenizing train dataset:  81%|████████▏ | 976/1200 [00:05<00:01, 177.54 examples/s]Tokenizing train dataset:  83%|████████▎ | 996/1200 [00:05<00:01, 182.59 examples/s]Tokenizing train dataset:  85%|████████▍ | 1017/1200 [00:06<00:02, 65.75 examples/s]Tokenizing train dataset:  86%|████████▋ | 1035/1200 [00:06<00:02, 79.24 examples/s]Tokenizing train dataset:  88%|████████▊ | 1053/1200 [00:06<00:01, 93.93 examples/s]Tokenizing train dataset:  89%|████████▉ | 1071/1200 [00:06<00:01, 107.52 examples/s]Tokenizing train dataset:  91%|█████████ | 1090/1200 [00:07<00:00, 121.46 examples/s]Tokenizing train dataset:  92%|█████████▎| 1110/1200 [00:07<00:00, 136.15 examples/s]Tokenizing train dataset:  94%|█████████▍| 1130/1200 [00:07<00:00, 148.83 examples/s]Tokenizing train dataset:  96%|█████████▌| 1148/1200 [00:07<00:00, 154.62 examples/s]Tokenizing train dataset:  97%|█████████▋| 1166/1200 [00:07<00:00, 157.02 examples/s]Tokenizing train dataset:  99%|█████████▊| 1184/1200 [00:07<00:00, 159.40 examples/s]Tokenizing train dataset: 100%|██████████| 1200/1200 [00:07<00:00, 155.98 examples/s]
+Adding EOS to eval dataset:   0%|          | 0/150 [00:00<?, ? examples/s]Adding EOS to eval dataset: 100%|██████████| 150/150 [00:00<00:00, 13172.24 examples/s]
+Tokenizing eval dataset:   0%|          | 0/150 [00:00<?, ? examples/s]Tokenizing eval dataset:  11%|█         | 16/150 [00:00<00:00, 153.08 examples/s]Tokenizing eval dataset:  22%|██▏       | 33/150 [00:00<00:00, 159.90 examples/s]Tokenizing eval dataset:  34%|███▍      | 51/150 [00:00<00:00, 164.54 examples/s]Tokenizing eval dataset:  46%|████▌     | 69/150 [00:00<00:00, 166.26 examples/s]Tokenizing eval dataset:  58%|█████▊    | 87/150 [00:00<00:00, 169.71 examples/s]Tokenizing eval dataset:  69%|██████▉   | 104/150 [00:00<00:00, 166.85 examples/s]Tokenizing eval dataset:  81%|████████▏ | 122/150 [00:00<00:00, 169.32 examples/s]Tokenizing eval dataset:  93%|█████████▎| 139/150 [00:00<00:00, 166.95 examples/s]Tokenizing eval dataset: 100%|██████████| 150/150 [00:00<00:00, 150.57 examples/s]
+2026-04-26 03:44:44,647 [WARNING] [RANK 0] Detected kernel version 4.18.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+2026-04-26 03:44:44,669 [INFO] Trainable parameters: 41,943,040 / 8,072,204,288 (0.52%)
+2026-04-26 03:44:44,669 [INFO] Starting training...
+The tokenizer has new PAD/BOS/EOS tokens that differ from the model config and generation config. The model config and generation config were aligned accordingly, being updated with the tokenizer's values. Updated tokens: {'eos_token_id': 128009, 'pad_token_id': 128009}.
+  0%|          | 0/225 [00:00<?, ?it/s]  0%|          | 1/225 [00:50<3:07:31, 50.23s/it]  1%|          | 2/225 [01:44<3:16:01, 52.74s/it]  1%|▏         | 3/225 [02:44<3:26:24, 55.79s/it]  2%|▏         | 4/225 [03:40<3:25:49, 55.88s/it]  2%|▏         | 5/225 [04:37<3:26:31, 56.33s/it]  3%|▎         | 6/225 [05:35<3:28:05, 57.01s/it]  3%|▎         | 7/225 [06:30<3:25:10, 56.47s/it]  4%|▎         | 8/225 [07:28<3:25:07, 56.72s/it]  4%|▍         | 9/225 [08:37<3:38:45, 60.77s/it]  4%|▍         | 10/225 [09:31<3:29:25, 58.44s/it]                                                    4%|▍         | 10/225 [09:31<3:29:25, 58.44s/it]  5%|▍         | 11/225 [10:29<3:28:41, 58.51s/it]  5%|▌         | 12/225 [11:26<3:25:44, 57.96s/it]  6%|▌         | 13/225 [12:34<3:35:42, 61.05s/it]  6%|▌         | 14/225 [13:35<3:34:02, 60.86s/it]  7%|▋         | 15/225 [14:28<3:24:54, 58.55s/it]  7%|▋         | 16/225 [15:20<3:16:54, 56.53s/it]  8%|▊         | 17/225 [16:15<3:15:11, 56.30s/it]  8%|▊         | 18/225 [17:10<3:12:13, 55.72s/it]  8%|▊         | 19/225 [18:07<3:12:24, 56.04s/it]  9%|▉         | 20/225 [19:05<3:13:59, 56.78s/it]                                                    9%|▉         | 20/225 [19:05<3:13:59, 56.78s/it]  9%|▉         | 21/225 [20:00<3:10:57, 56.16s/it] 10%|▉         | 22/225 [20:50<3:04:18, 54.48s/it] 10%|█         | 23/225 [21:42<3:00:55, 53.74s/it] 11%|█         | 24/225 [22:48<3:12:17, 57.40s/it] 11%|█         | 25/225 [23:54<3:19:40, 59.90s/it] 12%|█▏        | 26/225 [24:57<3:21:34, 60.78s/it] 12%|█▏        | 27/225 [25:51<3:14:20, 58.89s/it] 12%|█▏        | 28/225 [26:44<3:06:55, 56.93s/it] 13%|█▎        | 29/225 [27:35<3:00:33, 55.28s/it] 13%|█▎        | 30/225 [28:34<3:03:29, 56.46s/it]                                                   13%|█▎        | 30/225 [28:34<3:03:29, 56.46s/it] 14%|█▍        | 31/225 [29:32<3:03:22, 56.71s/it] 14%|█▍        | 32/225 [30:29<3:02:45, 56.82s/it] 15%|█▍        | 33/225 [31:28<3:04:00, 57.51s/it] 15%|█▌        | 34/225 [32:27<3:04:54, 58.08s/it] 16%|█▌        | 35/225 [33:23<3:01:32, 57.33s/it] 16%|█▌        | 36/225 [34:21<3:01:01, 57.47s/it] 16%|█▋        | 37/225 [35:16<2:58:13, 56.88s/it] 17%|█▋        | 38/225 [36:12<2:55:57, 56.46s/it] 17%|█▋        | 39/225 [37:10<2:57:00, 57.10s/it] 18%|█▊        | 40/225 [38:08<2:56:46, 57.33s/it]                                                   18%|█▊        | 40/225 [38:08<2:56:46, 57.33s/it] 18%|█▊        | 41/225 [39:06<2:56:11, 57.45s/it] 19%|█▊        | 42/225 [40:00<2:51:52, 56.35s/it] 19%|█▉        | 43/225 [41:03<2:57:28, 58.51s/it] 20%|█▉        | 44/225 [42:03<2:57:45, 58.92s/it] 20%|██        | 45/225 [42:53<2:48:42, 56.24s/it] 20%|██        | 46/225 [43:58<2:55:15, 58.75s/it] 21%|██        | 47/225 [44:53<2:51:22, 57.77s/it] 21%|██▏       | 48/225 [45:54<2:53:22, 58.77s/it] 22%|██▏       | 49/225 [46:56<2:55:18, 59.77s/it] 22%|██▏       | 50/225 [47:54<2:52:59, 59.31s/it]                                                   22%|██▏       | 50/225 [47:54<2:52:59, 59.31s/it] 23%|██▎       | 51/225 [49:00<2:57:39, 61.26s/it] 23%|██▎       | 52/225 [49:58<2:53:49, 60.29s/it] 24%|██▎       | 53/225 [50:52<2:47:24, 58.40s/it] 24%|██▍       | 54/225 [51:49<2:45:19, 58.01s/it] 24%|██▍       | 55/225 [52:45<2:42:42, 57.43s/it] 25%|██▍       | 56/225 [53:54<2:50:46, 60.63s/it] 25%|██▌       | 57/225 [54:53<2:48:39, 60.24s/it] 26%|██▌       | 58/225 [55:49<2:44:34, 59.13s/it] 26%|██▌       | 59/225 [56:44<2:40:07, 57.88s/it] 27%|██▋       | 60/225 [57:56<2:50:27, 61.99s/it]                                                   27%|██▋       | 60/225 [57:56<2:50:27, 61.99s/it] 27%|██▋       | 61/225 [58:54<2:46:36, 60.96s/it] 28%|██▊       | 62/225 [59:51<2:41:48, 59.56s/it] 28%|██▊       | 63/225 [1:00:45<2:36:05, 57.81s/it] 28%|██▊       | 64/225 [1:01:46<2:37:44, 58.79s/it] 29%|██▉       | 65/225 [1:02:42<2:34:31, 57.95s/it] 29%|██▉       | 66/225 [1:03:41<2:34:47, 58.41s/it] 30%|██▉       | 67/225 [1:04:38<2:32:29, 57.91s/it] 30%|███       | 68/225 [1:05:29<2:25:58, 55.79s/it] 31%|███       | 69/225 [1:06:27<2:27:15, 56.63s/it] 31%|███       | 70/225 [1:07:22<2:24:31, 55.95s/it]                                                     31%|███       | 70/225 [1:07:22<2:24:31, 55.95s/it] 32%|███▏      | 71/225 [1:08:18<2:24:05, 56.14s/it] 32%|███▏      | 72/225 [1:09:11<2:20:42, 55.18s/it] 32%|███▏      | 73/225 [1:10:11<2:23:33, 56.67s/it] 33%|███▎      | 74/225 [1:11:10<2:24:15, 57.32s/it] 33%|███▎      | 75/225 [1:12:05<2:21:40, 56.67s/it]{'loss': '0.8108', 'grad_norm': '0.3342', 'learning_rate': '0.0002', 'entropy': '2.184', 'num_tokens': '4.242e+05', 'mean_token_accuracy': '0.7527', 'epoch': '0.1333'}
+{'loss': '0.471', 'grad_norm': '0.3058', 'learning_rate': '0.0001985', 'entropy': '2.188', 'num_tokens': '8.534e+05', 'mean_token_accuracy': '0.8628', 'epoch': '0.2667'}
+{'loss': '0.4706', 'grad_norm': '0.1783', 'learning_rate': '0.000195', 'entropy': '2.11', 'num_tokens': '1.278e+06', 'mean_token_accuracy': '0.8632', 'epoch': '0.4'}
+{'loss': '0.4272', 'grad_norm': '0.1863', 'learning_rate': '0.0001896', 'entropy': '2.11', 'num_tokens': '1.706e+06', 'mean_token_accuracy': '0.8733', 'epoch': '0.5333'}
+{'loss': '0.4213', 'grad_norm': '0.2207', 'learning_rate': '0.0001822', 'entropy': '2.061', 'num_tokens': '2.137e+06', 'mean_token_accuracy': '0.8787', 'epoch': '0.6667'}
+{'loss': '0.4367', 'grad_norm': '0.1443', 'learning_rate': '0.0001732', 'entropy': '2.05', 'num_tokens': '2.581e+06', 'mean_token_accuracy': '0.868', 'epoch': '0.8'}
+{'loss': '0.435', 'grad_norm': '0.2044', 'learning_rate': '0.0001627', 'entropy': '2.088', 'num_tokens': '3.009e+06', 'mean_token_accuracy': '0.8674', 'epoch': '0.9333'}
+
+  0%|          | 0/38 [00:00<?, ?it/s][A
+  5%|▌         | 2/38 [00:03<00:55,  1.55s/it][A
+  8%|▊         | 3/38 [00:06<01:14,  2.13s/it][A
+ 11%|█         | 4/38 [00:09<01:32,  2.71s/it][A
+ 13%|█▎        | 5/38 [00:12<01:35,  2.90s/it][A
+ 16%|█▌        | 6/38 [00:16<01:38,  3.06s/it][A
+ 18%|█▊        | 7/38 [00:19<01:39,  3.20s/it][A
+ 21%|██        | 8/38 [00:22<01:34,  3.15s/it][A
+ 24%|██▎       | 9/38 [00:26<01:30,  3.13s/it][A
+ 26%|██▋       | 10/38 [00:29<01:28,  3.16s/it][A
+ 29%|██▉       | 11/38 [00:32<01:27,  3.26s/it][A
+ 32%|███▏      | 12/38 [00:35<01:23,  3.23s/it][A
+ 34%|███▍      | 13/38 [00:38<01:19,  3.19s/it][A
+ 37%|███▋      | 14/38 [00:42<01:18,  3.28s/it][A
+ 39%|███▉      | 15/38 [00:45<01:15,  3.27s/it][A
+ 42%|████▏     | 16/38 [00:48<01:09,  3.18s/it][A
+ 45%|████▍     | 17/38 [00:51<01:06,  3.15s/it][A
+ 47%|████▋     | 18/38 [00:54<01:02,  3.13s/it][A
+ 50%|█████     | 19/38 [00:57<00:59,  3.12s/it][A
+ 53%|█████▎    | 20/38 [01:00<00:54,  3.03s/it][A
+ 55%|█████▌    | 21/38 [01:03<00:50,  2.96s/it][A
+ 58%|█████▊    | 22/38 [01:06<00:49,  3.07s/it][A
+ 61%|██████    | 23/38 [01:09<00:45,  3.01s/it][A
+ 63%|██████▎   | 24/38 [01:13<00:43,  3.10s/it][A
+ 66%|██████▌   | 25/38 [01:16<00:41,  3.16s/it][A
+ 68%|██████▊   | 26/38 [01:19<00:37,  3.15s/it][A
+ 71%|███████   | 27/38 [01:22<00:34,  3.17s/it][A
+ 74%|███████▎  | 28/38 [01:25<00:31,  3.11s/it][A
+ 76%|███████▋  | 29/38 [01:29<00:29,  3.24s/it][A
+ 79%|███████▉  | 30/38 [01:32<00:25,  3.17s/it][A
+ 82%|████████▏ | 31/38 [01:34<00:21,  3.04s/it][A
+ 84%|████████▍ | 32/38 [01:37<00:17,  2.96s/it][A
+ 87%|████████▋ | 33/38 [01:40<00:14,  2.89s/it][A
+ 89%|████████▉ | 34/38 [01:44<00:12,  3.17s/it][A
+ 92%|█████████▏| 35/38 [01:48<00:10,  3.36s/it][A
+ 95%|█████████▍| 36/38 [01:51<00:06,  3.37s/it][A
+ 97%|█████████▋| 37/38 [01:54<00:03,  3.30s/it][A
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A                                                    
+                                               [A 33%|███▎      | 75/225 [1:14:05<2:21:40, 56.67s/it]
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A
+                                               [A 34%|███▍      | 76/225 [1:15:07<3:54:15, 94.33s/it] 34%|███▍      | 77/225 [1:16:00<3:21:34, 81.72s/it] 35%|███▍      | 78/225 [1:16:57<3:02:27, 74.48s/it] 35%|███▌      | 79/225 [1:17:52<2:46:40, 68.49s/it] 36%|███▌      | 80/225 [1:18:55<2:41:52, 66.98s/it]                                                     36%|███▌      | 80/225 [1:18:55<2:41:52, 66.98s/it] 36%|███▌      | 81/225 [1:19:49<2:30:52, 62.86s/it] 36%|███▋      | 82/225 [1:20:45<2:24:58, 60.83s/it] 37%|███▋      | 83/225 [1:21:46<2:24:29, 61.06s/it] 37%|███▋      | 84/225 [1:22:37<2:16:03, 57.90s/it] 38%|███▊      | 85/225 [1:23:33<2:13:59, 57.42s/it] 38%|███▊      | 86/225 [1:24:32<2:13:48, 57.76s/it] 39%|███▊      | 87/225 [1:25:27<2:11:20, 57.10s/it] 39%|███▉      | 88/225 [1:26:26<2:11:46, 57.71s/it] 40%|███▉      | 89/225 [1:27:19<2:07:30, 56.25s/it] 40%|████      | 90/225 [1:28:12<2:04:11, 55.20s/it]                                                     40%|████      | 90/225 [1:28:12<2:04:11, 55.20s/it] 40%|████      | 91/225 [1:29:08<2:04:05, 55.56s/it] 41%|████      | 92/225 [1:30:09<2:06:17, 56.97s/it] 41%|████▏     | 93/225 [1:31:07<2:06:19, 57.42s/it] 42%|████▏     | 94/225 [1:32:06<2:06:14, 57.82s/it] 42%|████▏     | 95/225 [1:33:03<2:05:02, 57.71s/it] 43%|████▎     | 96/225 [1:33:58<2:02:11, 56.83s/it] 43%|████▎     | 97/225 [1:34:56<2:01:53, 57.14s/it] 44%|████▎     | 98/225 [1:35:49<1:58:13, 55.85s/it] 44%|████▍     | 99/225 [1:36:52<2:01:39, 57.93s/it] 44%|████▍     | 100/225 [1:37:54<2:03:41, 59.37s/it]                                                      44%|████▍     | 100/225 [1:37:54<2:03:41, 59.37s/it] 45%|████▍     | 101/225 [1:38:56<2:04:05, 60.04s/it] 45%|████▌     | 102/225 [1:39:52<2:00:37, 58.84s/it] 46%|████▌     | 103/225 [1:40:45<1:56:15, 57.17s/it] 46%|████▌     | 104/225 [1:41:48<1:58:44, 58.88s/it] 47%|████▋     | 105/225 [1:42:48<1:58:18, 59.15s/it] 47%|████▋     | 106/225 [1:43:48<1:58:04, 59.53s/it] 48%|████▊     | 107/225 [1:44:46<1:55:43, 58.84s/it] 48%|████▊     | 108/225 [1:45:50<1:57:53, 60.46s/it] 48%|████▊     | 109/225 [1:46:51<1:57:34, 60.82s/it] 49%|████▉     | 110/225 [1:47:47<1:53:31, 59.23s/it]                                                      49%|████▉     | 110/225 [1:47:47<1:53:31, 59.23s/it] 49%|████▉     | 111/225 [1:48:46<1:52:12, 59.06s/it] 50%|████▉     | 112/225 [1:49:37<1:46:59, 56.81s/it] 50%|█████     | 113/225 [1:50:31<1:44:16, 55.86s/it] 51%|█████     | 114/225 [1:51:24<1:42:05, 55.19s/it] 51%|█████     | 115/225 [1:52:22<1:42:20, 55.82s/it] 52%|█████▏    | 116/225 [1:53:18<1:41:35, 55.92s/it] 52%|█████▏    | 117/225 [1:54:14<1:40:36, 55.90s/it] 52%|█████▏    | 118/225 [1:55:06<1:37:41, 54.78s/it] 53%|█████▎    | 119/225 [1:55:59<1:35:52, 54.27s/it] 53%|█████▎    | 120/225 [1:56:56<1:36:10, 54.96s/it]                                                      53%|█████▎    | 120/225 [1:56:56<1:36:10, 54.96s/it] 54%|█████▍    | 121/225 [1:57:50<1:35:14, 54.95s/it] 54%|█████▍    | 122/225 [1:58:50<1:36:47, 56.39s/it] 55%|█████▍    | 123/225 [1:59:44<1:34:23, 55.52s/it] 55%|█████▌    | 124/225 [2:00:38<1:33:00, 55.26s/it] 56%|█████▌    | 125/225 [2:01:31<1:30:39, 54.39s/it] 56%|█████▌    | 126/225 [2:02:25<1:29:28, 54.23s/it] 56%|█████▋    | 127/225 [2:03:33<1:35:40, 58.57s/it] 57%|█████▋    | 128/225 [2:04:32<1:34:47, 58.64s/it] 57%|█████▋    | 129/225 [2:05:31<1:34:07, 58.83s/it] 58%|█████▊    | 130/225 [2:06:29<1:32:37, 58.50s/it]                                                      58%|█████▊    | 130/225 [2:06:29<1:32:37, 58.50s/it] 58%|█████▊    | 131/225 [2:07:26<1:30:53, 58.02s/it] 59%|█████▊    | 132/225 [2:08:27<1:31:14, 58.87s/it] 59%|█████▉    | 133/225 [2:09:23<1:28:58, 58.02s/it] 60%|█████▉    | 134/225 [2:10:19<1:27:03, 57.40s/it] 60%|██████    | 135/225 [2:11:14<1:24:55, 56.62s/it] 60%|██████    | 136/225 [2:12:16<1:26:29, 58.31s/it] 61%|██████    | 137/225 [2:13:13<1:25:12, 58.10s/it] 61%|██████▏   | 138/225 [2:14:11<1:24:03, 57.97s/it] 62%|██████▏   | 139/225 [2:15:14<1:25:13, 59.46s/it] 62%|██████▏   | 140/225 [2:16:06<1:21:09, 57.29s/it]                                                      62%|██████▏   | 140/225 [2:16:06<1:21:09, 57.29s/it] 63%|██████▎   | 141/225 [2:17:12<1:23:36, 59.72s/it] 63%|██████▎   | 142/225 [2:18:05<1:19:48, 57.70s/it] 64%|██████▎   | 143/225 [2:18:58<1:17:13, 56.50s/it] 64%|██████▍   | 144/225 [2:19:56<1:16:53, 56.96s/it] 64%|██████▍   | 145/225 [2:20:56<1:17:11, 57.89s/it] 65%|██████▍   | 146/225 [2:21:59<1:17:55, 59.18s/it] 65%|██████▌   | 147/225 [2:22:56<1:16:16, 58.67s/it] 66%|██████▌   | 148/225 [2:23:58<1:16:37, 59.71s/it] 66%|██████▌   | 149/225 [2:24:49<1:12:04, 56.90s/it] 67%|██████▋   | 150/225 [2:25:42<1:09:56, 55.95s/it]                                                      67%|██████▋   | 150/225 [2:25:42<1:09:56, 55.95s/it]{'eval_loss': '0.4912', 'eval_runtime': '119.8', 'eval_samples_per_second': '1.252', 'eval_steps_per_second': '0.317', 'eval_entropy': '2.057', 'eval_num_tokens': '3.225e+06', 'eval_mean_token_accuracy': '0.8652', 'epoch': '1'}
+{'loss': '0.4107', 'grad_norm': '0.1454', 'learning_rate': '0.0001508', 'entropy': '2.065', 'num_tokens': '3.443e+06', 'mean_token_accuracy': '0.8752', 'epoch': '1.067'}
+{'loss': '0.3605', 'grad_norm': '0.2773', 'learning_rate': '0.0001379', 'entropy': '1.893', 'num_tokens': '3.863e+06', 'mean_token_accuracy': '0.8887', 'epoch': '1.2'}
+{'loss': '0.3296', 'grad_norm': '0.2328', 'learning_rate': '0.0001243', 'entropy': '1.865', 'num_tokens': '4.293e+06', 'mean_token_accuracy': '0.8945', 'epoch': '1.333'}
+{'loss': '0.3412', 'grad_norm': '0.2897', 'learning_rate': '0.0001101', 'entropy': '1.844', 'num_tokens': '4.733e+06', 'mean_token_accuracy': '0.8885', 'epoch': '1.467'}
+{'loss': '0.3511', 'grad_norm': '0.301', 'learning_rate': '9.568e-05', 'entropy': '1.874', 'num_tokens': '5.152e+06', 'mean_token_accuracy': '0.8908', 'epoch': '1.6'}
+{'loss': '0.3622', 'grad_norm': '0.392', 'learning_rate': '8.138e-05', 'entropy': '1.822', 'num_tokens': '5.579e+06', 'mean_token_accuracy': '0.892', 'epoch': '1.733'}
+{'loss': '0.3595', 'grad_norm': '0.4315', 'learning_rate': '6.746e-05', 'entropy': '1.827', 'num_tokens': '6.014e+06', 'mean_token_accuracy': '0.8848', 'epoch': '1.867'}
+{'loss': '0.363', 'grad_norm': '0.2484', 'learning_rate': '5.422e-05', 'entropy': '1.85', 'num_tokens': '6.449e+06', 'mean_token_accuracy': '0.8862', 'epoch': '2'}
+
+  0%|          | 0/38 [00:00<?, ?it/s][A
+  5%|▌         | 2/38 [00:03<00:55,  1.55s/it][A
+  8%|▊         | 3/38 [00:06<01:14,  2.13s/it][A
+ 11%|█         | 4/38 [00:09<01:32,  2.71s/it][A
+ 13%|█▎        | 5/38 [00:12<01:35,  2.90s/it][A
+ 16%|█▌        | 6/38 [00:16<01:38,  3.06s/it][A
+ 18%|█▊        | 7/38 [00:19<01:39,  3.20s/it][A
+ 21%|██        | 8/38 [00:22<01:34,  3.15s/it][A
+ 24%|██▎       | 9/38 [00:25<01:30,  3.13s/it][A
+ 26%|██▋       | 10/38 [00:29<01:28,  3.16s/it][A
+ 29%|██▉       | 11/38 [00:32<01:27,  3.26s/it][A
+ 32%|███▏      | 12/38 [00:35<01:23,  3.23s/it][A
+ 34%|███▍      | 13/38 [00:38<01:19,  3.19s/it][A
+ 37%|███▋      | 14/38 [00:42<01:18,  3.28s/it][A
+ 39%|███▉      | 15/38 [00:45<01:15,  3.27s/it][A
+ 42%|████▏     | 16/38 [00:48<01:09,  3.18s/it][A
+ 45%|████▍     | 17/38 [00:51<01:06,  3.15s/it][A
+ 47%|████▋     | 18/38 [00:54<01:02,  3.13s/it][A
+ 50%|█████     | 19/38 [00:57<00:59,  3.12s/it][A
+ 53%|█████▎    | 20/38 [01:00<00:54,  3.03s/it][A
+ 55%|█████▌    | 21/38 [01:03<00:50,  2.96s/it][A
+ 58%|█████▊    | 22/38 [01:06<00:49,  3.07s/it][A
+ 61%|██████    | 23/38 [01:09<00:45,  3.01s/it][A
+ 63%|██████▎   | 24/38 [01:13<00:43,  3.10s/it][A
+ 66%|██████▌   | 25/38 [01:16<00:41,  3.16s/it][A
+ 68%|██████▊   | 26/38 [01:19<00:37,  3.15s/it][A
+ 71%|███████   | 27/38 [01:22<00:34,  3.17s/it][A
+ 74%|███████▎  | 28/38 [01:25<00:31,  3.11s/it][A
+ 76%|███████▋  | 29/38 [01:29<00:29,  3.24s/it][A
+ 79%|███████▉  | 30/38 [01:32<00:25,  3.17s/it][A
+ 82%|████████▏ | 31/38 [01:34<00:21,  3.04s/it][A
+ 84%|████████▍ | 32/38 [01:37<00:17,  2.96s/it][A
+ 87%|████████▋ | 33/38 [01:40<00:14,  2.89s/it][A
+ 89%|████████▉ | 34/38 [01:44<00:12,  3.17s/it][A
+ 92%|█████████▏| 35/38 [01:48<00:10,  3.36s/it][A
+ 95%|█████████▍| 36/38 [01:51<00:06,  3.37s/it][A
+ 97%|█████████▋| 37/38 [01:54<00:03,  3.31s/it][A
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A                                                     
+                                               [A 67%|██████▋   | 150/225 [2:27:42<1:09:56, 55.95s/it]
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A
+                                               [A 67%|██████▋   | 151/225 [2:28:36<1:52:38, 91.34s/it] 68%|██████▊   | 152/225 [2:29:34<1:38:58, 81.35s/it] 68%|██████▊   | 153/225 [2:30:39<1:31:32, 76.29s/it] 68%|██████▊   | 154/225 [2:31:29<1:21:07, 68.55s/it] 69%|██████▉   | 155/225 [2:32:25<1:15:28, 64.69s/it] 69%|██████▉   | 156/225 [2:33:20<1:11:05, 61.81s/it] 70%|██████▉   | 157/225 [2:34:15<1:07:35, 59.64s/it] 70%|███████   | 158/225 [2:35:09<1:04:58, 58.19s/it] 71%|███████   | 159/225 [2:36:07<1:03:48, 58.00s/it] 71%|███████   | 160/225 [2:37:07<1:03:22, 58.49s/it]                                                      71%|███████   | 160/225 [2:37:07<1:03:22, 58.49s/it] 72%|███████▏  | 161/225 [2:38:03<1:01:34, 57.73s/it] 72%|███████▏  | 162/225 [2:38:57<59:38, 56.81s/it]   72%|███████▏  | 163/225 [2:39:52<58:07, 56.25s/it] 73%|███████▎  | 164/225 [2:40:54<58:52, 57.91s/it] 73%|███████▎  | 165/225 [2:41:51<57:35, 57.60s/it] 74%|███████▍  | 166/225 [2:42:48<56:37, 57.58s/it] 74%|███████▍  | 167/225 [2:43:42<54:34, 56.45s/it] 75%|███████▍  | 168/225 [2:44:38<53:19, 56.13s/it] 75%|███████▌  | 169/225 [2:45:33<52:06, 55.83s/it] 76%|███████▌  | 170/225 [2:46:25<50:17, 54.87s/it]                                                    76%|███████▌  | 170/225 [2:46:25<50:17, 54.87s/it] 76%|███████▌  | 171/225 [2:47:26<51:04, 56.74s/it] 76%|███████▋  | 172/225 [2:48:22<49:52, 56.45s/it] 77%|███████▋  | 173/225 [2:49:17<48:34, 56.04s/it] 77%|███████▋  | 174/225 [2:50:23<50:08, 58.99s/it] 78%|███████▊  | 175/225 [2:51:21<48:48, 58.56s/it] 78%|███████▊  | 176/225 [2:52:19<47:41, 58.40s/it] 79%|███████▊  | 177/225 [2:53:15<46:07, 57.65s/it] 79%|███████▉  | 178/225 [2:54:07<43:50, 55.97s/it] 80%|███████▉  | 179/225 [2:55:09<44:17, 57.78s/it] 80%|████████  | 180/225 [2:56:00<41:58, 55.97s/it]                                                    80%|████████  | 180/225 [2:56:00<41:58, 55.97s/it] 80%|████████  | 181/225 [2:56:57<41:03, 56.00s/it] 81%|████████  | 182/225 [2:57:55<40:46, 56.88s/it] 81%|████████▏ | 183/225 [2:58:53<39:51, 56.93s/it] 82%|████████▏ | 184/225 [2:59:47<38:20, 56.11s/it] 82%|████████▏ | 185/225 [3:00:40<36:51, 55.28s/it] 83%|████████▎ | 186/225 [3:01:41<37:03, 57.00s/it] 83%|████████▎ | 187/225 [3:02:42<36:54, 58.28s/it] 84%|████████▎ | 188/225 [3:03:39<35:36, 57.75s/it] 84%|████████▍ | 189/225 [3:04:44<35:54, 59.86s/it] 84%|████████▍ | 190/225 [3:05:48<35:44, 61.28s/it]                                                    84%|████████▍ | 190/225 [3:05:48<35:44, 61.28s/it] 85%|████████▍ | 191/225 [3:06:48<34:24, 60.71s/it] 85%|████████▌ | 192/225 [3:07:44<32:39, 59.36s/it] 86%|████████▌ | 193/225 [3:08:41<31:17, 58.67s/it] 86%|████████▌ | 194/225 [3:09:35<29:38, 57.38s/it] 87%|████████▋ | 195/225 [3:10:30<28:15, 56.53s/it] 87%|████████▋ | 196/225 [3:11:29<27:45, 57.44s/it] 88%|████████▊ | 197/225 [3:12:30<27:13, 58.33s/it] 88%|████████▊ | 198/225 [3:13:21<25:20, 56.32s/it] 88%|████████▊ | 199/225 [3:14:20<24:38, 56.87s/it] 89%|████████▉ | 200/225 [3:15:19<23:59, 57.57s/it]                                                    89%|████████▉ | 200/225 [3:15:19<23:59, 57.57s/it] 89%|████████▉ | 201/225 [3:16:17<23:06, 57.77s/it] 90%|████████▉ | 202/225 [3:17:11<21:41, 56.57s/it] 90%|█████████ | 203/225 [3:18:09<20:56, 57.13s/it] 91%|█████████ | 204/225 [3:19:01<19:27, 55.57s/it] 91%|█████████ | 205/225 [3:20:03<19:06, 57.31s/it] 92%|█████████▏| 206/225 [3:20:57<17:52, 56.43s/it] 92%|█████████▏| 207/225 [3:21:54<17:01, 56.75s/it] 92%|█████████▏| 208/225 [3:22:48<15:48, 55.81s/it] 93%|█████████▎| 209/225 [3:23:48<15:13, 57.09s/it] 93%|█████████▎| 210/225 [3:24:45<14:16, 57.11s/it]                                                    93%|█████████▎| 210/225 [3:24:45<14:16, 57.11s/it] 94%|█████████▍| 211/225 [3:25:42<13:16, 56.87s/it] 94%|█████████▍| 212/225 [3:26:36<12:11, 56.26s/it] 95%|█████████▍| 213/225 [3:27:37<11:31, 57.67s/it] 95%|█████████▌| 214/225 [3:28:29<10:15, 55.91s/it] 96%|█████████▌| 215/225 [3:29:26<09:20, 56.09s/it] 96%|█████████▌| 216/225 [3:30:22<08:24, 56.09s/it] 96%|█████████▋| 217/225 [3:31:15<07:20, 55.11s/it] 97%|█████████▋| 218/225 [3:32:02<06:10, 52.95s/it] 97%|█████████▋| 219/225 [3:32:58<05:22, 53.74s/it] 98%|█████████▊| 220/225 [3:34:00<04:40, 56.18s/it]                                                    98%|█████████▊| 220/225 [3:34:00<04:40, 56.18s/it] 98%|█████████▊| 221/225 [3:35:02<03:52, 58.08s/it] 99%|█████████▊| 222/225 [3:36:06<02:59, 59.86s/it] 99%|█████████▉| 223/225 [3:37:14<02:04, 62.17s/it]100%|█████████▉| 224/225 [3:38:06<00:59, 59.07s/it]100%|██████████| 225/225 [3:39:17<00:00, 62.83s/it]{'eval_loss': '0.4936', 'eval_runtime': '119.8', 'eval_samples_per_second': '1.252', 'eval_steps_per_second': '0.317', 'eval_entropy': '1.847', 'eval_num_tokens': '6.449e+06', 'eval_mean_token_accuracy': '0.8661', 'epoch': '2'}
+{'loss': '0.2905', 'grad_norm': '0.3898', 'learning_rate': '4.192e-05', 'entropy': '1.761', 'num_tokens': '6.882e+06', 'mean_token_accuracy': '0.9079', 'epoch': '2.133'}
+{'loss': '0.2752', 'grad_norm': '0.468', 'learning_rate': '3.083e-05', 'entropy': '1.641', 'num_tokens': '7.308e+06', 'mean_token_accuracy': '0.9108', 'epoch': '2.267'}
+{'loss': '0.2563', 'grad_norm': '0.4199', 'learning_rate': '2.118e-05', 'entropy': '1.697', 'num_tokens': '7.738e+06', 'mean_token_accuracy': '0.9177', 'epoch': '2.4'}
+{'loss': '0.2503', 'grad_norm': '0.2904', 'learning_rate': '1.316e-05', 'entropy': '1.661', 'num_tokens': '8.174e+06', 'mean_token_accuracy': '0.9195', 'epoch': '2.533'}
+{'loss': '0.2299', 'grad_norm': '0.2941', 'learning_rate': '6.938e-06', 'entropy': '1.649', 'num_tokens': '8.595e+06', 'mean_token_accuracy': '0.9251', 'epoch': '2.667'}
+{'loss': '0.2709', 'grad_norm': '0.4085', 'learning_rate': '2.646e-06', 'entropy': '1.637', 'num_tokens': '9.027e+06', 'mean_token_accuracy': '0.9111', 'epoch': '2.8'}
+{'loss': '0.2654', 'grad_norm': '0.3317', 'learning_rate': '3.736e-07', 'entropy': '1.644', 'num_tokens': '9.449e+06', 'mean_token_accuracy': '0.9136', 'epoch': '2.933'}
+
+  0%|          | 0/38 [00:00<?, ?it/s][A
+  5%|▌         | 2/38 [00:03<00:55,  1.55s/it][A
+  8%|▊         | 3/38 [00:06<01:14,  2.13s/it][A
+ 11%|█         | 4/38 [00:09<01:32,  2.71s/it][A
+ 13%|█▎        | 5/38 [00:12<01:35,  2.90s/it][A
+ 16%|█▌        | 6/38 [00:16<01:38,  3.07s/it][A
+ 18%|█▊        | 7/38 [00:19<01:39,  3.20s/it][A
+ 21%|██        | 8/38 [00:22<01:34,  3.15s/it][A
+ 24%|██▎       | 9/38 [00:26<01:30,  3.14s/it][A
+ 26%|██▋       | 10/38 [00:29<01:28,  3.16s/it][A
+ 29%|██▉       | 11/38 [00:32<01:27,  3.26s/it][A
+ 32%|███▏      | 12/38 [00:35<01:23,  3.23s/it][A
+ 34%|███▍      | 13/38 [00:38<01:19,  3.19s/it][A
+ 37%|███▋      | 14/38 [00:42<01:18,  3.28s/it][A
+ 39%|███▉      | 15/38 [00:45<01:15,  3.27s/it][A
+ 42%|████▏     | 16/38 [00:48<01:09,  3.18s/it][A
+ 45%|████▍     | 17/38 [00:51<01:06,  3.16s/it][A
+ 47%|████▋     | 18/38 [00:54<01:02,  3.13s/it][A
+ 50%|█████     | 19/38 [00:57<00:59,  3.12s/it][A
+ 53%|█████▎    | 20/38 [01:00<00:54,  3.03s/it][A
+ 55%|█████▌    | 21/38 [01:03<00:50,  2.96s/it][A
+ 58%|█████▊    | 22/38 [01:06<00:49,  3.07s/it][A
+ 61%|██████    | 23/38 [01:09<00:45,  3.01s/it][A
+ 63%|██████▎   | 24/38 [01:13<00:43,  3.10s/it][A
+ 66%|██████▌   | 25/38 [01:16<00:41,  3.16s/it][A
+ 68%|██████▊   | 26/38 [01:19<00:37,  3.14s/it][A
+ 71%|███████   | 27/38 [01:22<00:34,  3.16s/it][A
+ 74%|███████▎  | 28/38 [01:25<00:31,  3.11s/it][A
+ 76%|███████▋  | 29/38 [01:29<00:29,  3.23s/it][A
+ 79%|███████▉  | 30/38 [01:32<00:25,  3.17s/it][A
+ 82%|████████▏ | 31/38 [01:34<00:21,  3.04s/it][A
+ 84%|████████▍ | 32/38 [01:37<00:17,  2.96s/it][A
+ 87%|████████▋ | 33/38 [01:40<00:14,  2.89s/it][A
+ 89%|████████▉ | 34/38 [01:44<00:12,  3.17s/it][A
+ 92%|█████████▏| 35/38 [01:48<00:10,  3.35s/it][A
+ 95%|█████████▍| 36/38 [01:51<00:06,  3.37s/it][A
+ 97%|█████████▋| 37/38 [01:54<00:03,  3.30s/it][A
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A                                                   
+                                               [A100%|██████████| 225/225 [3:41:17<00:00, 62.83s/it]
+100%|██████████| 38/38 [01:56<00:00,  2.80s/it][A
+                                               [A                                                   100%|██████████| 225/225 [3:41:17<00:00, 62.83s/it]100%|██████████| 225/225 [3:41:17<00:00, 59.01s/it]
+{'eval_loss': '0.5286', 'eval_runtime': '119.8', 'eval_samples_per_second': '1.252', 'eval_steps_per_second': '0.317', 'eval_entropy': '1.649', 'eval_num_tokens': '9.674e+06', 'eval_mean_token_accuracy': '0.8638', 'epoch': '3'}
+{'train_runtime': '1.328e+04', 'train_samples_per_second': '0.271', 'train_steps_per_second': '0.017', 'train_loss': '0.3692', 'epoch': '3'}
+2026-04-26 07:26:02,903 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-26 07:26:02,933 [INFO] HTTP Request: HEAD https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct/resolve/main/config.json "HTTP/1.1 200 OK"
+2026-04-26 07:26:03,490 [INFO] Adapter saved to /scratch/jam5cq/Summary_Fine_Tuning/Output_8b_bf16/adapter
+***** train metrics *****
+  total_flos               = 473785665GF
+  train_loss               =      0.3692
+  train_runtime            =  3:41:17.78
+  train_samples_per_second =       0.271
+  train_steps_per_second   =       0.017
+2026-04-26 07:26:03,515 [INFO] Running final validation evaluation...
+  0%|          | 0/38 [00:00<?, ?it/s]  5%|▌         | 2/38 [00:03<00:55,  1.55s/it]  8%|▊         | 3/38 [00:06<01:14,  2.13s/it] 11%|█         | 4/38 [00:09<01:32,  2.71s/it] 13%|█▎        | 5/38 [00:12<01:35,  2.90s/it] 16%|█▌        | 6/38 [00:16<01:37,  3.06s/it] 18%|█▊        | 7/38 [00:19<01:39,  3.20s/it] 21%|██        | 8/38 [00:22<01:34,  3.14s/it] 24%|██▎       | 9/38 [00:25<01:30,  3.13s/it] 26%|██▋       | 10/38 [00:29<01:28,  3.15s/it] 29%|██▉       | 11/38 [00:32<01:27,  3.26s/it] 32%|███▏      | 12/38 [00:35<01:23,  3.23s/it] 34%|███▍      | 13/38 [00:38<01:19,  3.19s/it] 37%|███▋      | 14/38 [00:42<01:18,  3.28s/it] 39%|███▉      | 15/38 [00:45<01:15,  3.28s/it] 42%|████▏     | 16/38 [00:48<01:09,  3.18s/it] 45%|████▍     | 17/38 [00:51<01:06,  3.16s/it] 47%|████▋     | 18/38 [00:54<01:02,  3.13s/it] 50%|█████     | 19/38 [00:57<00:59,  3.12s/it] 53%|█████▎    | 20/38 [01:00<00:54,  3.03s/it] 55%|█████▌    | 21/38 [01:03<00:50,  2.96s/it] 58%|█████▊    | 22/38 [01:06<00:49,  3.07s/it] 61%|██████    | 23/38 [01:09<00:45,  3.00s/it] 63%|██████▎   | 24/38 [01:13<00:43,  3.10s/it] 66%|██████▌   | 25/38 [01:16<00:41,  3.16s/it] 68%|██████▊   | 26/38 [01:19<00:37,  3.14s/it] 71%|███████   | 27/38 [01:22<00:34,  3.16s/it] 74%|███████▎  | 28/38 [01:25<00:31,  3.10s/it] 76%|███████▋  | 29/38 [01:29<00:29,  3.23s/it] 79%|███████▉  | 30/38 [01:32<00:25,  3.17s/it] 82%|████████▏ | 31/38 [01:34<00:21,  3.04s/it] 84%|████████▍ | 32/38 [01:37<00:17,  2.96s/it] 87%|████████▋ | 33/38 [01:40<00:14,  2.89s/it] 89%|████████▉ | 34/38 [01:44<00:12,  3.17s/it] 92%|█████████▏| 35/38 [01:47<00:10,  3.35s/it] 95%|█████████▍| 36/38 [01:51<00:06,  3.37s/it] 97%|█████████▋| 37/38 [01:54<00:03,  3.30s/it]100%|██████████| 38/38 [01:56<00:00,  2.80s/it]100%|██████████| 38/38 [01:56<00:00,  3.06s/it]
+***** eval metrics *****
+  eval_loss               =     0.5286
+  eval_runtime            = 0:01:59.76
+  eval_samples_per_second =      1.252
+  eval_steps_per_second   =      0.317
+2026-04-26 07:28:03,298 [INFO] Training complete!
+Training completed at Sun Apr 26 07:28:04 EDT 2026
+Exit code: 0
+Sun Apr 26 07:28:04 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.95.05              Driver Version: 580.95.05      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               Off |   00000000:01:00.0 Off |                  Off |
+| 45%   68C    P2            173W /  300W |      35MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A           19862      G   /usr/libexec/Xorg                         9MiB |
+|    0   N/A  N/A           20063      G   /usr/bin/gnome-shell                      4MiB |
++-----------------------------------------------------------------------------------------+

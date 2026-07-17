@@ -1,0 +1,602 @@
+[
+  {
+    "paper_id": "2604.21541v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21277v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20800v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.15550v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21375v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.17463v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20484v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21200v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20969v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20257v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17236v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17606v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17723v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20939v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21052v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.18650v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.16573v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20682v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21291v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21761v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20745v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20791v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21211v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20007v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21841v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21207v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21632v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20463v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21335v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.14918v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.17156v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21264v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21529v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21143v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21832v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19733v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21301v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21198v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.16876v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17146v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20963v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19165v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19938v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21416v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.19433v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.17703v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20777v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21465v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21076v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21028v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21921v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21435v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21865v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20744v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20107v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20284v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.14398v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21896v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.13176v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.17218v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21515v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.16633v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.12198v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.17825v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21776v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21084v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.17471v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18824v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21821v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19575v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19630v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20807v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20750v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17901v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19308v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21573v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.14772v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.18481v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21693v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21120v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.18472v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21673v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.16065v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.16228v2",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20900v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19050v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20949v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20810v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21674v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21235v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.12094v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19700v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20972v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.13649v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.18127v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19484v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.16924v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19184v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18136v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21412v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.16150v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21310v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20422v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17922v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21261v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21389v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18155v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21054v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19020v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.19944v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20633v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.12699v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.20589v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21428v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.19138v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.18931v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18099v2",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.17918v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20009v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20746v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21528v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.16874v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21649v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21363v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21265v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.20036v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21510v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21868v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.13890v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19101v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21611v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21053v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.21177v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21491v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.15801v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.18826v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18074v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21362v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.17549v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.18755v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21003v1",
+    "domain": "cs"
+  },
+  {
+    "paper_id": "2604.12008v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.21708v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.18342v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.18571v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21558v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.20044v2",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21588v1",
+    "domain": "math"
+  },
+  {
+    "paper_id": "2604.21441v1",
+    "domain": "physics"
+  },
+  {
+    "paper_id": "2604.19875v1",
+    "domain": "physics"
+  }
+]
