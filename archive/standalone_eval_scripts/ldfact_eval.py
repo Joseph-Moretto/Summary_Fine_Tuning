@@ -3,7 +3,7 @@
 LongDocFACTScore evaluation for scientific paper summarization.
 
 Uses retrieval-based factual consistency scoring that handles documents
-of any length — unlike SummaC/AlignScore/QuestEval which truncate to 512 tokens.
+of any length - unlike SummaC/AlignScore/QuestEval which truncate to 512 tokens.
 
 How it works:
   1. Splits each summary into sentences (claims)
@@ -232,19 +232,19 @@ def main():
         all_results[label] = model_results
 
         log.info(f"  Overall: {model_results['overall']['mean']:.4f} "
-                 f"(±{model_results['overall']['std']:.4f}, "
+                 f"(+-{model_results['overall']['std']:.4f}, "
                  f"n={model_results['overall']['n']})")
         for domain in ["cs", "physics", "math"]:
             if domain in model_results:
                 log.info(f"  {domain:>8}: {model_results[domain]['mean']:.4f} "
-                         f"(±{model_results[domain]['std']:.4f}, "
+                         f"(+-{model_results[domain]['std']:.4f}, "
                          f"n={model_results[domain]['n']})")
 
     # Print comparison table
     labels = list(all_results.keys())
     if labels:
         print(f"\n{'='*80}")
-        print(f"  LONGDOCFACTSCORE — FACTUAL CONSISTENCY (retrieval-based)")
+        print(f"  LONGDOCFACTSCORE - FACTUAL CONSISTENCY (retrieval-based)")
         print(f"  (Higher = more factually consistent with full source document)")
         print(f"{'='*80}")
 
@@ -252,7 +252,7 @@ def main():
         for label in labels:
             header += f" {label:>18}"
         print(header)
-        print(f"  {'─'*76}")
+        print(f"  {'-'*76}")
 
         for scope in ["overall", "cs", "physics", "math"]:
             row = f"  {scope:<12}"
@@ -261,7 +261,7 @@ def main():
                     val = all_results[label][scope]["mean"]
                     row += f" {val:>18.4f}"
                 else:
-                    row += f" {'—':>18}"
+                    row += f" {'-':>18}"
             print(row)
 
     # Significance test

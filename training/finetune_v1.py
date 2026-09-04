@@ -109,7 +109,7 @@ class DataCollatorForCompletionOnlyLM:
                 # Mask everything before the response
                 labels[i, :response_start] = self.ignore_index
             else:
-                # Template not found — mask entire sequence to avoid bad gradients
+                # Template not found: mask the whole sequence so it adds no loss
                 labels[i, :] = self.ignore_index
 
         batch["labels"] = labels
@@ -236,12 +236,10 @@ def load_and_merge_data(
                 "paper_id": pid,
                 "title": paper.get("title", "Untitled"),
                 "input_text": input_text,
-                # str.lstrip removes a *set* of characters, not a prefix. Besides
-                # the intended "## Summary" header (9 of 1,500 teacher summaries)
-                # this also clips leading S/u/m/a/r/y letters from 8 summaries
-                # that start with e.g. "SPAC" or "StructMem". Left unchanged so
-                # the released adapters can be reproduced exactly; the
-                # evaluation scripts use a prefix check (strip_teacher_prefix).
+                # NB: lstrip strips a character set, not a prefix, so besides the
+                # "## Summary" header this clips leading S/u/m/a/r/y letters from
+                # the 8 summaries that start with e.g. "SPAC". Kept as trained;
+                # the evaluation scripts use strip_teacher_prefix() instead.
                 "output": summaries[pid].lstrip("## Summary\n").strip(),
                 "reference_summary": paper.get("reference_summary", ""),
                 "categories": categories,
@@ -316,8 +314,8 @@ def stratified_split(
             if n_test + n_val >= n:
                 # Fewer than 3 examples: put all in train, skip test/val
                 logger.warning(
-                    f"Domain '{domain}' has only {n} examples — "
-                    f"assigning all to train (too few to split)"
+                    f"Domain '{domain}' has only {n} examples; "
+                    f"assigning all of them to train (too few to split)"
                 )
                 train_all.extend(domain_examples)
                 continue
@@ -334,7 +332,7 @@ def stratified_split(
     # Log per-domain split sizes
     for split_name, split_data in [("train", train_all), ("val", val_all), ("test", test_all)]:
         counts = Counter(ex["domain"] for ex in split_data)
-        logger.info(f"  {split_name}: {len(split_data)} total — {dict(counts)}")
+        logger.info(f"  {split_name}: {len(split_data)} total, {dict(counts)}")
 
     return train_all, val_all, test_all
 
@@ -416,9 +414,9 @@ def build_datasets(
     })
 
     logger.info(
-        f"Splits — train: {len(dataset_dict['train'])}, "
-        f"val: {len(dataset_dict['validation'])}, "
-        f"test: {len(dataset_dict['test'])}"
+        f"Split sizes: train {len(dataset_dict['train'])}, "
+        f"val {len(dataset_dict['validation'])}, "
+        f"test {len(dataset_dict['test'])}"
     )
     return dataset_dict
 
@@ -664,7 +662,7 @@ def train(
         checkpoints = sorted(output_path.glob("checkpoint-*"))
         if not checkpoints:
             logger.warning(
-                "No checkpoints found in %s — starting from scratch", output_path
+                "No checkpoints found in %s, starting from scratch", output_path
             )
             actual_checkpoint = False
         else:

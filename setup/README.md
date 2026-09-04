@@ -65,14 +65,12 @@ pip install longdocfactscore sentence-transformers
 python -c "import nltk; [nltk.download(r) for r in ('punkt', 'punkt_tab', 'wordnet', 'omw-1.4')]"
 ```
 
-Two details matter:
-
-- `bert-score` is installed with `--no-deps` because its spaCy dependency
-  failed to build on the cluster and is not needed for scoring. Its actual
-  runtime dependencies (`packaging`, `filelock`, `requests`, `tqdm`, plus
-  `transformers` and `torch`) are installed separately.
-- `longdocfactscore` (https://github.com/jbshp/LongDocFACTScore) downloads
-  its scoring and retrieval models from the Hugging Face Hub on first use.
+`bert-score` is installed with `--no-deps` because its spaCy dependency
+failed to build on the cluster and is not needed for scoring; its actual
+runtime dependencies (`packaging`, `filelock`, `requests`, `tqdm`, plus
+`transformers` and `torch`) are installed separately. `longdocfactscore`
+(https://github.com/jbshp/LongDocFACTScore) downloads its scoring and
+retrieval models from the Hugging Face Hub on first use.
 
 The NLTK downloads provide the tokenizer for METEOR/BLEU and the WordNet data
 METEOR uses for synonym matching. `evaluate.py` fetches them automatically if

@@ -196,7 +196,7 @@ script if either changes.
 
 Writes one CSV row per (system, paper) with `system, scale, paper_id, domain,
 extractive_density, summary_length_words, longdocfactscore`. Density is
-computed exactly as in `evaluate.py`; LongDocFACTScore is scored per summary
+computed the same way as in `evaluate.py`; LongDocFACTScore is scored per summary
 with the same batch-then-fallback strategy. Run once per scale with
 `--generations` pointing at that run's `eval_generations.json` and `--scale
 8B` or `70B`; the teacher is included in every run's output. `--rename

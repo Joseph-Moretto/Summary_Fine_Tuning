@@ -168,7 +168,7 @@ def generate(model, tokenizer, title, input_text, max_new_tokens=512,
 
     messages = build_messages(title, input_text)
 
-    # Get the prompt string — chat template already includes BOS token
+    # Get the prompt string; the chat template already includes the BOS token
     prompt = tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
@@ -207,15 +207,15 @@ def wrap_print(text, width=80, prefix="  "):
         print(f"{prefix}{line}")
 
 
-def print_divider(char="─", width=80):
+def print_divider(char="-", width=80):
     print(char * width)
 
 
 def print_header(text, width=80):
     print()
-    print("═" * width)
+    print("=" * width)
     print(f"  {text}")
-    print("═" * width)
+    print("=" * width)
 
 
 # ---------------------------------------------------------------------------
@@ -333,14 +333,14 @@ class InteractiveSession:
         # Exact match first
         if paper_id in self.examples:
             self.selected = self.examples[paper_id]
-            print(f"  Selected: {paper_id} — {self.selected['title'][:70]}")
+            print(f"  Selected: {paper_id}  {self.selected['title'][:70]}")
             return self.selected
 
         # Partial match
         matches = [pid for pid in self.examples if paper_id in pid]
         if len(matches) == 1:
             self.selected = self.examples[matches[0]]
-            print(f"  Selected: {matches[0]} — {self.selected['title'][:70]}")
+            print(f"  Selected: {matches[0]}  {self.selected['title'][:70]}")
             return self.selected
         elif len(matches) > 1:
             print(f"  Ambiguous ID '{paper_id}'. Matches:")
@@ -392,7 +392,7 @@ class InteractiveSession:
             print("  No paper selected. Use 'paper <id>' first.")
             return
         if not self.adapter_path:
-            print("  No adapter loaded — cannot compare.")
+            print("  No adapter loaded; nothing to compare.")
             return
 
         gen_kwargs = dict(
@@ -430,27 +430,27 @@ class InteractiveSession:
         # Display
         print_header(f"COMPARISON: {paper['paper_id']}")
 
-        print(f"\n  FINE-TUNED (adapter ON) — {len(summary_ft.split())} words, {n_tok_ft} prompt tokens:")
-        print_divider("─")
+        print(f"\n  FINE-TUNED (adapter ON): {len(summary_ft.split())} words, {n_tok_ft} prompt tokens")
+        print_divider()
         wrap_print(summary_ft)
-        print_divider("─")
+        print_divider()
 
-        print(f"\n  BASE MODEL (adapter OFF) — {len(summary_base.split())} words, {n_tok_base} prompt tokens:")
-        print_divider("─")
+        print(f"\n  BASE MODEL (adapter OFF): {len(summary_base.split())} words, {n_tok_base} prompt tokens")
+        print_divider()
         wrap_print(summary_base)
-        print_divider("─")
+        print_divider()
 
         if paper.get("abstract"):
-            print(f"\n  REFERENCE ABSTRACT — {len(paper['abstract'].split())} words:")
-            print_divider("─")
+            print(f"\n  REFERENCE ABSTRACT: {len(paper['abstract'].split())} words")
+            print_divider()
             wrap_print(paper["abstract"])
-            print_divider("─")
+            print_divider()
 
         if paper.get("teacher_summary"):
-            print(f"\n  TEACHER (Claude Opus) — {len(paper['teacher_summary'].split())} words:")
-            print_divider("─")
+            print(f"\n  TEACHER (Claude Opus): {len(paper['teacher_summary'].split())} words")
+            print_divider()
             wrap_print(paper["teacher_summary"])
-            print_divider("─")
+            print_divider()
         print()
 
     def cmd_prompt(self):
@@ -472,7 +472,7 @@ class InteractiveSession:
         if self.base_tokenizer and self.adapter_path:
             base_prompt = build_prompt(self.base_tokenizer, paper["title"], paper["input_text"])
             if base_prompt != prompt:
-                print_header("FULL PROMPT (base tokenizer) — DIFFERENT!")
+                print_header("FULL PROMPT (base tokenizer), differs from the adapter tokenizer")
                 print(base_prompt[:2000])
                 if len(base_prompt) > 2000:
                     print(f"\n  ... [{len(base_prompt) - 2000} chars truncated] ...")
@@ -502,7 +502,7 @@ class InteractiveSession:
         old_token_ids = self.tokenizer.encode(prompt_str)
 
         if len(old_token_ids) != len(token_ids):
-            print(f"\n  Note: default encoding would add a second BOS token:")
+            print(f"\n  Default encoding would add a second BOS token:")
             print(f"    encode(add_special_tokens=False): {len(token_ids)} tokens  (used)")
             print(f"    encode(add_special_tokens=True):  {len(old_token_ids)} tokens")
             print(f"    Difference: {len(old_token_ids) - len(token_ids)} extra token(s)")
@@ -514,19 +514,19 @@ class InteractiveSession:
         show_n = 30
         for i, tid in enumerate(token_ids[:show_n]):
             decoded = self.tokenizer.decode([tid])
-            print(f"  [{i:>5}] {tid:>8}  →  {repr(decoded)}")
+            print(f"  [{i:>5}] {tid:>8}   {repr(decoded)}")
         if len(token_ids) > show_n * 2:
             print(f"\n  ... ({len(token_ids) - show_n * 2} tokens omitted) ...\n")
         for i, tid in enumerate(token_ids[-show_n:]):
             idx = len(token_ids) - show_n + i
             decoded = self.tokenizer.decode([tid])
-            print(f"  [{idx:>5}] {tid:>8}  →  {repr(decoded)}")
+            print(f"  [{idx:>5}] {tid:>8}   {repr(decoded)}")
 
         print(f"\n  Total prompt tokens: {len(token_ids)}")
         print(f"  Last 5 tokens (generation starts after these):")
         for tid in token_ids[-5:]:
             decoded = self.tokenizer.decode([tid])
-            print(f"    {tid:>8}  →  {repr(decoded)}")
+            print(f"    {tid:>8}   {repr(decoded)}")
         print()
 
     def cmd_template(self):
@@ -542,24 +542,24 @@ class InteractiveSession:
     def cmd_template_diff(self):
         """Compare adapter vs base tokenizer templates."""
         if not self.adapter_path:
-            print("  No adapter loaded — nothing to compare.")
+            print("  No adapter loaded; nothing to compare.")
             return
 
         adapter_template = getattr(self.tokenizer, "chat_template", "")
         base_template = getattr(self.base_tokenizer, "chat_template", "")
 
         if adapter_template == base_template:
-            print("\n  ✓ Chat templates are IDENTICAL between adapter and base tokenizer.\n")
+            print("\n  Chat templates are identical for the adapter and base tokenizers.\n")
         else:
             print_header("TEMPLATE DIFFERENCE DETECTED")
             print("\n  ADAPTER TOKENIZER TEMPLATE:")
-            print_divider("─")
+            print_divider()
             print(adapter_template or "  (none)")
-            print_divider("─")
+            print_divider()
             print("\n  BASE TOKENIZER TEMPLATE:")
-            print_divider("─")
+            print_divider()
             print(base_template or "  (none)")
-            print_divider("─")
+            print_divider()
             print()
 
         # Also compare special tokens
@@ -567,7 +567,7 @@ class InteractiveSession:
         for attr in ["bos_token", "eos_token", "pad_token", "unk_token"]:
             a_val = getattr(self.tokenizer, attr, None)
             b_val = getattr(self.base_tokenizer, attr, None)
-            match = "✓" if a_val == b_val else "✗ MISMATCH"
+            match = "ok" if a_val == b_val else "MISMATCH"
             print(f"    {attr:<15} adapter={repr(a_val):<20} base={repr(b_val):<20} {match}")
         print()
 

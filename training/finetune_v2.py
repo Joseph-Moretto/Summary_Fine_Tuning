@@ -103,7 +103,7 @@ class DataCollatorForCompletionOnlyLM:
         batch = self.tokenizer.pad(examples, return_tensors="pt")
         labels = batch["input_ids"].clone()
 
-        # Mask pad tokens in labels using attention_mask — this correctly
+        # Mask pad tokens in labels using attention_mask; this correctly
         # distinguishes padding from legitimate EOS tokens (which share
         # the same token ID when pad_token = eos_token)
         if "attention_mask" in batch:
@@ -127,12 +127,12 @@ class DataCollatorForCompletionOnlyLM:
                 labels[i, :response_start] = self.ignore_index
                 self.template_found += 1
             else:
-                # Template not found — mask entire sequence to avoid bad gradients
+                # Template not found: mask the whole sequence so it adds no loss
                 labels[i, :] = self.ignore_index
                 self.template_missing += 1
                 if not self._logged_warning:
                     logger.warning(
-                        "Response template not found in example — entire sequence masked. "
+                        "Response template not found in example; entire sequence masked. "
                         "This example contributes nothing to training. "
                         f"Template token IDs: {self.response_token_ids}"
                     )
@@ -436,12 +436,10 @@ def load_and_merge_data(
                 continue
 
             title = paper.get("title", "Untitled")
-            # str.lstrip removes a *set* of characters, not a prefix. Besides the
-            # intended "## Summary" header (9 of 1,500 teacher summaries) this also
-            # clips leading S/u/m/a/r/y letters from 8 summaries that start with
-            # e.g. "SPAC" or "StructMem". Left unchanged so the released adapters
-            # can be reproduced exactly; the evaluation scripts use a prefix check
-            # (strip_teacher_prefix).
+            # NB: lstrip strips a character set, not a prefix, so besides the
+            # "## Summary" header this clips leading S/u/m/a/r/y letters from the
+            # 8 summaries that start with e.g. "SPAC". Kept as trained; the
+            # evaluation scripts use strip_teacher_prefix() instead.
             summary = summaries[pid].lstrip("## Summary\n").strip()
             categories = paper.get("categories", [])
             domain = classify_domain(categories)
@@ -482,8 +480,8 @@ def load_and_merge_data(
         min_budget = min(token_budgets)
         max_budget = max(token_budgets)
         logger.info(
-            f"Paper token budgets — avg: {avg_budget:.0f}, "
-            f"min: {min_budget}, max: {max_budget}"
+            f"Paper token budgets: avg {avg_budget:.0f}, "
+            f"min {min_budget}, max {max_budget}"
         )
 
     # Log domain distribution
@@ -549,8 +547,8 @@ def stratified_split(
             n_val = max(1, n // 3)
             if n_test + n_val >= n:
                 logger.warning(
-                    f"Domain '{domain}' has only {n} examples — "
-                    f"assigning all to train (too few to split)"
+                    f"Domain '{domain}' has only {n} examples; "
+                    f"assigning all of them to train (too few to split)"
                 )
                 train_all.extend(domain_examples)
                 continue
@@ -565,7 +563,7 @@ def stratified_split(
 
     for split_name, split_data in [("train", train_all), ("val", val_all), ("test", test_all)]:
         counts = Counter(ex["domain"] for ex in split_data)
-        logger.info(f"  {split_name}: {len(split_data)} total — {dict(counts)}")
+        logger.info(f"  {split_name}: {len(split_data)} total, {dict(counts)}")
 
     return train_all, val_all, test_all
 
@@ -602,7 +600,7 @@ def build_datasets(
             too_long += 1
             logger.warning(
                 f"Example {ex['paper_id']} still exceeds max_seq_length "
-                f"({len(token_ids)} > {max_seq_length}) after smart truncation — skipping"
+                f"({len(token_ids)} > {max_seq_length}) after smart truncation, skipping"
             )
             continue
 
@@ -621,9 +619,9 @@ def build_datasets(
     if token_lengths:
         avg_len = sum(token_lengths) / len(token_lengths)
         logger.info(
-            f"Token lengths — avg: {avg_len:.0f}, "
-            f"min: {min(token_lengths)}, max: {max(token_lengths)}, "
-            f"median: {sorted(token_lengths)[len(token_lengths)//2]}"
+            f"Token lengths: avg {avg_len:.0f}, "
+            f"min {min(token_lengths)}, max {max(token_lengths)}, "
+            f"median {sorted(token_lengths)[len(token_lengths)//2]}"
         )
 
     # Filter examples to only those that passed
@@ -659,9 +657,9 @@ def build_datasets(
     })
 
     logger.info(
-        f"Splits — train: {len(dataset_dict['train'])}, "
-        f"val: {len(dataset_dict['validation'])}, "
-        f"test: {len(dataset_dict['test'])}"
+        f"Split sizes: train {len(dataset_dict['train'])}, "
+        f"val {len(dataset_dict['validation'])}, "
+        f"test {len(dataset_dict['test'])}"
     )
     return dataset_dict
 
@@ -928,7 +926,7 @@ def train(
         checkpoints = sorted(output_path.glob("checkpoint-*"))
         if not checkpoints:
             logger.warning(
-                "No checkpoints found in %s — starting from scratch", output_path
+                "No checkpoints found in %s, starting from scratch", output_path
             )
             actual_checkpoint = False
         else:
@@ -1103,7 +1101,7 @@ def generate_summary(
     input_text = tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
-    # apply_chat_template already includes BOS — don't add it again
+    # apply_chat_template already includes BOS; do not add it again
     inputs = tokenizer(
         input_text, return_tensors="pt", add_special_tokens=False
     ).to(model.device)

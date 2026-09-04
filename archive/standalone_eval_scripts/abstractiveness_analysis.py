@@ -106,7 +106,7 @@ def novel_ngram_pct(summary_tokens, source_tokens, n):
 # ---------------------------------------------------------------------------
 def extractive_fragments(summary_tokens, source_tokens):
     """
-    Find greedy extractive fragments — longest common substrings between
+    Find greedy extractive fragments - longest common substrings between
     summary and source, greedily extracted.
 
     Returns list of fragment lengths.
@@ -331,7 +331,7 @@ def main():
     for label in labels:
         header += f" {label:>16}"
     print(header)
-    print(f"  {'─'*84}")
+    print(f"  {'-'*84}")
 
     for metric_key, display_name, higher_better in key_metrics:
         row = f"  {display_name:<24}"
@@ -360,7 +360,7 @@ def main():
                     else:
                         row += f" {val:>16.2f}"
                 else:
-                    row += f" {'—':>16}"
+                    row += f" {'-':>16}"
             print(row)
 
     # Statistical significance for novel n-grams
@@ -380,7 +380,7 @@ def main():
         from scipy import stats
 
         print(f"  {'Metric':<24} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p-value':>10} {'Sig':>6}")
-        print(f"  {'─'*70}")
+        print(f"  {'-'*70}")
 
         for metric_key, display_name, higher_better in key_metrics[:8]:
             ft_vals = np.array([ft_per[pid][metric_key] for pid in common])

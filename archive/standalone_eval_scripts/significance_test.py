@@ -250,12 +250,12 @@ def main():
         all_ft = {**ft_rouge, **ft_bert, **ft_bleu, **ft_meteor}
         all_base = {**base_rouge, **base_bert, **base_bleu, **base_meteor}
 
-        # Run significance tests — OVERALL
-        print(f"\n  {'─'*78}")
+        # Run significance tests - OVERALL
+        print(f"\n  {'-'*78}")
         print(f"  OVERALL (n={len(common_ids)})")
-        print(f"  {'─'*78}")
+        print(f"  {'-'*78}")
         print(f"  {'Metric':<22} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p(boot)':>9} {'p(wilcox)':>10} {'Cohen d':>9} {'Sig?':>6}")
-        print(f"  {'─'*78}")
+        print(f"  {'-'*78}")
 
         for metric in ["rouge1", "rouge2", "rougeL", "bertscore_f1",
                         "bleu_sentence", "meteor"]:
@@ -275,11 +275,11 @@ def main():
             if not domain_mask:
                 continue
 
-            print(f"\n  {'─'*78}")
+            print(f"\n  {'-'*78}")
             print(f"  {domain.upper()} (n={len(domain_mask)})")
-            print(f"  {'─'*78}")
+            print(f"  {'-'*78}")
             print(f"  {'Metric':<22} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p(boot)':>9} {'p(wilcox)':>10} {'Cohen d':>9} {'Sig?':>6}")
-            print(f"  {'─'*78}")
+            print(f"  {'-'*78}")
 
             for metric in ["rouge1", "rouge2", "rougeL", "bertscore_f1",
                             "bleu_sentence", "meteor"]:

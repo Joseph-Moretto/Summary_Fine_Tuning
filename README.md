@@ -45,7 +45,7 @@ Each directory has its own README with the details.
 
 Training and evaluation use separate conda environments (Python 3.11,
 PyTorch 2.11.0 with CUDA 13.0 wheels); `setup/README.md` explains why and
-lists the exact versions of the reported runs.
+lists the package versions of the reported runs.
 
 ```bash
 # Training environment
@@ -124,7 +124,7 @@ top-p 0.9, repetition penalty 1.1, up to 512 new tokens) with a fixed seed.
 The evaluation prompt is the same for the base and the fine-tuned models. Its
 wording differs slightly from the training prompt, and papers are cut to the
 token budget from the front only. `evaluation/evaluate_train_aligned.py` is a
-later variant that reuses the exact training prompt and the head-and-tail
+later variant that reuses the training prompt and the head-and-tail
 truncation from `finetune_v2.py`; it is provided for follow-up work and was
 not used for the numbers reported in the paper.
 
@@ -152,15 +152,15 @@ negative and higher is better.
 | Llama 3.3 70B, base | 0.4594 | 0.1712 | 0.2356 | 0.6228 | 0.3106 | 0.6826 | -3.761 | 198.4 |
 | Llama 3.3 70B, fine-tuned | 0.4692 | 0.1671 | 0.2400 | 0.6455 | 0.4315 | 0.7599 | -4.391 | 217.4 |
 
-Fine-tuning moves both students toward the teacher on every metric against
-the teacher summaries (all differences significant at p < 0.001 with large
-effect sizes) and, against the abstracts, improves ROUGE-1 and BERTScore F1
-significantly at both scales. The base models are markedly more extractive
-(extractive density 5.2 and 4.1 versus 2.5-2.7 for the fine-tuned models and
-the teacher), which is the context for their higher LongDocFACTScore.
-`results/README.md` has the complete tables: all metrics, per-domain
-breakdowns, significance tests, abstractiveness measures and word counts for
-both runs.
+Against the teacher summaries, fine-tuning improves every metric at both
+scales (p < 0.001, Cohen's d above 1.2 throughout). Against the abstracts,
+ROUGE-1 and BERTScore F1 improve significantly at both scales; the other
+metrics move little. The base models copy far more from the source
+(extractive density 5.2 and 4.1, against 2.5 to 2.7 for the fine-tuned
+models and the teacher), which should be kept in mind when reading their
+higher LongDocFACTScore. `results/README.md` has the complete tables: all
+metrics, per-domain breakdowns, significance tests, abstractiveness
+measures and word counts for both runs.
 
 ## Reproducibility notes
 

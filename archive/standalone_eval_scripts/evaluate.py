@@ -277,7 +277,7 @@ def generate_summary(model, tokenizer, title: str, input_text: str) -> str:
         {"role": "user", "content": f"{INSTRUCTION}\n\nTitle: {title}\n\nPaper Content:\n{input_text}"},
     ]
 
-    # Get prompt string — chat template already includes BOS token
+    # Get prompt string - chat template already includes BOS token
     prompt = tokenizer.apply_chat_template(
         messages, tokenize=False, add_generation_prompt=True
     )
@@ -453,7 +453,7 @@ def _get_summac_model():
         from summac.model_summac import SummaCZS
     except ImportError:
         log.warning(
-            "SummaC not installed — skipping. "
+            "SummaC not installed - skipping. "
             "Install via: pip install summac"
         )
         return None
@@ -474,7 +474,7 @@ def compute_summac(
     sources: list[str],
 ) -> Optional[dict]:
     """
-    SummaC — NLI-based factual consistency (source document vs. summary).
+    SummaC - NLI-based factual consistency (source document vs. summary).
     Splits each summary into sentences and checks entailment against the source.
     Note: SummaC's NLI model has a 512-token window, so only the first ~512
     tokens of each source document are used for consistency checking.
@@ -571,7 +571,7 @@ def evaluate_model_summaries(
     ]:
         # Skip evaluating teacher summaries against themselves (perfect scores)
         if label == "teacher" and ref_key == "vs_teacher":
-            log.info(f"  [{label}] vs {ref_display} — SKIPPED (self-reference)")
+            log.info(f"  [{label}] vs {ref_display} - SKIPPED (self-reference)")
             continue
 
         log.info(f"  [{label}] vs {ref_display}")
@@ -654,7 +654,7 @@ def format_metrics_table(results: dict, comparisons: list[str]) -> str:
                     if val is not None:
                         row += f" {val:>20.4f}"
                     else:
-                        row += f" {'—':>20}"
+                        row += f" {'-':>20}"
                 lines.append(row)
 
             row_n = f"  {'n':<25}"
@@ -663,7 +663,7 @@ def format_metrics_table(results: dict, comparisons: list[str]) -> str:
                     results.get(comp, {})
                     .get(ref_label, {})
                     .get(scope, {})
-                    .get("n", "—")
+                    .get("n", "-")
                 )
                 row_n += f" {str(n):>20}"
             lines.append(row_n)
@@ -692,7 +692,7 @@ def format_metrics_table(results: dict, comparisons: list[str]) -> str:
                 else:
                     row += f" {val:>20}"
             else:
-                row += f" {'—':>20}"
+                row += f" {'-':>20}"
         lines.append(row)
 
     return "\n".join(lines)
@@ -869,7 +869,7 @@ def main():
     for desc, a, b in pairs:
         va, vb = get_metric(a), get_metric(b)
         if va is not None and vb is not None:
-            print(f"  {desc}: {va:.4f} vs {vb:.4f} (Δ = {va - vb:+.4f})")
+            print(f"  {desc}: {va:.4f} vs {vb:.4f} (diff = {va - vb:+.4f})")
         else:
             status = f"{a}={va}" if va else f"{b}={vb}" if vb else "neither available"
             print(f"  {desc}: incomplete ({status})")

@@ -2,7 +2,7 @@
 
 Fine-tuning of Llama 3 on the teacher summaries. Two versions of the script
 are kept because the two reported runs used different ones; the job scripts
-reproduce those runs exactly.
+reproduce those runs.
 
 | File | Purpose |
 |---|---|
@@ -17,7 +17,7 @@ reported runs is preserved under `results/<run>/train/`.
 
 ## What a run does
 
-1. **Load and join the data.** `data/summaries.jsonl` is read first and only
+1. Load and join the data. `data/summaries.jsonl` is read first and only
    records with `success: true` and a non-empty summary are kept. Each paper in
    `data/dataset.jsonl` is joined on `paper_id`; papers without a summary or
    with fewer than 200 characters of text are skipped (none were, in either
@@ -27,7 +27,7 @@ reported runs is preserved under `results/<run>/train/`.
    `cond-mat`, `gr-qc`, `hep`, `nucl`, `nlin`. The first category with a known
    prefix wins.
 
-2. **Build the prompt.** Every example becomes a three-turn chat rendered with
+2. Build the prompt. Every example becomes a three-turn chat rendered with
    the model's own chat template:
 
    ```
@@ -44,17 +44,17 @@ reported runs is preserved under `results/<run>/train/`.
    assistant: <teacher summary>
    ```
 
-3. **Fit the paper into the context window.** This is where the two versions
-   differ, see below.
+3. Fit the paper into the context window. This is where the two versions
+   differ; see the next section.
 
-4. **Split.** Papers are shuffled per domain with seed 42 and each domain
+4. Split. Papers are shuffled per domain with seed 42 and each domain
    contributes 10% to test and 10% to validation (rounded, at least one each),
    the rest to train. The three splits are then shuffled again. With the
    released data this gives 1,200 / 150 / 150 and an identical test set in
    both runs. The test papers and their domains are written to
    `test_paper_ids.json`, which the evaluation scripts consume.
 
-5. **Train** with TRL's `SFTTrainer` and a LoRA config passed as
+5. Train with TRL's `SFTTrainer` and a LoRA config passed as
    `peft_config`. A custom collator masks every label up to and including the
    assistant header (`<|start_header_id|>assistant<|end_header_id|>\n\n`), so
    the loss covers only the summary tokens. If the header is not found in a
@@ -63,7 +63,7 @@ reported runs is preserved under `results/<run>/train/`.
    `use_cache` is off, packing is off, the schedule is cosine with linear
    warmup, and the validation loss is computed once per epoch.
 
-6. **Save.** The adapter goes to `<output>/adapter/` together with the
+6. Save. The adapter goes to `<output>/adapter/` together with the
    tokenizer, and trainer metrics to `train_results.json`,
    `eval_results.json`, `all_results.json` and `trainer_state.json`.
    `--merge_and_save` additionally merges the adapter into the base model in
@@ -73,13 +73,13 @@ reported runs is preserved under `results/<run>/train/`.
 
 Both runs used a maximum sequence length of 8,192 tokens.
 
-**`finetune_v1.py`** cuts `input_text` at `--max_input_chars` characters
+`finetune_v1.py` cuts `input_text` at `--max_input_chars` characters
 (default 12,000, about 3,000 tokens) and appends `[Truncated]`. After the chat
 template is applied, examples whose token count still exceeds
 `--max_seq_length` are dropped. With the 12,000-character cut no example was
 dropped in the 8B run.
 
-**`finetune_v2.py`** keeps much more of each paper. For every example it
+`finetune_v2.py` keeps much more of each paper. For every example it
 renders the full chat with an empty paper body, counts those tokens, and
 gives the paper `max_seq_length - overhead - 50` tokens (never fewer than
 256). Papers that fit are left alone. Papers that do not are cut to
@@ -159,18 +159,18 @@ sequences.
 
 ## Caveats
 
-- **Teacher header stripping.** Both scripts remove the `## Summary` header
+- Teacher header stripping. Both scripts remove the `## Summary` header
   with `str.lstrip("## Summary\n")`, which strips a set of characters rather
   than a prefix. For 8 of the 1,500 summaries that begin with an S, u, m, a,
   r or y (for example `SPAC ...`, `StructMem ...`) the first letters of the
   training target were clipped. The line is left as it was, with a comment,
   so that the released adapters can be reproduced; the evaluation scripts use
   a proper prefix check.
-- **Attention implementation.** The scripts request `flash_attention_2` and
+- Attention implementation. The scripts request `flash_attention_2` and
   fall back to SDPA when `flash-attn` is not importable, which was the case
   for both runs.
-- **TRL version.** The code targets TRL 1.1 (`SFTConfig(max_length=...)`,
+- TRL version. The code targets TRL 1.1 (`SFTConfig(max_length=...)`,
   `processing_class=`); the completion-only collator replaces
   `DataCollatorForCompletionOnlyLM`, which TRL removed.
-- **Checkpoint layout.** `--resume_from_checkpoint` looks for
+- Checkpoint layout. `--resume_from_checkpoint` looks for
   `checkpoint-*` directories in `--output` and starts fresh if none exist.

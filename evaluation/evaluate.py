@@ -393,7 +393,7 @@ def evaluate_model_summaries(examples, summaries, label):
                   ("vs_teacher", "teacher_summary", "teacher summaries")]
     for ref_key, ref_field, ref_desc in references:
         if label == "teacher" and ref_key == "vs_teacher":
-            log.info(f"  [{label}] vs {ref_desc} — SKIPPED (self-reference)")
+            log.info(f"  [{label}] vs {ref_desc}: skipped (self-reference)")
             continue
         log.info(f"  [{label}] vs {ref_desc}")
         ref_results = {}
@@ -442,11 +442,11 @@ def format_metrics_table(results, systems):
                 row = f"  {metric:<25}"
                 for system in systems:
                     value = results.get(system, {}).get(ref_key, {}).get(scope, {}).get(metric)
-                    row += f" {value:>20.4f}" if value is not None else f" {'—':>20}"
+                    row += f" {value:>20.4f}" if value is not None else f" {'-':>20}"
                 lines.append(row)
             row = f"  {'n':<25}"
             for system in systems:
-                n = results.get(system, {}).get(ref_key, {}).get(scope, {}).get("n", "—")
+                n = results.get(system, {}).get(ref_key, {}).get(scope, {}).get("n", "-")
                 row += f" {str(n):>20}"
             lines.append(row)
 
@@ -460,7 +460,7 @@ def format_metrics_table(results, systems):
         row = f"  {stat:<25}"
         for system in systems:
             value = results.get(system, {}).get("summary_stats", {}).get(stat)
-            row += f" {value:>20.1f}" if isinstance(value, float) else f" {value:>20}" if value is not None else f" {'—':>20}"
+            row += f" {value:>20.1f}" if isinstance(value, float) else f" {value:>20}" if value is not None else f" {'-':>20}"
         lines.append(row)
     return "\n".join(lines)
 
@@ -589,8 +589,8 @@ def run_full_significance(generations, examples, output_dir):
         for scope_label, scope_idx in scopes:
             if not scope_idx:
                 continue
-            out.write(f"\n  {'─'*78}\n  {scope_label} (n={len(scope_idx)})\n  {'─'*78}\n")
-            out.write(f"  {'Metric':<22} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p(boot)':>9} {'p(wilcox)':>10} {'Cohen d':>9} {'Sig?':>6}\n  {'─'*78}\n")
+            out.write(f"\n  {'-'*78}\n  {scope_label} (n={len(scope_idx)})\n  {'-'*78}\n")
+            out.write(f"  {'Metric':<22} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p(boot)':>9} {'p(wilcox)':>10} {'Cohen d':>9} {'Sig?':>6}\n  {'-'*78}\n")
             for metric in ["rouge1", "rouge2", "rougeL", "bertscore_f1", "bleu_sentence", "meteor"]:
                 if metric not in ft_metrics:
                     continue
@@ -630,7 +630,7 @@ def run_ldfact_eval(generations, examples, output_dir, device="cuda"):
     try:
         from longdocfactscore.ldfacts import LongDocFACTScore
     except ImportError:
-        log.warning("longdocfactscore not installed — skipping. pip install longdocfactscore")
+        log.warning("longdocfactscore not installed, skipping (pip install longdocfactscore)")
         return
 
     examples_by_id = {e["paper_id"]: e for e in examples}
@@ -695,12 +695,12 @@ def run_ldfact_eval(generations, examples, output_dir, device="cuda"):
         header = f"  {'Scope':<12}"
         for label in labels:
             header += f" {label:>18}"
-        print(header + "\n  " + "─"*76)
+        print(header + "\n  " + "-"*76)
         for scope in ["overall"] + DOMAINS:
             row = f"  {scope:<12}"
             for label in labels:
                 row += (f" {all_results[label][scope]['mean']:>18.4f}"
-                        if scope in all_results.get(label, {}) else f" {'—':>18}")
+                        if scope in all_results.get(label, {}) else f" {'-':>18}")
             print(row)
 
     to_save = {label: {k: v for k, v in res.items() if k != "per_example"}
@@ -803,7 +803,7 @@ def run_abstractiveness_analysis(generations, examples, output_dir):
     header = f"  {'Metric':<24}"
     for label in labels:
         header += f" {label:>16}"
-    print(header + "\n  " + "─"*84)
+    print(header + "\n  " + "-"*84)
     for metric, name in key_metrics:
         row = f"  {name:<24}"
         for label in labels:
@@ -817,8 +817,8 @@ def run_abstractiveness_analysis(generations, examples, output_dir):
         ft_per, base_per = all_results[ft_key]["per_example"], all_results[base_key]["per_example"]
         common = sorted(set(ft_per) & set(base_per))
         if len(common) >= 10:
-            print(f"\n  {'─'*84}\n  SIGNIFICANCE ({ft_key} vs {base_key}, n={len(common)})\n  {'─'*84}")
-            print(f"  {'Metric':<24} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p-value':>10} {'Sig':>6}\n  {'─'*84}")
+            print(f"\n  {'-'*84}\n  SIGNIFICANCE ({ft_key} vs {base_key}, n={len(common)})\n  {'-'*84}")
+            print(f"  {'Metric':<24} {'FT Mean':>9} {'Base Mean':>10} {'Diff':>8} {'p-value':>10} {'Sig':>6}\n  {'-'*84}")
             for metric, name in key_metrics:
                 ft_vals = np.array([ft_per[p][metric] for p in common])
                 base_vals = np.array([base_per[p][metric] for p in common])

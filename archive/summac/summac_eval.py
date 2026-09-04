@@ -182,12 +182,12 @@ def main():
 
         # Print summary
         log.info(f"  Overall: {model_results['overall']['mean']:.4f} "
-                 f"(±{model_results['overall']['std']:.4f}, "
+                 f"(+-{model_results['overall']['std']:.4f}, "
                  f"n={model_results['overall']['n']})")
         for domain in ["cs", "physics", "math"]:
             if domain in model_results:
                 log.info(f"  {domain:>8}: {model_results[domain]['mean']:.4f} "
-                         f"(±{model_results[domain]['std']:.4f}, "
+                         f"(+-{model_results[domain]['std']:.4f}, "
                          f"n={model_results[domain]['n']})")
 
     # Print comparison table
@@ -199,7 +199,7 @@ def main():
     for label in labels:
         header += f" {label:>18}"
     print(header)
-    print(f"  {'─'*76}")
+    print(f"  {'-'*76}")
 
     for scope in ["overall", "cs", "physics", "math"]:
         row = f"  {scope:<12}"
@@ -208,7 +208,7 @@ def main():
                 val = all_results[label][scope]["mean"]
                 row += f" {val:>18.4f}"
             else:
-                row += f" {'—':>18}"
+                row += f" {'-':>18}"
         print(row)
 
     # Save results
