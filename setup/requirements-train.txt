@@ -1,0 +1,18 @@
+# Training environment (conda env "qlora_summ_ft3" in the SLURM scripts).
+# Versions are the ones recorded in the training logs. The 8B run used
+# transformers 5.5.4 / peft 0.19.0; the 70B run used 5.6.2 / 0.19.1.
+#
+# Install torch first, from the CUDA 13.0 wheel index used on the cluster:
+#   pip install torch==2.11.0 --index-url https://download.pytorch.org/whl/cu130
+torch==2.11.0
+transformers==5.6.2
+peft==0.19.1
+trl==1.1.0
+bitsandbytes==0.49.2
+datasets==4.8.4
+tokenizers==0.22.2
+accelerate
+
+# Optional. flash-attn was not installed for the reported runs; the training
+# script detects this and falls back to PyTorch SDPA attention.
+# flash-attn

@@ -1,0 +1,18 @@
+# Evaluation environment (conda env "summ_eval" in the SLURM scripts).
+# See setup_eval_env.slurm for the install order and the reasons behind it
+# (bert-score is installed with --no-deps to avoid a spaCy build failure).
+# Pinned versions are the ones printed at the top of the evaluation logs;
+# the rest were installed unpinned.
+torch==2.11.0
+transformers==5.6.2
+peft==0.19.1
+bitsandbytes==0.49.2
+accelerate
+numpy
+scipy
+pandas
+nltk
+rouge-score
+bert-score
+sentence-transformers
+longdocfactscore
