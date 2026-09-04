@@ -77,7 +77,12 @@ Both runs used the same data files and seed and produced byte-identical
 | `ldfact_results.json` | LongDocFACTScore mean / std / n per system, overall and per domain |
 | `abstractiveness_results.json` | novel 1-4-gram rates, extractive coverage and density, type-token ratio and length per system |
 
-`evaluation/README.md` describes how each number is computed.
+`evaluation/README.md` describes how each number is computed. Re-scoring
+the reference metrics from `eval_generations.json` needs only the abstracts
+and teacher summaries, which the public data has for every paper. Inference,
+LongDocFACTScore and the abstractiveness measures need the paper text, which
+`data/dataset.jsonl` carries only for papers whose license permits
+redistribution; see `data/README.md` for rebuilding the full file.
 
 ## Results: Llama 3.1 8B Instruct, bf16 LoRA
 

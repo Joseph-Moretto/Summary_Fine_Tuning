@@ -14,6 +14,10 @@ plus the per-summary analysis and an interactive inspection tool.
 
 All scripts read the data files from `data/` by default and resolve paths
 relative to the repository root, so they run from any working directory.
+Inference, LongDocFACTScore and the abstractiveness measures read the paper
+text, which the public `data/dataset.jsonl` holds only for papers whose
+license permits redistribution (`data/README.md`); the reference metrics
+need only abstracts and teacher summaries and work on the public file as is.
 
 ## evaluate.py
 

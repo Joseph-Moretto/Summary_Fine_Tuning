@@ -164,16 +164,80 @@ measures and word counts for both runs.
 
 ## Reproducibility notes
 
-- The split is deterministic given the data files and seed 42; both runs
-  produced byte-identical `test_paper_ids.json`.
-- The adapter weight files exceed GitHub's 100 MB file limit and are not in
-  the repository; `adapter_config.json`, the tokenizer configuration and every
-  training log and metric are. The adapters can be retrained with the job
-  scripts in `training/`.
-- The scripts that built `data/` (arXiv extraction and teacher summary
-  generation) are not part of this repository.
-- `bert-score` is imported with a small patch that truncates inputs to
-  DeBERTa's 512-token limit; see `_patch_bertscore_overflow` in `evaluate.py`.
+Compute. All jobs ran on RTX A6000 48 GB GPUs. The six jobs behind the
+reported numbers used about 64 GPU-hours:
+
+| Job | GPUs | Wall time | GPU-hours |
+|---|---|---|---|
+| 8B training | 1 | 3 h 45 min | 3.7 |
+| 8B inference (both models) | 1 | 1 h 32 min | 1.5 |
+| 8B re-scoring | 1 | 7 min | 0.1 |
+| 70B training | 2 | 24 h 08 min | 48.3 |
+| 70B inference and scoring | 2 | 5 h 05 min | 10.2 |
+| Per-summary extraction | 1 | 8 min | 0.1 |
+
+Superseded and failed runs (the first 70B attempt, a 70B run that hit its
+24-hour limit, and earlier evaluations, see `archive/`) took roughly another
+90 GPU-hours.
+
+Hyperparameters. No hyperparameter search was run. Each model was trained
+once with a configuration fixed in advance from common LoRA and QLoRA
+practice. The 70B configuration was revised once: a first run with the v1
+script (rank 16, alpha 32, dropout 0.05, learning rate 2e-4, 12,000-character
+truncation) reached a validation loss of 0.949, and the v2 run that replaced
+it (dropout 0.1, learning rate 1e-4, token-budgeted truncation) reached
+0.634. The first run is kept in `archive/llama3.3-70b-qlora-v1/`.
+
+Variance. Every reported number comes from a single training run per model
+(seed 42) and a single decoding pass per system with sampling (temperature
+0.7, top-p 0.9, seed 42). There are no confidence intervals across seeds.
+The significance tests compare systems across the 150 test papers, not
+across runs.
+
+Splits and outputs. The split is deterministic given the data files and seed
+42; both runs produced byte-identical `test_paper_ids.json`. Every generated
+summary and every per-paper score used in the paper is in `results/`.
+
+Software versions. The training and model-loading stack is pinned in
+`setup/` from the job logs. The metric packages (`rouge-score`, `bert-score`,
+`nltk`, `longdocfactscore`) were installed unpinned and the original
+environment no longer exists, so their exact versions are not known;
+BERTScore used `microsoft/deberta-xlarge-mnli` without baseline rescaling,
+and `bert-score` is patched to truncate inputs to DeBERTa's 512-token limit
+(`_patch_bertscore_overflow` in `evaluate.py`).
+
+Not included. The scripts that selected the papers, extracted the sections
+and generated the teacher summaries, and the prompt given to the teacher
+model, are not part of this repository. Adapter weights exceed GitHub's
+100 MB file limit and are not in the repository; the adapters can be
+retrained with the job scripts in `training/`.
+
+## Licenses and terms
+
+- Code: MIT License, see `LICENSE`.
+- Paper text (`input_text` in `data/dataset.jsonl`): included only for papers
+  whose authors chose a Creative Commons license that permits redistribution
+  (CC BY 4.0, CC BY-SA 4.0, CC0 1.0). Each paper's license is recorded in
+  `data/paper_licenses.csv` and governs that paper's text. Papers under
+  arXiv's non-exclusive license or a NonCommercial or NoDerivatives license
+  are included with metadata only; `data/README.md` explains how to rebuild
+  the full file.
+- Titles and abstracts: arXiv metadata, which arXiv releases under CC0 1.0.
+- Teacher summaries (`data/summaries.jsonl`) and the generated summaries in
+  `results/`: produced for this research and released under CC BY 4.0.
+- Teacher model: Claude Opus 4.6 through the Anthropic API, April 2026, used
+  for non-commercial academic research. The summaries were used to train the
+  research models in this repository and for nothing else.
+- Student models: Llama 3.1 8B Instruct and Llama 3.3 70B Instruct under the
+  Llama 3.1 and Llama 3.3 Community License Agreements. The adapters are
+  derivatives of those models, carry the same licenses, and are documented in
+  `results/*/train/adapter/README.md`.
+- Evaluation depends on ROUGE (Lin, 2004), BLEU (Papineni et al., 2002),
+  METEOR (Banerjee and Lavie, 2005), BERTScore (Zhang et al., 2020) with
+  DeBERTa (He et al., 2021), LongDocFACTScore (Bishop et al., 2024) and the
+  extractive fragment measures of Grusky et al. (2018); training on LoRA
+  (Hu et al., 2022), QLoRA (Dettmers et al., 2023) and the Hugging Face
+  `transformers`, `peft`, `trl` and `bitsandbytes` libraries.
 
 ## Citation
 

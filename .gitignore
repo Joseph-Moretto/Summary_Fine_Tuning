@@ -30,3 +30,7 @@ runs/
 
 # Hugging Face cache, if kept inside the repo
 hf_cache/
+
+# Local copies of the data files with the full paper text for every paper
+# (the tracked dataset.jsonl files keep text only where the license allows it)
+*_full.jsonl

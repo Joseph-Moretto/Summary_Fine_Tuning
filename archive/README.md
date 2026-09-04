@@ -74,9 +74,10 @@ favour of LongDocFACTScore.
 
 ## pilot_300_papers/
 
-A 300-paper pilot dataset in the same format as `data/` (`dataset.jsonl`
-without the `extraction_quality` and `sections_extracted` fields), generated
-in March 2026. No overlap with the final 1,500 papers.
+A 300-paper pilot dataset from March 2026 in the format of `data/`, without
+the `extraction_quality` and `sections_extracted` fields and with the paper
+text removed (`input_text` is null); titles, abstracts and teacher summaries
+are kept. No overlap with the final 1,500 papers.
 
 ## logs/
 

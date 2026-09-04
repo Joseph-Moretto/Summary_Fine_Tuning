@@ -1,15 +1,38 @@
 # data/
 
-1,500 arXiv papers (identifiers 2604.12008 to 2604.21931, April 2026
-submissions) from computer science, physics and mathematics, each with its
-extracted body text, its abstract, and a summary written by the teacher
-model. Both files are JSON Lines with one record per paper and the same set
-of `paper_id` values.
+1,500 arXiv papers (identifiers 2604.12008 to 2604.21931, submitted in the
+second half of April 2026) from computer science, physics and mathematics,
+each with its abstract, a summary written by the teacher model, and, where the
+paper's license allows redistribution, its extracted body text. Both files
+are JSON Lines with one record per paper and the same set of `paper_id`
+values. Everything is in English.
 
 | File | Records | Size | Role |
 |---|---|---|---|
-| `dataset.jsonl` | 1,500 | 34 MB | model input (`input_text`) and human reference (`reference_summary`) |
+| `dataset.jsonl` | 1,500 | 17 MB | model input (`input_text`, 692 papers) and human reference (`reference_summary`, all papers) |
 | `summaries.jsonl` | 1,500 | 5 MB | training target and second reference (`generated_summary`) |
+| `paper_licenses.csv` | 1,500 | | the arXiv license of every paper and whether its text is included |
+
+## Paper text and licenses
+
+arXiv authors choose a license when they submit, and only the Creative
+Commons licenses that allow redistribution let this repository carry the
+paper text. `input_text` is therefore present for 692 papers (653 under
+CC BY 4.0, 26 under CC BY-SA 4.0, 13 under CC0 1.0) and `null` for 808
+(674 under arXiv's non-exclusive license, 86 under CC BY-NC-ND 4.0, 48 under
+CC BY-NC-SA 4.0). The license of each paper, retrieved from arXiv's OAI-PMH
+metadata on 2026-09-04, is in `paper_licenses.csv`. Each included text
+stays under its own license, which requires attribution to the paper's
+authors (the arXiv identifier serves as the attribution) and, for
+CC BY-SA, share-alike for derivatives.
+
+Of the 150 test papers, 72 have their text included. The training
+scripts skip papers without text, so training on this file uses the
+692-paper subset; the reported runs used all 1,500. To rebuild the
+full file, fetch each paper's source or PDF from arXiv by `paper_id`, extract
+the introduction, methods, results and conclusion sections, and write them
+as `Heading:\ntext` blocks separated by blank lines, in the order given by
+`sections_extracted`. The extraction script is not part of this repository.
 
 ## dataset.jsonl
 
@@ -17,7 +40,7 @@ of `paper_id` values.
 |---|---|
 | `paper_id` | arXiv identifier with version, e.g. `2604.21931v1` |
 | `title` | paper title |
-| `input_text` | body text assembled from the extracted sections, each introduced by a heading line (`Introduction:`, `Methods:`, `Results:`, `Conclusion:`), separated by blank lines. This is what the models see. |
+| `input_text` | body text assembled from the extracted sections, each introduced by a heading line (`Introduction:`, `Methods:`, `Results:`, `Conclusion:`), separated by blank lines; `null` where the license does not permit redistribution. This is what the models see. |
 | `reference_summary` | the authors' abstract; the human reference at evaluation time |
 | `categories` | arXiv categories, primary first |
 | `extraction_quality` | `full` if all four sections were found, otherwise `partial` |
@@ -59,6 +82,8 @@ Example:
 ```
 
 ## Statistics
+
+Over all 1,500 papers (text statistics from the full file):
 
 | | mean | median | min | max |
 |---|---|---|---|---|
@@ -112,8 +137,27 @@ that file is what the evaluation scripts read; they never re-split.
   `reference_summary` as the abstract reference and `generated_summary` as the
   teacher reference.
 
-## Provenance
+## Data statement
 
-The scripts that fetched the papers, extracted the sections and generated the
-teacher summaries are not part of this repository. Paper text and abstracts
-originate from arXiv; every record's `paper_id` is its arXiv identifier.
+Source and selection. Papers were taken from arXiv submissions in the
+second half of April 2026 in the cs, math and physics listings. The selection
+script is not included; the identifier range and category mix above describe
+what was selected. Titles and abstracts are arXiv metadata, which arXiv
+distributes under CC0 1.0.
+
+Personal information. The body text is the published scientific content of
+each paper. It contains author names where papers refer to their own prior
+work or in acknowledgments (277 papers have an acknowledgments passage), and
+13 papers include an email address; no other personal data is present and
+nothing has been redacted. The abstracts and summaries contain no personal
+data beyond names cited in the text.
+
+Teacher summaries. Generated with Claude Opus 4.6 through the Anthropic API
+on 2026-04-24, for this research. The prompt asked for a 150-250 word prose
+summary; its exact text is not recorded in this repository. The summaries
+are released under CC BY 4.0. They are machine-written and were not checked
+by people; they can contain errors that the fine-tuned models then learn.
+
+Intended use. Research on summarization, distillation and evaluation of
+scientific-text generation. The data is not suitable for training systems
+whose summaries will be relied on without human review.

@@ -12,6 +12,10 @@ reproduce those runs.
 | `run_finetune_70b.slurm` | SLURM job for the 70B run: `finetune_v2.py`, two A6000s, 160 GB RAM |
 
 Submit from the repository root (`sbatch training/run_finetune_70b.slurm`).
+The public `data/dataset.jsonl` carries paper text only for papers whose
+arXiv license permits redistribution; the scripts skip papers without text,
+so a run on the public file trains on that subset. `data/README.md` explains
+how to rebuild the full file used for the reported runs.
 Outputs go to `runs/<name>/`, which is ignored by git; the metadata of the
 reported runs is preserved under `results/<run>/train/`.
 

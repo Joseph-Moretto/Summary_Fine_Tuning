@@ -1,209 +1,63 @@
 ---
 base_model: meta-llama/Llama-3.3-70B-Instruct
 library_name: peft
-pipeline_tag: text-generation
+license: llama3.3
+language:
+- en
+pipeline_tag: summarization
 tags:
-- base_model:adapter:meta-llama/Llama-3.3-70B-Instruct
 - lora
-- sft
-- transformers
-- trl
+- qlora
+- summarization
+- scientific-papers
+- distillation
 ---
 
-# Model Card for Model ID
+# Llama 3.3 70B Instruct, QLoRA adapter for scientific paper summarization
 
-<!-- Provide a quick summary of what the model is/does. -->
+Built with Llama. This is a LoRA adapter for `meta-llama/Llama-3.3-70B-Instruct`
+that summarizes a scientific paper in 150-250 words of prose. It was trained
+by distillation: the targets are summaries written by Claude Opus 4.6 for
+1,200 arXiv papers in computer science, physics and mathematics.
 
+## Training
 
+- Base model loaded in 4-bit NF4 with double quantization and bf16 compute (QLoRA)
+- LoRA rank 16, alpha 32, dropout 0.1 on q, k, v, o, gate, up and down projections (207.1 M trainable parameters, 0.29%)
+- 3 epochs over 1,200 papers, effective batch size 16, learning rate 1e-4 with cosine decay and 5% warmup, weight decay 0.01, gradient clipping 0.3
+- Context 8,192 tokens; papers that do not fit are cut to the first 70% and last 30% of the token budget
+- Loss on the summary tokens only
+- The epoch-2 checkpoint (validation loss 0.634, the lowest of the three epochs) is the released adapter
+- Two RTX A6000 48 GB GPUs, 24 h 08 min
 
-## Model Details
+Training script, data and job script: `training/finetune_v2.py`, `data/`,
+`training/run_finetune_70b.slurm` in this repository.
 
-### Model Description
+## Prompt format
 
-<!-- Provide a longer summary of what this model is. -->
-
-
-
-- **Developed by:** [More Information Needed]
-- **Funded by [optional]:** [More Information Needed]
-- **Shared by [optional]:** [More Information Needed]
-- **Model type:** [More Information Needed]
-- **Language(s) (NLP):** [More Information Needed]
-- **License:** [More Information Needed]
-- **Finetuned from model [optional]:** [More Information Needed]
-
-### Model Sources [optional]
-
-<!-- Provide the basic links for the model. -->
-
-- **Repository:** [More Information Needed]
-- **Paper [optional]:** [More Information Needed]
-- **Demo [optional]:** [More Information Needed]
-
-## Uses
-
-<!-- Address questions around how the model is intended to be used, including the foreseeable users of the model and those affected by the model. -->
-
-### Direct Use
-
-<!-- This section is for the model use without fine-tuning or plugging into a larger ecosystem/app. -->
-
-[More Information Needed]
-
-### Downstream Use [optional]
-
-<!-- This section is for the model use when fine-tuned for a task, or when plugged into a larger ecosystem/app -->
-
-[More Information Needed]
-
-### Out-of-Scope Use
-
-<!-- This section addresses misuse, malicious use, and uses that the model will not work well for. -->
-
-[More Information Needed]
-
-## Bias, Risks, and Limitations
-
-<!-- This section is meant to convey both technical and sociotechnical limitations. -->
-
-[More Information Needed]
-
-### Recommendations
-
-<!-- This section is meant to convey recommendations with respect to the bias, risk, and technical limitations. -->
-
-Users (both direct and downstream) should be made aware of the risks, biases and limitations of the model. More information needed for further recommendations.
-
-## How to Get Started with the Model
-
-Use the code below to get started with the model.
-
-[More Information Needed]
-
-## Training Details
-
-### Training Data
-
-<!-- This should link to a Dataset Card, perhaps with a short stub of information on what the training data is all about as well as documentation related to data pre-processing or additional filtering. -->
-
-[More Information Needed]
-
-### Training Procedure
-
-<!-- This relates heavily to the Technical Specifications. Content here should link to that section when it is relevant to the training procedure. -->
-
-#### Preprocessing [optional]
-
-[More Information Needed]
-
-
-#### Training Hyperparameters
-
-- **Training regime:** [More Information Needed] <!--fp32, fp16 mixed precision, bf16 mixed precision, bf16 non-mixed precision, fp16 non-mixed precision, fp8 mixed precision -->
-
-#### Speeds, Sizes, Times [optional]
-
-<!-- This section provides information about throughput, start/end time, checkpoint size if relevant, etc. -->
-
-[More Information Needed]
+Chat format with the training-time system message and instruction from
+`training/finetune_v2.py`; the user turn carries the paper title and text
+after `Paper Content:`. Generation was run with temperature 0.7, top-p 0.9,
+repetition penalty 1.1 and up to 512 new tokens.
 
 ## Evaluation
 
-<!-- This section describes the evaluation protocols and provides the results. -->
+On 150 held-out papers, against the authors' abstracts: ROUGE-L 0.240,
+BERTScore F1 0.646 (base model: 0.236, 0.623). Against the teacher summaries:
+ROUGE-L 0.432, BERTScore F1 0.760 (base model: 0.311, 0.683). Full tables in
+`results/README.md`.
 
-### Testing Data, Factors & Metrics
+## Intended use and limitations
 
-#### Testing Data
+Research on summarization and distillation. English scientific papers from
+cs, physics and math only; the adapter reproduces the teacher's style and can
+reproduce the teacher's mistakes. Summaries of long papers are produced from
+a truncated view of the paper. Not evaluated for factual reliability beyond
+the automatic metrics reported.
 
-<!-- This should link to a Dataset Card if possible. -->
+## License
 
-[More Information Needed]
-
-#### Factors
-
-<!-- These are the things the evaluation is disaggregating by, e.g., subpopulations or domains. -->
-
-[More Information Needed]
-
-#### Metrics
-
-<!-- These are the evaluation metrics being used, ideally with a description of why. -->
-
-[More Information Needed]
-
-### Results
-
-[More Information Needed]
-
-#### Summary
-
-
-
-## Model Examination [optional]
-
-<!-- Relevant interpretability work for the model goes here -->
-
-[More Information Needed]
-
-## Environmental Impact
-
-<!-- Total emissions (in grams of CO2eq) and additional considerations, such as electricity usage, go here. Edit the suggested text below accordingly -->
-
-Carbon emissions can be estimated using the [Machine Learning Impact calculator](https://mlco2.github.io/impact#compute) presented in [Lacoste et al. (2019)](https://arxiv.org/abs/1910.09700).
-
-- **Hardware Type:** [More Information Needed]
-- **Hours used:** [More Information Needed]
-- **Cloud Provider:** [More Information Needed]
-- **Compute Region:** [More Information Needed]
-- **Carbon Emitted:** [More Information Needed]
-
-## Technical Specifications [optional]
-
-### Model Architecture and Objective
-
-[More Information Needed]
-
-### Compute Infrastructure
-
-[More Information Needed]
-
-#### Hardware
-
-[More Information Needed]
-
-#### Software
-
-[More Information Needed]
-
-## Citation [optional]
-
-<!-- If there is a paper or blog post introducing the model, the APA and Bibtex information for that should go in this section. -->
-
-**BibTeX:**
-
-[More Information Needed]
-
-**APA:**
-
-[More Information Needed]
-
-## Glossary [optional]
-
-<!-- If relevant, include terms and calculations in this section that can help readers understand the model or model card. -->
-
-[More Information Needed]
-
-## More Information [optional]
-
-[More Information Needed]
-
-## Model Card Authors [optional]
-
-[More Information Needed]
-
-## Model Card Contact
-
-[More Information Needed]
-### Framework versions
-
-- PEFT 0.19.1
+Derivative of Llama 3.3 and subject to the Llama 3.3 Community License
+Agreement. The weight file is not stored in this repository (829 MB, over
+GitHub's file limit); this directory holds the adapter configuration and
+tokenizer files.
